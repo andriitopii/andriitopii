@@ -1,0 +1,38 @@
+.pricing__container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: 24px;
+  gap: 24px;
+  box-sizing: border-box;
+  &__item-price,
+  .item-price {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 48px;
+    flex: 1 1 200px;
+    gap: 48px;
+    border-radius: 48px;
+    background-color: #ffffff;
+    &__title {
+      font-size: 24px;
+    }
+    &__price {
+      font-size: 64px;
+    }
+    &__desk {
+      font-size: 16px;
+    }
+    &__list {
+      display: flex;
+      flex-direction: column;
+    }
+    &__list-item {
+      font-size: 16px;
+    }
+    &__list-checked {
+      font-size: 16px;
+    }
+  }
+}

@@ -1,0 +1,36 @@
+@import "./scss/abstract/variables.scss";
+@import "./scss/layout/layout.scss";
+@import "./scss/base/reset.scss";
+@import "./scss/base/typography.scss";
+
+html {
+  font-family: Exo-Regular;
+  font-size: 16px;
+  
+}
+#root {
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  max-height: 100vh;
+}
+*:focus-visible {
+  box-shadow: 0 0 0 4px;
+}
+
+.title-section {
+  margin-top: 24px;
+  font-size: 100px;
+  text-align: center;
+  font-family: Exo-Bold;
+  &--light {
+    color: #f0f3f0;
+    
+  }
+  
+}
+
+    *::selection {
+        color: red;
+        background-color: yellow;
+        
+      }

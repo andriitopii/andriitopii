@@ -1,0 +1,57 @@
+.footer{
+    padding: 48px;
+    background-color: #252429;
+    &__footer-menu, .footer-menu{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-top:64px;
+    }
+    &__footer-contact-form, .footer-contact-form{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 32px;
+        &__title-h1{
+            font-size: 64px;
+            text-align: center;
+            color: #f0f3f0;
+        }
+        &__title-h2{
+            font-size: 32px;
+            text-align: center;
+            color: #DDF814;
+            
+        }
+        &__form{
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+            gap: 24px;
+        }
+    }
+}
+
+
+.input-default{
+    display: flex;
+    padding: 24px 32px;
+    border: none;
+    border-radius: 48px;
+    font-family: Exo-Regular;
+    outline: none;
+    border: 2px solid #DDF814;
+    font-size: 18px;
+    transition: box-shadow ease-in-out .2s;
+    &:hover{
+        box-shadow: 0 0 0 2px #DDF814;
+    }
+    &:focus{
+        box-shadow: 0 0 0 2px #DDF814;
+        border: 2px solid #c0d616;
+    }
+    &:focus-visible{
+        box-shadow: 0 0 0 4px #DDF814;
+    }
+}   

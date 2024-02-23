@@ -1,0 +1,66 @@
+.our-clients,
+.our-clients__container {
+  display: flex;
+  margin-top: 48px;
+  flex-wrap: wrap;
+  gap: 24px;
+  flex-grow: 1;
+  &__item {
+    display: flex;
+    justify-content: center;
+    padding: 48px;
+    border-radius: 48px;
+    background-color: #ddf814;
+    flex: 1 1 200px;
+    
+    transform: translate(0, 2px);
+    transition: all ease-in-out .2s;
+    &:hover{
+        background-color: #b3be5e;
+        
+    }
+    &--ani-1 {
+      animation: slow-shacke ease-in-out 2s infinite;
+    }
+    &--ani-2 {
+      animation: slow-shacke ease-in-out 3s infinite;
+    }
+    &--ani-3 {
+      animation: slow-shacke ease-in-out 1s infinite;
+    }
+  }
+
+  &__logo {
+    width: 150px;
+  }
+}
+
+@keyframes slow-shacke {
+  0% {
+    transform: translate(0px, 2px);
+  }
+  15% {
+    transform: translate(2px, 2px);
+  }
+  25% {
+    transform: translate(2px, 0);
+  }
+  35% {
+    transform: translate(2px, -2px);
+  }
+  45% {
+    transform: translate(0, -2px);
+  }
+  55% {
+    transform: translate(-2px, -2px);
+  }
+  65% {
+    transform: translate(-2px, 0);
+  }
+  75% {
+    transform: translate(-2px, 2px);
+  }
+  100% {
+    transform: translate(0, 2px);
+  }
+}
