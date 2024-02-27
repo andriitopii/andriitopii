@@ -2,16 +2,22 @@ import Pricing from "../Pricing/Pricing";
 import Blog from "../Blog/Blog";
 import OurClients from "../OurClients/OurClients";
 import AboutUs from "../AboutUs/AboutUs";
+import Services from "../Services/Services";
+import Portfolio from "../Portfolio/Portfolio";
+import Reviews from "../Reviews/Reviews";
+import Contact from "../Contact/Contact";
 
 
 const Home = () => {
   return (
     <>
       <AboutUs />
-      <OurClients />
-      <Blog />
+      <Services/>
+      <Portfolio/>
       <Pricing />
-      <section>5</section>
+      <Blog />
+      <Reviews/>
+      <Contact/>
       </>
   )
 };

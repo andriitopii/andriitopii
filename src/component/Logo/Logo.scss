@@ -1,9 +1,19 @@
 .logo{
     display: flex;
     width: 200px;
-    height: 48px;
+    height: 61px;
     background-size: 100%;
     background-position: center;
     background-repeat: no-repeat;
-    background-image: url('./logo.svg');
+    
+    transition: all ease-in-out .25s;
+    &--light{
+        
+        background-image: url('./light.svg');
+    }
+
+    &--dark{
+        
+        background-image: url('./dark.svg');
+    }
 }

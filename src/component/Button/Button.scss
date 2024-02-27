@@ -1,10 +1,39 @@
 .btn{
-    padding: 24px 64px;
+    padding: 12px 64px;
     font-family: Exo-Regular;
     box-sizing: border-box;
+    text-wrap: nowrap;
     font-size: 18px;
-    background-color: #DDF814;
+    border: 1px solid transparent;
     border: none;
     border-radius: 48px;
+    min-height: 61px;
+    display: flex;
+    align-items: center;
     cursor: pointer;
+    @media (min-width: 300px) and (max-width: 768px) {
+        padding: 12px 64px;
+      }
+      @media (min-width: 769px) and (max-width: 1368px) {
+        padding: 12px 64px;
+      }
+      @media (min-width: 1369px)  and (max-width: 1499px){
+        padding: 12px 32px;
+      }
+      @media (min-width: 1500px){
+        padding: 12px 64px;
+      }
+    &--fill{
+        background-color: #DDF814;
+    }
+    &--outline{
+        background-color: transparent;
+        border: 1px solid #f0f3f0;
+        color: #f0f3f0;
+    }
+    &--outline-dark{
+        background-color: transparent;
+        border: 1px solid #252429;
+        color: #252429;
+    }
 }

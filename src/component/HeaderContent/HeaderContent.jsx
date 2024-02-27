@@ -1,54 +1,70 @@
+import { useState } from "react";
 import Button from "../Button/Button";
 import "./HeaderContent.scss";
-
+import personImg from "./person.png";
 const HeaderContent = () => {
+  const [objPos, setObjPos] = useState({})
+  let x ;
+  let y ;
+  window.addEventListener('mousemove', (e)=>{
+    x = e.clientX;
+    y = e.clientY;
+    setObjPos({
+      position: 'relative', 
+      left: xSlide(x),
+      top: xSlide(y),
+      transform: `rotate(${xSlide(x)})`
+    })
+  });
+  function xSlide(pos){
+    if(pos > 100){
+      pos = pos * 0.01;
+      return pos;
+    }
+    if(pos<100){
+      return 0;
+    }
+    
+  }
+
+  
   return (
     <div className="header__content-header content-header">
-      <div className="content-header__title-container">
-        <h1 className="content-header__title">
-          Your business in the world of innovation
-        </h1>
+      <h2 className="content-header__hello" style={{left: objPos.left * -1, top: objPos.top * -1}}>Hello</h2>
+      <p className="content-header__title" style={objPos}>
+        I'm <span>Andrii</span>, <br></br> Fullstack Developer
+      </p>
+      {/*  */}
+      <div className="content-header__content-container content-container">
+        <div className="content-header__quote">
+          <p >
+            I create a web world where every pixel tells a story of success.
+            Your website is not only a code, but also a reflection of your
+            uniqueness. Entrust your virtual image to a professional and watch
+            your idea come to life online.
+          </p>
+        </div>
+        <div className="content-header__rating">
+          <h2>
+            <b>2+ Year</b> <span>Experinces</span>
+          </h2>
+
+          <h2>
+          <b>30+</b>  <span>Satisfied customers</span>
+          </h2>
+          <h2>
+          <b>Only new</b> <span>Technologies</span>
+          </h2>
+        </div>
       </div>
-      <div className="content-header__info-container">
-        <p className="content-header__info-paragraph">
-          We know how important it is to stand out from the competition. Our
-          landing pages, business card sites, and online stores are designed to
-          get you noticed in the digital world. Choose us and we guarantee an
-          individual approach, creative design, and high quality work.
-        </p>
-        <Button>Order now</Button>
-      </div>
-      <div className="content-header__article-container article-container">
-        <a href="#" className="article-container__article-header">
-          <h2>GHjhjgjhgkjhg</h2>
-          <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquam,
-            eligendi excepturi. Nulla veniam ipsam molestiae itaque laboriosam
-            harum officia, voluptates soluta exercitationem libero, pariatur
-            maxime repellat rerum, doloribus praesentium tempora.
-          </p>
-          <img />
-        </a>
-        <a href="#" className="article-container__article-header">
-          <h2>GHjhjgjhgkjhg</h2>
-          <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquam,
-            eligendi excepturi. Nulla veniam ipsam molestiae itaque laboriosam
-            harum officia, voluptates soluta exercitationem libero, pariatur
-            maxime repellat rerum, doloribus praesentium tempora.
-          </p>
-          <img />
-        </a>
-        <a href="#" className="article-container__article-header">
-          <h2>GHjhjgjhgkjhg</h2>
-          <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquam,
-            eligendi excepturi. Nulla veniam ipsam molestiae itaque laboriosam
-            harum officia, voluptates soluta exercitationem libero, pariatur
-            maxime repellat rerum, doloribus praesentium tempora.
-          </p>
-          <img />
-        </a>
+      <div className="content-header__action-header action-header">
+        <button className="action-header__btn action-header__btn--portfolio">
+          Portfolio
+          <span></span>
+        </button>
+        <button className="action-header__btn action-header__btn--order">
+          Order now
+        </button>
       </div>
     </div>
   );

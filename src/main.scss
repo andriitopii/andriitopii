@@ -6,7 +6,7 @@
 html {
   font-family: Exo-Regular;
   font-size: 16px;
-  
+  scroll-behavior: smooth;
 }
 #root {
   scroll-snap-type: y mandatory;
@@ -22,15 +22,31 @@ html {
   font-size: 100px;
   text-align: center;
   font-family: Exo-Bold;
+  text-wrap: nowrap;
+  @media (min-width: 300px) and (max-width: 768px) {
+    font-size: 32px;
+  }
+  @media (min-width: 769px) and (max-width: 1368px) {
+    font-size: 54px;
+  }
+  @media (min-width: 1369px)  and (max-width: 1499px){
+    font-size: 64px;
+  }
+  @media (min-width: 1500px){
+    font-size: 100px;
+  }
   &--light {
     color: #f0f3f0;
     
   }
-  
+  &--dark{
+    color: #252429;
+    
+  }
 }
 
     *::selection {
-        color: red;
-        background-color: yellow;
+        color: $main-white-color;
+        background-color: $accent-main-color;
         
       }

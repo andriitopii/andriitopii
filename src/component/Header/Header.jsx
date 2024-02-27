@@ -9,14 +9,6 @@ const Header = () => {
         <Nav />
         <HeaderContent />
       </div>
-      <video
-        className="header__background-video"
-        src={covervideo}
-        loop
-        autoPlay
-        muted
-        type="video/mp4"
-      ></video>
     </header>
   );
 };
