@@ -1,6 +1,8 @@
+@import "../../scss/abstract/variables.scss";
+
 .blog {
   display: flex;
-  padding: 48px 24px;
+  padding: 48px 24px 0px 24px;
   position: relative;
   gap: 24px;
   justify-content: space-between;
@@ -9,16 +11,41 @@
   overflow: hidden;
   overflow-x: scroll;
   flex-grow: 1;
-  scrollbar-width:thin;
-  &::after, &::before{
-    content: "";
+  transition: all ease-in-out 3s;
+  &::-webkit-scrollbar {
+    display: none; /* for Chrome, Safari, and Opera */
+  }
+  &__slide-control{
+    padding: 12px;
     position: sticky;
-    display: block;
+    z-index: 99;
+    border: none;
     width: 24px;
     height: 100%;
-    background-color: green;
+    color: #f0f3f0;
+    background-color: #252429;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 24px;
+    &:nth-child(1){
+      left: -24px;
+        background-image: url("./arrow.svg");
+        transform: rotateY(180deg);
+
+    }
+    &:last-child{
+      right: -24px;
+      background-image: url("./arrow.svg");
+    }
   }
-  &::after{
-    right:0
+  &__link{
+    align-self: center;
+    font-family: Exo-Regular;
+    display: flex;
+    color: $main-white-color;
+    padding: 12px 32px;
+    border-radius: 48px;
+    margin-top: 24px;
+    background-color: $accent-main-color;
   }
 }

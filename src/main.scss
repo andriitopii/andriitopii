@@ -11,9 +11,9 @@ html {
 
 
 #root {
-  // scroll-snap-type: y mandatory;
-  // overflow-y: scroll;
-  // max-height: 100vh;
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  max-height: 100vh;
 }
 *:focus-visible {
   box-shadow: 0 0 0 4px;
