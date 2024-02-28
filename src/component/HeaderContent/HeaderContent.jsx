@@ -32,7 +32,7 @@ const HeaderContent = () => {
     <div className="header__content-header content-header">
       <h2 className="content-header__hello" style={{left: objPos.left * -1, top: objPos.top * -1}}>Hello</h2>
       <p className="content-header__title" style={objPos}>
-        I'm <span>Andrii</span>, <br></br> Fullstack Developer
+        I'm <span>Andrii</span>, <br></br> <b>Fullstack Developer</b>
       </p>
       {/*  */}
       <div className="content-header__content-container content-container">

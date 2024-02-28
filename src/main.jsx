@@ -6,6 +6,7 @@ import Home from "./component/Home/Home";
 import Footer from "./component/Footer/Footer";
 import Header from "./component/Header/Header";
 import { LangContextProvider } from "./context/LangContextProvider";
+import BlogPage from "./component/BlogPage/BlogPage";
 
 
 ReactDOM.createRoot(document.getElementById("root")).render(
@@ -14,6 +15,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <Header />
     <Routes>
       <Route path="/" element={<Home />} />
+      <Route path="/blog" element={<BlogPage/>}/>
     </Routes>
     <Footer />
     </LangContextProvider>

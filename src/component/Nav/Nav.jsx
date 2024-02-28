@@ -31,7 +31,7 @@ const Nav = () => {
       if (navElement.current.classList.contains("nav-main--scroll-style")) {
         navElement.current.classList.remove("nav-main--scroll-style");
       }
-      setDarkLogo("--light");
+      setDarkLogo("--dark");
       setDarkBtnOutline("--outline")
     }
 

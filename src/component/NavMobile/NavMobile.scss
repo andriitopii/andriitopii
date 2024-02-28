@@ -45,11 +45,32 @@
   display: flex;
   position: fixed;
   left: 0;
+  justify-content: center;
+  align-items: center;
   width: 100vw;
   height: 100vh;
   background: $accent-main-color;
   z-index: 9999;
   transition: top ease-in-out .5s;
+  &__container{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    align-items: center;
+    & a{
+      font-size: 32px;
+      font-family: Exo-Bold;
+      color: $main-white-color;
+      transition:all ease-in-out .25s ;
+      &:hover{
+        color: $main-white-color-hover;
+        text-decoration: underline;
+      }
+      &:active{
+        color: $main-white-color-click;
+      }
+    }
+  }
   &--show{
     top: 0;
   }

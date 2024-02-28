@@ -35,12 +35,12 @@ const NavMobile = () => {
       >
         <div className="nav-mobile-main-menu__container">
           <a href="#about" onClick={showMenu}>About Us</a>
-          <a>Services</a>
-          <a>Portfolio</a>
-          <a>Pricing</a>
-          <a>Blog</a>
-          <a>Reviews</a>
-          <a>Contact</a>
+          <a href="#services" onClick={showMenu}>Services</a>
+          <a href="#portfolio" onClick={showMenu}>Portfolio</a>
+          <a href="#pricing" onClick={showMenu}>Pricing</a>
+          <a href="#blog" onClick={showMenu}>Blog</a>
+          <a href="#reviews" onClick={showMenu}>Reviews</a>
+          <a href="#contact" onClick={showMenu}>Contact</a>
         </div>
       </div>
       <button
