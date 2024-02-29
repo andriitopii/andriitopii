@@ -29,7 +29,7 @@ const Blog = () => {
               className="blog__slide-control"
               type="button"
               onClick={() => changePos(slidePos * -1)}
-            ></button>
+            ></button>  
 
             <BlogCard />
             <BlogCard />

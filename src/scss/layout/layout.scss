@@ -4,10 +4,12 @@
     height: 100%;
     max-width: 1878px;
     box-sizing: border-box;
+    flex-grow: 1;
     &--col{
         flex-direction: column;
         justify-content: space-between;
         padding-bottom: 24px;
+        gap: 32px;
     }
     &--background-dark{
         background-color: #252429;
@@ -23,8 +25,7 @@
 header, footer, main ,section{
     display: flex;
     width: 100%;
-    min-height: 667px;
-    height: 100vh;
+    min-height: 100vh;
     flex-direction: column;
     align-items: center;
     justify-content: start;
@@ -47,9 +48,8 @@ header, footer, main ,section{
 
 section{
     padding: 96px 48px 48px 48px;
-    overflow-x: hidden;
     @media (min-width: 300px) and (max-width: 768px) {
-        padding: 96px 12px 12px 12px;
+        padding: 96px 24px 24px 24px;
     }
     @media (min-width: 769px) and (max-width: 1368px) {
         padding: 96px 24px 24px 24px;

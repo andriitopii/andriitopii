@@ -3,35 +3,13 @@ import Button from "../Button/Button";
 import "./HeaderContent.scss";
 import personImg from "./person.png";
 const HeaderContent = () => {
-  const [objPos, setObjPos] = useState({})
-  let x ;
-  let y ;
-  window.addEventListener('mousemove', (e)=>{
-    x = e.clientX;
-    y = e.clientY;
-    setObjPos({
-      position: 'relative', 
-      left: xSlide(x),
-      top: xSlide(y),
-      transform: `rotate(${xSlide(x)})`
-    })
-  });
-  function xSlide(pos){
-    if(pos > 100){
-      pos = pos * 0.01;
-      return pos;
-    }
-    if(pos<100){
-      return 0;
-    }
-    
-  }
+ 
 
   
   return (
     <div className="header__content-header content-header">
-      <h2 className="content-header__hello" style={{left: objPos.left * -1, top: objPos.top * -1}}>Hello</h2>
-      <p className="content-header__title" style={objPos}>
+      <h2 className="content-header__hello">Hello</h2>
+      <p className="content-header__title">
         I'm <span>Andrii</span>, <br></br> <b>Fullstack Developer</b>
       </p>
       {/*  */}

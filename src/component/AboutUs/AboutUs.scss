@@ -1,0 +1,91 @@
+@import "../../scss/abstract/variables.scss";
+
+.about {
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+  gap: 48px;
+  flex-wrap: wrap;
+  & div {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 24px;
+    min-width: 200px;
+    & h2 {
+        align-self: self-start;
+        @media (min-width: 300px) and (max-width: 743px)  {
+            align-self: center;
+        } 
+      }
+  }
+  &__hard-skills-container, &__soft-skills-container, &__info-container{
+    
+    @media (min-width: 300px) and (max-width: 743px)  {
+        align-self: flex-start;
+    }
+    }
+  &__hard-skills-container {
+    align-self: flex-start;
+   
+    & ul {
+      gap: 12px;
+      flex-wrap: wrap;
+      & li {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        cursor: pointer;
+      }
+      & li svg {
+        max-width: 100px;
+        width: 100%;
+        min-width: 50px;
+        filter: grayscale(100);
+        transition: filter ease-in-out 0.25s;
+        &:focus-visible{
+          border:1px solid $accent-main-color;
+        }
+        &:hover {
+          filter: grayscale(0);
+        }
+      }
+    }
+  }
+
+  &__soft-skills-container {
+    
+    @media (min-width: 744px) {
+        align-self: flex-end;
+    }
+    & ul{
+        flex-wrap: wrap;
+        gap: 12px;
+
+    }
+    & ul li{
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        flex: 1;
+        align-items: center;
+        & span{
+            display: flex;
+            gap: 4px;
+            align-items: center;
+            font-size: 24px;
+            font-family: Exo-Bold;
+            text-wrap: nowrap;
+        }
+        
+    }
+  }
+  &__info-container{
+    & p{
+        @media (min-width: 300px) and (max-width: 743px)  {
+            text-align: center;
+        } 
+    }
+  }
+}
