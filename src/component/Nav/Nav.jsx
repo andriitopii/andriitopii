@@ -1,153 +1,74 @@
-import { Link } from "react-router-dom";
-import Button from "../Button/Button";
-import Logo from "../Logo/Logo";
 import "./Nav.scss";
-import { useEffect, useRef, useState } from "react";
-import NavMobile from "../NavMobile/NavMobile";
+import Logo from "../Logo/Logo";
+import { Link } from "react-router-dom";
+import { useState } from "react";
+import MenuSvg from "../Icon/MenuSvg";
 
 const Nav = () => {
-  const navElement = useRef(null);
-  const rootElement = document.getElementById("root");
-  const [darkLogo, setDarkLogo] = useState("--light");
-  const [darkBtnOutline, setDarkBtnOutline] = useState("--outline");
-
-  rootElement.addEventListener("scroll", () => {
-    const curScroll = rootElement.scrollTop;
-
-    if (curScroll > 700) {
-      if (!navElement.current.classList.contains("nav-main--scroll-style")) {
-        navElement.current.classList.add("nav-main--scroll-style");
-      }
-      const endScroll = curScroll + innerHeight;
-      const calculateScrollEnd = rootElement.scrollHeight - endScroll;
-      if (calculateScrollEnd < 100) {
-        setDarkLogo("--light");
-        setDarkBtnOutline("--outline")
-        return;
-      }
-      setDarkBtnOutline("--outline-dark")
-      setDarkLogo("--dark");
-    } else if (curScroll <= 700) {
-      if (navElement.current.classList.contains("nav-main--scroll-style")) {
-        navElement.current.classList.remove("nav-main--scroll-style");
-      }
-      setDarkLogo("--dark");
-      setDarkBtnOutline("--outline")
+  const [toggleMenu, setToggleMenu] = useState('');
+  const toggleMobileMen = () => {
+    switch (toggleMenu) {
+      case "":
+        setToggleMenu("--show");
+        break;
+      case "--show":
+        setToggleMenu("");
+        break;
     }
-
-    const [...allElements] = document.getElementsByTagName("section");
-
-    allElements.forEach((val) => {
-      const valPos = val.getBoundingClientRect();
-      const [...linkAll] = document.querySelectorAll(".menu-main__item");
-      switch (val.getAttribute("id")) {
-        case "about":
-          if (valPos.y != 0) {
-            linkAll.forEach((val) => {
-              val.classList.remove("menu-main__item--focus");
-            });
-          }
-          break;
-      }
-      if (valPos.y === 0) {
-        const linkAuto = document.querySelector(
-          `[datatypelink="${val.getAttribute("id")}"]`
-        );
-
-        linkAll.forEach((val) => {
-          val.classList.remove("menu-main__item--focus");
-        });
-
-        if (!linkAuto.classList.contains("menu-main__item--focus")) {
-          linkAuto.classList.add("menu-main__item--focus");
-        }
-      }
-    });
-  });
-
-  const scrollToSection = (id, el) => {
-    const element = document.getElementById(id);
-    element.scrollIntoView({ behavior: "smooth" });
-    const [...allLink] = document.querySelectorAll(".menu-main__item");
-    allLink.forEach((val) => {
-      if (val.classList.contains("menu-main__item--focus")) {
-        val.classList.remove("menu-main__item--focus");
-      }
-    });
-
-    el.classList.add("menu-main__item--focus");
   };
-
   return (
-    <div className="header__nav-main nav-main" ref={navElement}>
-      <Logo dark={darkLogo} />
-      <nav className="nav-main__menu-main menu-main">
-        <Link
-          datatypelink="about"
-          className="menu-main__item"
-          onClick={(e) => {
-            scrollToSection("about", e.target);
-          }}
-        >
-          About Us
-        </Link>
-        <Link
-          datatypelink="services"
-          className="menu-main__item"
-          onClick={(e) => {
-            scrollToSection("services", e.target);
-          }}
-        >
-          Services
-        </Link>
-        <Link
-          className="menu-main__item"
-          datatypelink="portfolio"
-          onClick={(e) => {
-            scrollToSection("portfolio", e.target);
-          }}
-        >
-          Portfolio
-        </Link>
-        <Link
-          className="menu-main__item"
-          datatypelink="pricing"
-          onClick={(e) => {
-            scrollToSection("pricing", e.target);
-          }}
-        >
-          Pricing
-        </Link>
-        <Link
-          className="menu-main__item"
-          datatypelink="blog"
-          onClick={(e) => {
-            scrollToSection("blog", e.target);
-          }}
-        >
-          Blog
-        </Link>
-        <Link
-          className="menu-main__item"
-          datatypelink="reviews"
-          onClick={(e) => {
-            scrollToSection("reviews", e.target);
-          }}
-        >
-          Reviews
-        </Link>
-        <Link
-          className="menu-main__item"
-          datatypelink="contact"
-          onClick={(e) => {
-            scrollToSection("contact", e.target);
-          }}
-        >
-          Contact
-        </Link>
-      </nav>
-      <NavMobile/>
-    </div>
+    <>
+      <div className={`nav__mobile-menu nav__mobile-menu${toggleMenu}`}>
+        <nav>
+          <Link to="/about-me"  onClick={() => toggleMobileMen()}>About Me</Link>
+          <Link to="/services"  onClick={() => toggleMobileMen()}>Services</Link>
+          <Link to="/pricing"  onClick={() => toggleMobileMen()}>Pricing</Link>
+          <Link to="/portfolio"  onClick={() => toggleMobileMen()}>Portfolio</Link>
+          <Link to="/blog"  onClick={() => toggleMobileMen()}>Blog</Link>
+          <Link to="/reviews"  onClick={() => toggleMobileMen()}>Reviews</Link>
+          <Link to="/technology"  onClick={() => toggleMobileMen()}>Technology</Link>
+          <Link to="/contact" onClick={() => toggleMobileMen()}>Contact</Link>
+        </nav>
+      </div>
+      <div className="nav">
+        <div className="container">
+          <nav className="nav__nav-main">
+            <Link className="nav__link" to="/about-me">
+              About Me
+            </Link>
+            <Link className="nav__link" to="/services">
+              Services
+            </Link>
+            <Link className="nav__link" to="/pricing">
+              Pricing
+            </Link>
+            <Link className="nav__link" to="/portfolio">
+              Portfolio
+            </Link>
+            <Logo />
+            <Link className="nav__link" to="/blog">
+              Blog
+            </Link>
+            <Link className="nav__link" to="/reviews">
+              Reviews
+            </Link>
+            <Link className="nav__link" to="/technology">
+              Technology
+            </Link>
+            <Link className="nav__link" to="/contact">
+              Contact
+            </Link>
+            <button
+              type="button"
+              className="nav__mobile-menu-btn"
+              onClick={() => toggleMobileMen()}
+            >
+              <MenuSvg width="24px" height="24px"/>
+            </button>
+          </nav>
+        </div>
+      </div>
+    </>
   );
 };
 

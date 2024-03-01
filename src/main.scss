@@ -1,60 +1,48 @@
 @import "./scss/abstract/variables.scss";
+@import "./scss/abstract/mixins.scss";
 @import "./scss/layout/layout.scss";
 @import "./scss/base/reset.scss";
 @import "./scss/base/typography.scss";
 
 html {
-  font-family: Exo-Regular;
-  font-size: 16px;
-  scroll-behavior: smooth;
+  @include DefaultFont;
 }
-
-#root {
-}
-*:focus-visible {
-  box-shadow: 0 0 0 4px;
-}
-
-.title-section {
-  font-size: 64px;
-  text-align: center;
-  font-family: Exo-Bold;
-  text-wrap: nowrap;
-  @media (min-width: 300px) and (max-width: 768px) {
-    font-size: 32px;
-  }
-  @media (min-width: 769px) and (max-width: 1368px) {
-    font-size: 54px;
-  }
-  @media (min-width: 1369px) and (max-width: 1499px) {
-    font-size: 64px;
-  }
-  @media (min-width: 1500px) {
-    font-size: 64px;
-  }
-  &--light {
-    color: #f0f3f0;
-  }
-  &--dark {
-    color: #252429;
-  }
-}
-
-*::selection {
-  color: $main-white-color;
-  background-color: $accent-main-color;
-}
-
-.accent-text {
-  background-color: $accent-main-color;
-  color: $main-white-color;
-  display: inline-block;
-  padding: 0 9px;
-  border-radius: 48px;
-}
-
-
-body{
+body {
   background-image: url("./img/background.svg");
-  background-attachment:local;
+  background-attachment: local;
 }
+
+h1, h2, h3, h4, h5, h6 {
+  @include TitleFont;
+  text-wrap: nowrap;
+}
+#root{
+  display: flex;
+  flex-direction: column;
+  gap: 48px
+}
+p, a{
+  @include ParagraphFont;
+  
+}
+
+header, footer, main, section{
+  padding: 0 48px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  @media (min-width: 200px) and (max-width: 700px) {
+    padding: 0 24px;
+  }
+  @media (min-width: 701px) and (max-width: 1368px) {
+    padding: 0 48px;
+  }
+  @media (min-width: 1369px) {
+    padding: 0 48px;
+  }
+}
+
+
+

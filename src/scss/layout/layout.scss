@@ -1,15 +1,20 @@
 .container{
     display: flex;
     width: 100%;
+    max-width: 1660px;
     height: 100%;
-    max-width: 1878px;
     box-sizing: border-box;
     flex-grow: 1;
     &--col{
         flex-direction: column;
-        justify-content: space-between;
-        padding-bottom: 24px;
+        justify-content: center;
         gap: 32px;
+    }
+    &--jc-sb{
+        justify-content: space-between;
+    }
+    &--ai-c{
+        align-items: center;
     }
     &--background-dark{
         background-color: #252429;
@@ -22,42 +27,4 @@
 }
 
 
-header, footer, main ,section{
-    display: flex;
-    width: 100%;
-    min-height: 100vh;
-    flex-direction: column;
-    align-items: center;
-    justify-content: start;
-    scroll-snap-align: start;
-    padding: 0 48px;
-    box-sizing: border-box;
-    @media (min-width: 300px) and (max-width: 768px) {
-        padding: 96px 12px 12px 12px;
-    }
-    @media (min-width: 769px) and (max-width: 1368px) {
-        padding: 96px 24px 24px 24px;
-    }
-    @media (min-width: 1369px)  and (max-width: 1499px){
-        padding: 96px 24px 24px 24px;
-    }
-    @media (min-width: 1500px){
-        padding: 96px 24px 24px 24px;
-    }
-}
 
-section{
-    padding: 96px 48px 48px 48px;
-    @media (min-width: 300px) and (max-width: 768px) {
-        padding: 96px 24px 24px 24px;
-    }
-    @media (min-width: 769px) and (max-width: 1368px) {
-        padding: 96px 24px 24px 24px;
-    }
-    @media (min-width: 1369px)  and (max-width: 1499px){
-        padding: 96px 24px 24px 24px;
-    }
-    @media (min-width: 1500px){
-        padding: 96px 24px 24px 24px;
-    }
-}

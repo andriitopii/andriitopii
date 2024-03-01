@@ -1,39 +1,43 @@
-.btn{
-    padding: 12px 64px;
-    font-family: Exo-Regular;
-    box-sizing: border-box;
-    text-wrap: nowrap;
-    font-size: 18px;
-    border: 1px solid transparent;
-    border: none;
-    border-radius: 48px;
-    min-height: 61px;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    @media (min-width: 300px) and (max-width: 768px) {
-        padding: 12px 64px;
-      }
-      @media (min-width: 769px) and (max-width: 1368px) {
-        padding: 12px 64px;
-      }
-      @media (min-width: 1369px)  and (max-width: 1499px){
-        padding: 12px 32px;
-      }
-      @media (min-width: 1500px){
-        padding: 12px 64px;
-      }
-    &--fill{
-        background-color: #DDF814;
-    }
-    &--outline{
-        background-color: transparent;
-        border: 1px solid #f0f3f0;
-        color: #f0f3f0;
-    }
-    &--outline-dark{
-        background-color: transparent;
-        border: 1px solid #252429;
-        color: #252429;
-    }
+@import "../../scss/abstract/variables.scss";
+.btn {
+  padding: 12px 64px;
+  font-family: Geologica-Medium;
+  background-color: $accent-main-color;
+  color: $main-white-color;
+  box-sizing: border-box;
+  text-wrap: nowrap;
+  font-size: 18px;
+  position: relative;
+  border: none;
+  border-radius: 48px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  z-index: 9;
+  transition: all ease-in-out 0.25s;
+  box-shadow: 0 0 0 0 rgba($accent-main-color, 1);
+  &--animation-blime {
+    animation-name: blimeBtn;
+    animation-iteration-count: infinite;
+    animation-duration: 0.9s;
+    animation-timing-function: ease-in-out;
+  }
+}
+
+@keyframes blimeBtn {
+  0% {
+    box-shadow: 0 0 0 0 rgba($accent-main-color, 1);
+  }
+  25% {
+    box-shadow: 0 0 0 2px rgba($accent-main-color, 0.8);
+  }
+  50% {
+    box-shadow: 0 0 0 4px rgba($accent-main-color, 0.6);
+  }
+  75% {
+    box-shadow: 0 0 0 6px rgba($accent-main-color, 0.4);
+  }
+  100% {
+    box-shadow: 0 0 0 8px rgba($accent-main-color, 0);
+  }
 }

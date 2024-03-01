@@ -6,7 +6,7 @@ const BlogPage = () => {
         <meta name="description" content="Опис вашого вмісту"></meta>
         <title>Blog</title>
     </Helmet>
-    <h1>Blog</h1>
+    <section>sdfsdfsdf</section>
     </> );
 }
  

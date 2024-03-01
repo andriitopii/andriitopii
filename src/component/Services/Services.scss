@@ -1,0 +1,12 @@
+.services{
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    
+    & article{
+        flex: 1;
+    }
+}

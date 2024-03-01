@@ -1,28 +1,79 @@
-.footer{
-    padding: 48px;
-    background-color: #252429;
-   
-}
-
-
-.input-default{
+@import "../../scss/abstract/variables.scss";
+.footer {
+  padding: 48px;
+  background-color: $main-black-color;
+  & div {
+    gap: 48px;
+  }
+  &__footer-menu {
     display: flex;
-    padding: 24px 32px;
-    border: none;
-    border-radius: 48px;
-    font-family: Exo-Regular;
-    outline: none;
-    border: 2px solid #DDF814;
-    font-size: 18px;
-    transition: box-shadow ease-in-out .2s;
-    &:hover{
-        box-shadow: 0 0 0 2px #DDF814;
+    gap: 48px;
+    & ul {
+      display: flex;
+      flex-direction: column;
+      color: $main-white-color;
+      & h3 {
+        margin-bottom: 12px;
+      }
+      & li {
+        margin-bottom: 6px;
+      }
+      & li a {
+        color: $main-white-color-trans;
+        font-family: Exo-Regular;
+        font-size: 16px;
+        transition: all ease-in-out 0.2s;
+        &:hover {
+          color: $accent-main-color;
+        }
+      }
     }
-    &:focus{
-        box-shadow: 0 0 0 2px #DDF814;
-        border: 2px solid #c0d616;
+    & div{
+      margin-left: auto;
     }
-    &:focus-visible{
-        box-shadow: 0 0 0 4px #DDF814;
+  }
+  &__copyright {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    & p {
+      font-family: Exo-Thin;
+      color: $main-white-color;
+      font-size: 12px;
     }
-}   
+  }
+
+  &__write-me {
+    display: flex;
+    justify-content: space-between;
+    & ul {
+      display: flex;
+      gap: 12px;
+      & li {
+        display: flex;
+        & a svg {
+          fill: $main-white-color;
+          &:hover{
+            fill: $accent-main-color;
+          }
+        }
+      }
+    }
+    & p {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+      & a {
+        text-decoration: underline;
+        font-family: Exo-Bold;
+        color: $main-white-color;
+        font-size: 24px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        &:hover {
+          color: $accent-main-color;
+        }
+      }
+    }
+  }
+}

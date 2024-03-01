@@ -1,0 +1,18 @@
+.services__article{
+    display: flex;
+    min-width: 200px;
+    max-width: 100%;
+    max-height: 400px;
+    box-sizing: border-box;
+    padding: 24px;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    border-radius: 24px;
+    background-color: black;
+    & h1{
+        font-size: 83px;
+        text-wrap: wrap;
+        line-height: 83px;
+    }
+}

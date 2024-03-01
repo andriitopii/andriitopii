@@ -1,8 +1,134 @@
-.header{
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    padding-top: 138px;
-    padding-bottom: 0;
-    overflow: hidden;
+@import "../../scss/abstract/variables.scss";
+.header {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 667px;
+  overflow: hidden;
+  background-color: #111111;
+  background-image: url("./animbg.svg");
+  background-size: cover;
+  &__content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-height: 80%;
+    & div {
+      flex: 1;
+      min-width: 300px;
+      width: 100%;
+      max-width: 100%;
+    }
+  }
+  &__media {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @media (min-width: 200px) and (max-width: 700px) {
+      display: none;
+    }
+    @media (min-width: 701px) and (max-width: 1368px) {
+      display: flex;
+    }
+    @media (min-width: 1369px) {
+      display: flex;
+    }
+    & img {
+      max-width: 600px;
+      width: 100%;
+      aspect-ratio: 1/1;
+    }
+  }
+  &__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 24px;
+    @media (min-width: 200px) and (max-width: 700px) {
+      align-items: center;
+    }
+    @media (min-width: 701px) and (max-width: 1368px) {
+      align-items: left;
+    }
+    @media (min-width: 1369px) {
+      display: flex;
+    }
+    & h3,
+    h1,
+    p {
+      color: $main-white-color;
+      text-wrap: wrap;
+      @media (min-width: 200px) and (max-width: 700px) {
+        text-align: center;
+      }
+      @media (min-width: 701px) and (max-width: 1368px) {
+        text-align: left;
+      }
+      @media (min-width: 1369px) {
+        text-align: left;
+      }
+    }
+    & h1 {
+      font-size: clamp(30px, 4vw, 48px);
+    }
+  }
+  &__stripes {
+    position: absolute;
+    width: 100vw;
+    box-sizing: border-box;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    padding: 24px 48px;
+    background-color: $accent-main-color;
+    margin-top: auto;
+    @media (min-width: 200px) and (max-width: 700px) {
+      padding: 24px;
+    }
+    @media (min-width: 701px) and (max-width: 1368px) {
+      padding: 24px 48px;
+    }
+    @media (min-width: 1369px) {
+      padding: 24px 48px;
+    }
+  }
+  &__fact {
+    display: flex;
+    gap: 24px;
+    @media (min-width: 200px) and (max-width: 500px) {
+        display: none;
+      }
+      @media (min-width: 501px) and (min-width: 1369px) {
+        display: flex;
+      }
+    & ul {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      & h1{
+        color: $main-white-color;
+      }
+    }
+  }
+  &__social{
+    display: flex;
+    gap:12px;
+    @media (min-width: 200px) and (max-width: 500px) {
+       margin: auto;
+      }
+      @media (min-width: 501px) and (min-width: 1369px) {
+        display: flex;
+      }
+    & li a svg{
+        width: 32px;
+        height: 32px;
+        fill: #111111;
+        transition: fill ease-in-out .2s;
+        &:hover{
+           fill: $main-white-color-hover;
+        }
+    }
+  }
 }

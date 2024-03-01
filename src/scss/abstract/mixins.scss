@@ -1,0 +1,12 @@
+@mixin DefaultFont {
+  font-size: 16px;
+  font-family: Geologica-Regular;
+}
+
+@mixin TitleFont {
+  font-family: Geologica-Bold;
+}
+
+@mixin ParagraphFont {
+    font-family: Geologica-Regular;
+  }

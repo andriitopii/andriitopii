@@ -1,106 +1,113 @@
-.header__nav-main, .nav-main{
-    display: flex;
-    position: fixed;
-    top: 0;
+@import "../../scss/abstract/variables.scss";
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+  padding: 24px 48px;
+  box-sizing: border-box;
+  z-index: 99;
+  @media (min-width: 200px) and (max-width: 700px) {
+    padding: 24px;
+  }
+  @media (min-width: 701px) and (max-width: 1368px) {
+    padding: 24px 48px;
+  }
+  @media (min-width: 1369px) {
+    padding: 24px 48px;
+  }
+  &__nav-main {
     width: 100%;
-    z-index: 9999;
-    left:0;
+    display: flex;
+    background-color: $main-black-color;
+    padding: 12px;
+    border-radius: 48px;
     flex-direction: row;
+    gap: 24px;
     justify-content: space-between;
     align-items: center;
-    padding: 32px 24px;
     box-sizing: border-box;
-    transition: padding ease-in-out .25s;
-    @media (min-width: 300px) and (max-width: 768px) {
+  }
+  &__link {
+    color: $main-white-color;
+    display: flex;
+    box-sizing: border-box;
+    border-radius: 24px;
+    text-wrap: nowrap;
+    padding: 12px;
+    @media (min-width: 200px) and (max-width: 600px) {
+      display: none;
+    }
+    @media (min-width: 601px) and (max-width: 1368px) {
+      display: none;
+    }
+    @media (min-width: 1369px) {
       display: flex;
-      padding: 32px 12px;
     }
-    @media (min-width: 769px) and (max-width: 1368px) {
+    &:hover {
+      background-color: $main-black-color-hover;
+    }
+  }
+  &__mobile-menu-btn {
+    z-index: 100;
+    display: flex;
+    padding: 12px;
+    border: none;
+    border-radius: 100%;
+    cursor: pointer;
+    @media (min-width: 300px) and (max-width: 600px) {
       display: flex;
-      padding: 32px 24px;
     }
-    @media (min-width: 1369px) and (max-width: 1499px)  {
+    @media (min-width: 601px) and (max-width: 1368px) {
       display: flex;
-      padding: 32px 24px;
     }
-    @media (min-width: 1500px) {
-      display: flex;
-      padding: 32px 24px;
+    @media (min-width: 1369px) {
+      display: none;
     }
-    &--scroll-style{
-        padding: 12px 48px;
-        @media (min-width: 300px) and (max-width: 768px) {
-            display: flex;
-            padding: 12px 12px;
-          }
-          @media (min-width: 769px) and (max-width: 1368px) {
-            display: flex;
-            padding: 12px 24px;
-          }
-          @media (min-width: 1369px) and (max-width: 1499px)  {
-            display: flex;
-            padding: 12px 24px;
-          }
-          @media (min-width: 1500px) {
-            display: flex;
-            padding: 12px 24px;
-          }
-    }
-    &__menu, .menu-main{
+  }
+  &__mobile-menu{
+    position: fixed;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: -150vh;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100vh;
+    background-color: $accent-main-color;
+    z-index: 10;
+    transition: top ease-in-out .5s;
+    & nav{
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         align-items: center;
-        padding: 12px;
-        gap: 12px;
-        background-color: #252429;
-        border-radius: 48px;
-        @media (min-width: 300px) and (max-width: 768px) {
-            display: none;
-          }
-          @media (min-width: 769px) and (max-width: 1368px) {
-            display: none;
-          }
-          @media (min-width: 1369px)  {
-            display: flex;
-          }
-        &__item{
-            display: block;
-            color: #f0f3f0;
-            padding: 8px 16px;
-            border-radius: 48px;
-            text-wrap: nowrap;
-            transition: background-color ease-in-out .25s;
-            &:hover{
-                background-color: #474649;
+        justify-content: center;
+        gap:12px;
+        & a {
+            font-size: 24px;
+            font-family: Geologica-Bold;
+            transition: color ease-in-out .25s;
+            &:active, &:hover{
+                color: $main-white-color;
             }
-            &--focus{
-                
-                background-color: #f0f3f0;
-                color: #252429;
-                &:hover{
-                    background-color: #d6d6d6;
-                }
-                &:active{
-                    background-color: #a5a5a5;
-                }
-            }
+           
         }
     }
-
-    &__main-btn{
-        display: flex;
-        gap:24px;
-        @media (min-width: 300px) and (max-width: 768px) {
-            display: none;
-          }
-          @media (min-width: 769px) and (max-width: 1368px) {
-            display: none;
-          }
-          @media (min-width: 1369px)  and (max-width: 1499px){
-            
-          }
-          @media (min-width: 1500px){
-            
-          }
+    &--show{
+        top: 0;
     }
+    @media (min-width: 300px) and (max-width: 600px) {
+        display: flex;
+      }
+      @media (min-width: 601px) and (max-width: 1368px) {
+        display: flex;
+      }
+      @media (min-width: 1369px) {
+        display: none;
+      }
+  }
 }

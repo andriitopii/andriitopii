@@ -1,9 +1,9 @@
 import "./Button.scss";
 import { Link } from "react-router-dom";
-const Button = ({children, typeBtn, direct}) => {
+const Button = ({children, direct, type}) => {
     
     
-    return ( <Link to={direct} className={`btn btn${typeBtn}`}>{children}</Link> );
+    return ( <Link to={direct} className={`btn ${type}`}>{children}</Link> );
 }
  
 export default Button;
