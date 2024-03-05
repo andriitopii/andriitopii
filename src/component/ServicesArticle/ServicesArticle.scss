@@ -39,17 +39,6 @@
         display: flex;
         align-items: center;
         gap: 2px;
-        &::after{
-            content: "";
-            position: relative;
-            top: 2px;
-            display: flex;
-            width: 16px;
-            height: 16px;
-            background-image: url("./arrow.svg");
-            background-size: contain;
-            background-position: center;
-        }
     }
     
 }

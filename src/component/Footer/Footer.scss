@@ -2,6 +2,7 @@
 .footer {
   padding: 48px;
   background-color: $main-black-color;
+  overflow: hidden;
   & div {
     gap: 48px;
   }

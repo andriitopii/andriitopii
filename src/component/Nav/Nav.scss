@@ -10,10 +10,10 @@
   box-sizing: border-box;
   z-index: 99;
   background-color: $main-black-color;
+
   &__nav-main {
     width: 100%;
     display: flex;
-    padding: 12px;
     border-radius: 48px;
     flex-direction: row;
     gap: 24px;
@@ -25,9 +25,9 @@
     color: $main-white-color;
     display: flex;
     box-sizing: border-box;
-    border-radius: 24px;
     text-wrap: nowrap;
-    padding: 12px;
+    padding: 24px;
+    transition: all ease-in-out .25s;
     @media (min-width: 200px) and (max-width: 600px) {
       display: none;
     }
@@ -38,16 +38,30 @@
       display: flex;
     }
     &:hover {
-      background-color: $main-black-color-hover;
+      background-color: $accent-main-color;
     }
   }
   &__mobile-menu-btn {
     z-index: 100;
     display: flex;
-    padding: 12px;
+    padding: 24px;
     border: none;
     border-radius: 100%;
+    background-color: transparent;
+    transition: all ease-in-out .2s;
     cursor: pointer;
+    &:hover svg *{
+      fill: $main-white-color;
+    }
+    & svg{
+      width:24px;
+      height: 24px;
+    }
+    & svg *{
+      fill: $accent-main-color;
+      transition: fill ease-in-out .2s;
+      
+    }
     @media (min-width: 300px) and (max-width: 600px) {
       display: flex;
     }
@@ -78,7 +92,7 @@
         justify-content: center;
         gap:12px;
         & a {
-            font-size: 24px;
+            font-size: clamp(24px, 4.6vw, 48px);
             font-family: Geologica-Bold;
             transition: color ease-in-out .25s;
             &:active, &:hover{

@@ -10,29 +10,6 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="container container--col">
-        <div className="footer__write-me">
-          <p>
-            <span className="accent-text"><h2>Write me:</h2></span>
-            <a href="mailto:andriitopii@icloud.com">andriitopii@icloud.com</a>
-          </p>
-          <ul>
-            <li>
-              <a href="#"><BehanceSvg width="24px" height="24px" /></a>
-            </li>
-            <li>
-              <a href="#"><XSvg width="24px" height="24px" /></a>
-            </li>
-            <li>
-              <a href="#"><InstagramSvg width="24px" height="24px" /></a>
-            </li>
-            <li>
-              <a href="#"><FacebookSvg width="24px" height="24px" /></a>
-            </li>
-            <li>
-              <a href="#"><LinkedinSvg width="24px" height="24px" /></a>
-            </li>
-          </ul>
-        </div>
         <div className="footer__footer-menu">
           <ul>
             <h3>Services</h3>
@@ -89,7 +66,27 @@ const Footer = () => {
             </li>
           </ul>
           <div>
-            <Logo dark="--light"/>
+            <p>
+            <span className="accent-text"><h2>Write me:</h2></span>
+            <a href="mailto:andriitopii@icloud.com">andriitopii@icloud.com</a>
+          </p>
+          <ul>
+            <li>
+              <a href="#"><BehanceSvg width="24px" height="24px" /></a>
+            </li>
+            <li>
+              <a href="#"><XSvg width="24px" height="24px" /></a>
+            </li>
+            <li>
+              <a href="#"><InstagramSvg width="24px" height="24px" /></a>
+            </li>
+            <li>
+              <a href="#"><FacebookSvg width="24px" height="24px" /></a>
+            </li>
+            <li>
+              <a href="#"><LinkedinSvg width="24px" height="24px" /></a>
+            </li>
+          </ul>
             
           </div>
         </div>

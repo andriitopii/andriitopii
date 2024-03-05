@@ -3,69 +3,142 @@
   display: flex;
   gap: 24px;
   flex-wrap: wrap;
-  &__form {
-    flex: 1;
-    min-width: 200px;
-    box-sizing: border-box;
-    & form {
+  flex-direction: column;
+  & h1 {
+    text-align: center;
+    font-size: clamp(32px, 5vw, 64px);
+    text-wrap: wrap;
+    & span {
+      color: $accent-main-color;
+    }
+  }
+  &__data {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 24px;
+    & a {
+      box-sizing: border-box;
       display: flex;
-      flex-direction: column;
-      gap: 12px;
-      & input,
-      textarea {
-        padding: 12px;
-        box-sizing: border-box;
-        font-family: Geologica-Medium;
-        font-size: 18px;
-        border: 1px solid $accent-main-color;
-        outline: none;
-        transition: all ease-in-out 0.25s;
-        resize: none;
-        &:focus {
-          box-shadow: 0 0 0 2px $accent-main-color;
-        }
-      }
-
-      & button {
-        display: flex;
-        width: fit-content;
-        background-color: $accent-main-color;
-        border: none;
-        font-family: Geologica-Bold;
-        padding: 12px 48px;
-        cursor: pointer;
+      flex: 1;
+      min-width: 200px;
+      max-width: 100%;
+      font-size: clamp(18px, 6vw, 24px);
+      font-family: Geologica-Bold;
+      &:last-child {
+        justify-content: end;
       }
     }
   }
-  &__info {
-    flex: 1;
-    min-width: 200px;
+
+  & form {
+    position: relative;
     display: flex;
     flex-direction: column;
-    gap: 24px;
-    & ul {
-      display: flex;
-      flex: 1;
+    & input,
+    & select,
+    & textarea {
+      border: none;
+      outline: none;
+      border-bottom: 1px solid $accent-main-color;
+      margin: 0 8px;
+      padding: 2px 4px;
+      font-size: clamp(18px, 6vw, 24px);
+    }
+    & textarea {
+      resize: none;
       height: fit-content;
-      flex-direction: column;
-      gap: 24px;
-      & ul {
-        display: flex;
-        flex-direction: row;
-        align-items: flex-start;
-        justify-content: space-between;
+    }
+
+    & label {
+      display: inline-flex;
+      border: 1px solid $accent-main-color;
+      align-items: center;
+      margin-left: 12px;
+      padding: 8px;
+      line-height: normal;
+      cursor: pointer;
+      transition: all ease-in-out 0.25s;
+    }
+
+    & input[type="radio"] {
+      display: none;
+      &:checked + label {
+        background-color: $accent-main-color;
+        color: $main-white-color;
       }
     }
 
-    & div  {
-        & img{
-            object-fit: cover;
-            width: 100%;
-        }
-      display: flex;
-      flex: 2;
-      width: 100%;
-      overflow: hidden;
+    & button {
+      position: relative;
+      right: 0;
+      bottom: 0;
+      align-self: center;
+      aspect-ratio: 1/1;
+      cursor: pointer;
+      padding: 48px;
+      border-radius: 100%;
+      background-color: $accent-main-color;
+      border: none;
+      font-family: Geologica-Medium;
+      color: $main-white-color;
+      &::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        background-size: cover;
+        transform: rotate(0deg);
+        background-image: url("./circlecontact.svg");
+        animation-name: spin;
+        animation-timing-function: ease-in-out;
+        animation-iteration-count: infinite;
+        animation-duration: 8s;
+      }
     }
+    & p {
+      font-family: Geologica-Medium;
+      font-size: clamp(18px, 6vw, 24px);
+      text-align: center;
+      line-height: 64px;
+    }
+  }
+}
+
+@keyframes spin{
+  0% {
+    transform: rotate(0deg);
+  }
+  15% {
+    transform: rotate(90deg);
+  }
+  25% {
+    transform: rotate(180deg);
+  }
+  35% {
+    transform: rotate(250deg);
+  }
+  45% {
+    transform: rotate(310deg);
+  }
+  55% {
+    transform: rotate(360deg);
+  }
+  65% {
+    transform: rotate(310deg);
+  }
+  75% {
+    transform: rotate(250deg);
+  }
+  85% {
+    transform: rotate(180deg);
+  }
+  95% {
+    transform: rotate(90deg);
+  }
+  100% {
+    transform: rotate(0deg);
   }
 }

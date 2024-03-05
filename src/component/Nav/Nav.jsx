@@ -33,6 +33,7 @@ const Nav = () => {
       <div className="nav">
         <div className="container">
           <nav className="nav__nav-main">
+            <Logo type="--light"/>
             <Link className="nav__link" to="/about-me">
               About Me
             </Link>
@@ -45,7 +46,6 @@ const Nav = () => {
             <Link className="nav__link" to="/portfolio">
               Portfolio
             </Link>
-            <Logo type="--light"/>
             <Link className="nav__link" to="/blog">
               Blog
             </Link>
@@ -63,7 +63,7 @@ const Nav = () => {
               className="nav__mobile-menu-btn"
               onClick={() => toggleMobileMen()}
             >
-              <MenuSvg width="24px" height="24px"/>
+              <MenuSvg />
             </button>
           </nav>
         </div>
