@@ -5,9 +5,8 @@
   height: 100vh;
   min-height: 667px;
   overflow: hidden;
-  background-color: #111111;
-  background-image: url("./animbg.svg");
-  background-size: cover;
+  background-color: $main-black-color;
+  
   &__content {
     display: flex;
     flex-wrap: wrap;
@@ -24,10 +23,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    @media (min-width: 200px) and (max-width: 700px) {
+    @media (min-width: 200px) and (max-width: 834px) {
       display: none;
     }
-    @media (min-width: 701px) and (max-width: 1368px) {
+    @media (min-width: 835px) and (max-width: 1368px) {
       display: flex;
     }
     @media (min-width: 1369px) {
@@ -71,7 +70,13 @@
     }
     & h1 {
       font-size: clamp(30px, 4vw, 48px);
+      text-transform: uppercase;
     }
+
+    & h3{
+        text-transform: uppercase; 
+    }
+    
   }
   &__stripes {
     position: absolute;

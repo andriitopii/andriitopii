@@ -1,0 +1,8 @@
+@import "../../scss/abstract/variables.scss";
+.title-section{
+    background-color:$accent-main-color;
+    color: $main-white-color;
+    display: block;
+    width: fit-content;
+    padding: 12px;
+}

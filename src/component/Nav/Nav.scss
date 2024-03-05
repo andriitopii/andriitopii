@@ -7,22 +7,12 @@
   flex-direction: row;
   width: 100%;
   justify-content: center;
-  padding: 24px 48px;
   box-sizing: border-box;
   z-index: 99;
-  @media (min-width: 200px) and (max-width: 700px) {
-    padding: 24px;
-  }
-  @media (min-width: 701px) and (max-width: 1368px) {
-    padding: 24px 48px;
-  }
-  @media (min-width: 1369px) {
-    padding: 24px 48px;
-  }
+  background-color: $main-black-color;
   &__nav-main {
     width: 100%;
     display: flex;
-    background-color: $main-black-color;
     padding: 12px;
     border-radius: 48px;
     flex-direction: row;

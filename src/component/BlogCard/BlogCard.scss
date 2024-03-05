@@ -1,78 +1,66 @@
 @import "../../scss/abstract/variables.scss";
 
-.article-blog-card {
-    position: relative;
-    scroll-snap-align: center;
-    box-sizing: border-box;
+.blog-article {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  flex: 1;
+  overflow: hidden;
+  min-width: 200px;
+  max-width: 100%;
+  gap: 12px;
+  &__data{
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: $accent-main-color;
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+  color: $main-white-color;
+  justify-content: center;
+  align-items: center;
+  }
+  &__comments{
     display: flex;
-    flex-direction: column;
-    background-color: #ffffff;
-    max-width: 100%;
-    overflow: hidden;
-    min-width: 200px;
-    max-height:100%;
-    border-radius: 24px;
-    padding-bottom: 24px;
-    @media (min-width: 300px) and (max-width: 600px) {
-        min-width: 100%;
-      }
-      @media (min-width: 601px) and (max-width: 1368px) {
-        min-width: 60%;
-      }
-      @media (min-width: 1369px)  and (max-width: 1499px){
-        min-width: 200px;
-      }
-      @media (min-width: 1500px){
-        min-width: 200px;
-      }
-    &__img {
-      object-fit: cover;
-      object-position: top;
+    align-items: center;
+    gap: 8px;
+  }
+  & img {
+    object-fit: cover;
+    height: 200px;
+  }
+  & h2 {
+    text-wrap: wrap;
+  }
+  & p {
+    font-size: 14px;
+  }
+  & a {
+    font-family: Geologica-Bold;
+    display: flex;
+    padding: 8px 4px;
+    position: relative;
+    width: fit-content;
+    z-index: 2;
+    
+    & span{
+      display: block;
+      position: absolute;
       width: 100%;
-      max-height: 50%;
+      height: 100%;
+      left: 0;
+      top: 100%;
+      background-color: $accent-main-color;
+      z-index: 1;
+      mix-blend-mode: color;
+      transition: top ease-in-out .25s;
     }
-    &__data{
-        position: absolute;
-        box-sizing: border-box;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        width: 48px;
-        height: 48px;
-        background-color: $accent-main-color;
-        color: $main-white-color;
-        left: 24px;
-        border-bottom-left-radius: 12px;
-        border-bottom-right-radius: 12px;
-
+    &:hover span{
+      top:0;
     }
-    &__comment, &__title, &__link, &__description{
-      padding: 0 24px;
-    }
-
-    &__comment{
-        display: flex;
-        margin-top: 12px;
-        align-items: center;
-        gap: 8px;
-        &_icon{
-          display: flex;
-          width: 18px;
-          height: 18px;
-          background-size: 100%;
-          background-image: url("./comment.svg");
-        }
-    }
-
-    &__title{
-      margin-top: 12px;
-    }
-    &__description{
-      margin-top: 12px;
-      overflow: hidden;
-    }
-    &__link{
-      margin-top: auto
+    &:hover {
+      color: $main-white-color;
     }
   }
+}

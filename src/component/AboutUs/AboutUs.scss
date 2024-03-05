@@ -2,90 +2,55 @@
 
 .about {
   display: flex;
-  flex-grow: 1;
-  align-items: center;
-  gap: 48px;
   flex-wrap: wrap;
-  & div {
-    flex: 1;
+  box-sizing: border-box;
+  gap: 12px;
+  &__item {
+    flex-grow: 1;
     display: flex;
-    align-items: center;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 48px 24px;
     gap: 24px;
-    min-width: 200px;
+    box-sizing: border-box;
     & h2 {
-        align-self: self-start;
-        @media (min-width: 300px) and (max-width: 743px)  {
-            align-self: center;
-        } 
-      }
-  }
-  &__hard-skills-container, &__soft-skills-container, &__info-container{
-    
-    @media (min-width: 300px) and (max-width: 743px)  {
-        align-self: flex-start;
+      text-wrap: wrap;
+      font-size: clamp(24px, 3vw, 48px);
     }
+    & p {
+      text-align: center;
+      max-width: 450px;
     }
-  &__hard-skills-container {
-    align-self: flex-start;
-   
-    & ul {
-      gap: 12px;
-      flex-wrap: wrap;
-      & li {
-        flex: 1 0 15%;
-        display: flex;
-        justify-content: center;
-        cursor: pointer;
+    &--rect {
+      max-width: 50%;
+      @media (min-width: 200px) and (max-width: 1031px) {
+        max-width: none;
       }
-      & li svg {
-        max-width: 100px;
-        width: 100%;
-        min-width: 50px;
-        filter: grayscale(100);
-        transition: filter ease-in-out 0.25s;
-        &:focus-visible{
-          border:1px solid $accent-main-color;
-        }
-        &:hover {
-          filter: grayscale(0);
-        }
-      }
-    }
-  }
+      &--trans {
+        background-color: transparent;
+        align-items: flex-start;
+        padding: 0;
 
-  &__soft-skills-container {
-    
-    @media (min-width: 744px) {
-        align-self: flex-end;
-    }
-    & ul{
+        & p {
+          text-align: left;
+        }
+      }
+      &--black {
+        background-color: $main-black-color;
+        color: $main-white-color;
         flex-wrap: wrap;
-        gap: 12px;
-
-    }
-    & ul li{
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-        flex: 1;
-        align-items: center;
-        & span{
-            display: flex;
-            gap: 4px;
-            align-items: center;
-            font-size: 24px;
-            font-family: Exo-Bold;
-            text-wrap: nowrap;
+        flex-direction: row;
+        & svg {
+          width: 64px;
         }
-        
+      }
     }
-  }
-  &__info-container{
-    & p{
-        @media (min-width: 300px) and (max-width: 743px)  {
-            text-align: center;
-        } 
+    &--squre {
+      background-color: $accent-main-color;
+      & h2 {
+        font-size: 48px;
+      }
     }
   }
 }

@@ -1,0 +1,71 @@
+@import "../../scss/abstract/variables.scss";
+.contact {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  &__form {
+    flex: 1;
+    min-width: 200px;
+    box-sizing: border-box;
+    & form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      & input,
+      textarea {
+        padding: 12px;
+        box-sizing: border-box;
+        font-family: Geologica-Medium;
+        font-size: 18px;
+        border: 1px solid $accent-main-color;
+        outline: none;
+        transition: all ease-in-out 0.25s;
+        resize: none;
+        &:focus {
+          box-shadow: 0 0 0 2px $accent-main-color;
+        }
+      }
+
+      & button {
+        display: flex;
+        width: fit-content;
+        background-color: $accent-main-color;
+        border: none;
+        font-family: Geologica-Bold;
+        padding: 12px 48px;
+        cursor: pointer;
+      }
+    }
+  }
+  &__info {
+    flex: 1;
+    min-width: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    & ul {
+      display: flex;
+      flex: 1;
+      height: fit-content;
+      flex-direction: column;
+      gap: 24px;
+      & ul {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between;
+      }
+    }
+
+    & div  {
+        & img{
+            object-fit: cover;
+            width: 100%;
+        }
+      display: flex;
+      flex: 2;
+      width: 100%;
+      overflow: hidden;
+    }
+  }
+}

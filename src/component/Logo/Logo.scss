@@ -10,10 +10,21 @@
     &--light{
         
         background-image: url('./light.svg');
+        @media (min-width: 200px) and (max-width: 600px) {
+            background-image: url('./light-mob.svg');
+            height: 48px;
+            width: 96px;
+          }
+          
     }
 
     &--dark{
         
         background-image: url('./dark.svg');
+        @media (min-width: 200px) and (max-width: 600px) {
+            background-image: url('./dark-mob.svg');
+            height: 48px;
+            width: 96px;
+          }
     }
 }

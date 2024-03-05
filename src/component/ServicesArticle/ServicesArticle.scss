@@ -1,18 +1,55 @@
+@import "../../scss/abstract/variables.scss";
+
 .services__article{
     display: flex;
+    flex-direction: column;
     min-width: 200px;
     max-width: 100%;
-    max-height: 400px;
     box-sizing: border-box;
-    padding: 24px;
     background-size: cover;
     background-position: center;
-    overflow: hidden;
-    border-radius: 24px;
-    background-color: black;
-    & h1{
-        font-size: 83px;
-        text-wrap: wrap;
-        line-height: 83px;
+    background-color: $main-white-color;
+    gap: 24px;
+    padding-bottom: 24px;
+    cursor: pointer;
+     & a, & p, & ul {
+        margin-left: 24px;
+        margin-right: 24px;
     }
+    & h1{
+        font-size: clamp(48px, 4.6vw, 64px);
+        text-wrap: wrap;
+        line-height: clamp(48px, 4.6vw, 64px);
+        background-color: $accent-main-color;
+        padding: 24px;
+        overflow: hidden;
+    }
+    & ul{
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        & li {
+            display: flex;
+            padding: 12px;
+            border: 1px solid $accent-main-color;
+        }
+    }
+    & a {
+        font-family: Geologica-Bold ;
+        display: flex;
+        align-items: center;
+        gap: 2px;
+        &::after{
+            content: "";
+            position: relative;
+            top: 2px;
+            display: flex;
+            width: 16px;
+            height: 16px;
+            background-image: url("./arrow.svg");
+            background-size: contain;
+            background-position: center;
+        }
+    }
+    
 }

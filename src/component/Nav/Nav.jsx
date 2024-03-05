@@ -45,7 +45,7 @@ const Nav = () => {
             <Link className="nav__link" to="/portfolio">
               Portfolio
             </Link>
-            <Logo />
+            <Logo type="--light"/>
             <Link className="nav__link" to="/blog">
               Blog
             </Link>

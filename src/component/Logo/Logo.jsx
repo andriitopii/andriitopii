@@ -1,7 +1,7 @@
 import "./Logo.scss";
 import { Link } from "react-router-dom";
-const Logo = ({dark}) => {
-    return ( <Link to='/' className="logo logo--light">
+const Logo = (props) => {
+    return ( <Link to='/' className={`logo logo${props.type}`}>
 
     </Link> );
 }

@@ -1,7 +1,7 @@
 .container{
     display: flex;
     width: 100%;
-    max-width: 1660px;
+    max-width: 1368px;
     height: 100%;
     box-sizing: border-box;
     flex-grow: 1;
@@ -15,14 +15,6 @@
     }
     &--ai-c{
         align-items: center;
-    }
-    &--background-dark{
-        background-color: #252429;
-        border-radius: 48px;
-    }
-    &--background-light{
-        background-color: #f0f3f0;
-        border-radius: 48px;
     }
 }
 

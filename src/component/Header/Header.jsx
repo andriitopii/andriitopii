@@ -1,12 +1,12 @@
 import "./Header.scss";
 import WebGif from "./webdevgif.gif";
 import Button from "../Button/Button";
-import JavascriptSvg from "../Icon/JavascriptSvg";
 import LinkedinSvg from "../Icon/LinkedinSvg";
 import InstagramSvg from "../Icon/InstagramSvg";
 import BehanceSvg from "../Icon/BehanceSvg";
 import FacebookSvg from "../Icon/FacebookSvg";
 import XSvg from "../Icon/XSvg";
+;
 import { MyUseContext } from "../../context/ContextGlobal";
 const Header = () => {
 
@@ -14,6 +14,7 @@ const Header = () => {
   console.log(socialLink);
   return (
     <header id="header" className="header">
+     
       <div className="container container--col">
         <div className="header__content">
           <div className="header__info">
@@ -59,6 +60,9 @@ const Header = () => {
               </li>
               <li>
                 <a href="#"><BehanceSvg /></a>
+              </li>
+              <li>
+                <a href="#"><FacebookSvg /></a>
               </li>
               <li>
                 <a href="#"><FacebookSvg /></a>

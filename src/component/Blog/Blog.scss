@@ -2,51 +2,6 @@
 
 .blog {
   display: flex;
-  padding: 48px 24px 0px 24px;
-  position: relative;
+  flex-wrap: wrap;
   gap: 24px;
-  justify-content: space-between;
-  flex-wrap: nowrap;
-  scroll-snap-type: x mandatory;
-  overflow: hidden;
-  overflow-x: scroll;
-  flex-grow: 1;
-  transition: all ease-in-out 3s;
-  &::-webkit-scrollbar {
-    display: none; /* for Chrome, Safari, and Opera */
-  }
-  &__slide-control{
-    padding: 12px;
-    position: sticky;
-    z-index: 99;
-    cursor: pointer;
-    border: none;
-    width: 24px;
-    height: 100%;
-    color: #f0f3f0;
-    background-color: #252429;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 24px;
-    &:nth-child(1){
-      left: -24px;
-        background-image: url("./arrow.svg");
-        transform: rotateY(180deg);
-
-    }
-    &:last-child{
-      right: -24px;
-      background-image: url("./arrow.svg");
-    }
-  }
-  &__link{
-    align-self: center;
-    font-family: Exo-Regular;
-    display: flex;
-    color: $main-white-color;
-    padding: 12px 32px;
-    border-radius: 48px;
-    margin-top: 24px;
-    background-color: $accent-main-color;
-  }
 }

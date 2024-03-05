@@ -1,0 +1,46 @@
+@import "../../scss/abstract/variables.scss";
+
+.pricing-article{
+    display: flex;
+    box-sizing: border-box;
+    padding: 24px;
+    flex-direction: column;
+    border: 1px solid $accent-main-color;
+    gap: 24px;
+    min-width: 200px;
+    flex: 1;
+    transition: all ease-in-out .25s;
+    & h1 {
+        font-size: 48px;
+    }
+    & h2 {
+        font-size: 16px;
+    }
+    & a {
+        display: flex;
+        padding: 12px;
+        justify-content: center;
+        align-items: center;
+        background-color: $accent-main-color;
+        color: $main-white-color;
+    }
+
+    & ul {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        & li {
+            font-size: 12px;
+        }
+    }
+    &:hover{
+        background-color: $accent-main-color;
+    }
+    &:hover  * {
+        color: $main-white-color
+    }
+    &:hover  a {
+        background-color: $main-white-color;
+        color: $accent-main-color;
+    }
+}

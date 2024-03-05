@@ -7,10 +7,6 @@
 html {
   @include DefaultFont;
 }
-body {
-  background-image: url("./img/background.svg");
-  background-attachment: local;
-}
 
 h1, h2, h3, h4, h5, h6 {
   @include TitleFont;
