@@ -39,5 +39,41 @@ header, footer, main, section, .nav{
   }
 }
 
+input, textarea, select {
+  border: none;
+      outline: none;
+      border: 2px solid transparent;
+      border-bottom: 2px solid $accent-main-color;
+      padding: 2px 4px;
+      font-size: clamp(18px, 6vw, 24px);
+      font-family: Geologica-Light;
+      transition: all ease-in-out .25s;
+      &:focus{
+        border: 2px solid $accent-main-color;
+      }
+      
+}
 
+textarea{
+  font-size: 14px;
+}
+.input__error{
+  color: #ef5f55;
+  display: flex;
+  font-size: 12px;
+  min-height: 12px;
+}
+
+.btn-form{
+  display: flex;
+  background-color: $accent-main-color;
+  color: $main-white-color;
+  padding: 12px;
+  border: none;
+  font-family: Geologica-Regular;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  cursor: pointer;
+}
 

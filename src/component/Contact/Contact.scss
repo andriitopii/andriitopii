@@ -38,12 +38,7 @@
     & input,
     & select,
     & textarea {
-      border: none;
-      outline: none;
-      border-bottom: 1px solid $accent-main-color;
-      margin: 0 8px;
-      padding: 2px 4px;
-      font-size: clamp(18px, 6vw, 24px);
+      
     }
     & textarea {
       resize: none;
