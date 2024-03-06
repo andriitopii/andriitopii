@@ -4,7 +4,7 @@ import CommentsSvg from "../Icon/ComentsSvg";
 
 const BlogCard = (props) => {
   return (
-    <article className="blog-article">
+    <article className="blog-article" >
       <div className="blog-article__data">{props.data.day}<span>{props.data.mounth}</span></div>
       <img src={props.imgUrl} />
       <h2>{props.title}</h2>

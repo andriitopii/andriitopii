@@ -42,7 +42,7 @@ const Blog = () => {
           <TitleSection>Blog</TitleSection>
           <div className="blog">
             {dataBlog.map((item) => (
-              <BlogCard countComents={item.countComents} data={item.data} title={item.title} desc={item.desc}  imgUrl={item.imgUrl}/>
+              <BlogCard key={Math.random()} countComents={item.countComents} data={item.data} title={item.title} desc={item.desc}  imgUrl={item.imgUrl}/>
             ))}
           </div>
         </div>

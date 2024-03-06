@@ -6,15 +6,12 @@ import InstagramSvg from "../Icon/InstagramSvg";
 import BehanceSvg from "../Icon/BehanceSvg";
 import FacebookSvg from "../Icon/FacebookSvg";
 import XSvg from "../Icon/XSvg";
-;
 import { MyUseContext } from "../../context/ContextGlobal";
+import { Link } from "react-router-dom";
 const Header = () => {
-
-  const {socialLink} = MyUseContext();
-  console.log(socialLink);
+  const { socialLink } = MyUseContext();
   return (
     <header id="header" className="header">
-     
       <div className="container container--col">
         <div className="header__content">
           <div className="header__info">
@@ -53,22 +50,39 @@ const Header = () => {
             </div>
             <ul className="header__social">
               <li>
-                <a href="https://twitter.com/andriitopii"><LinkedinSvg /></a>
+                <Link to={socialLink.instagram} target="__blank">
+                  <InstagramSvg />
+                </Link>
               </li>
               <li>
-                <a href="#"><InstagramSvg /></a>
+                <Link to={socialLink.twitter} target="__blank">
+                  <XSvg />
+                </Link>
               </li>
               <li>
-                <a href="#"><BehanceSvg /></a>
+                <Link to={socialLink.facebook} target="__blank">
+                  <FacebookSvg />
+                </Link>
               </li>
               <li>
-                <a href="#"><FacebookSvg /></a>
+                <Link to={socialLink.linkedin} target="__blank">
+                  <LinkedinSvg />
+                </Link>
               </li>
               <li>
-                <a href="#"><FacebookSvg /></a>
+                <Link to={socialLink.github} target="__blank">
+                  GitHub
+                </Link>
               </li>
               <li>
-                <a href={socialLink.twitter} target="_blank"><XSvg /></a>
+                <Link to={socialLink.behance} target="__blank">
+                  <BehanceSvg />
+                </Link>
+              </li>
+              <li>
+                <Link to={socialLink.tiktok} target="__blank">
+                  TikTok
+                </Link>
               </li>
             </ul>
           </div>

@@ -23,16 +23,16 @@ const Contact = () => {
                 name="service"
                 value="Landing page"
               />
-              <label for="landing-radio">Landing page</label>
+              <label htmlFor="landing-radio">Landing page</label>
               <input
                 id="portfolio-radio"
                 type="radio"
                 name="service"
                 value="Portfolio site"
               />
-              <label for="portfolio-radio">Portfolio site</label>
+              <label htmlFor="portfolio-radio">Portfolio site</label>
               <input  id="busines-radio" type="radio" name="service" value="Landing page" />
-              <label for="busines-radio">Busines site</label>
+              <label htmlFor="busines-radio">Busines site</label>
               <br></br>I am hoping to stay within a budget range of{" "}
               <select>
                 <option value="500">500</option>

@@ -8,7 +8,7 @@ const PricingArticle = (props) => {
         <p>{props.desc}</p>
         <Link to="/price">Order</Link>
         <ul>
-            {props.futured.map((item)=><li key={item}>{item}</li>)}
+            {props.futured.map((item)=><li key={Math.random()}>{item}</li>)}
         </ul>
         
     </article> );

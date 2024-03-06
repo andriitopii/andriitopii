@@ -10,6 +10,12 @@
         justify-content: center;
         gap: 32px;
     }
+    &__row{
+        flex-direction: row;
+        gap: 24px;
+        flex-wrap: wrap;
+    }
+      
     &--jc-sb{
         justify-content: space-between;
     }

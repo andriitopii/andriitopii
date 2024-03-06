@@ -6,99 +6,100 @@ import InstagramSvg from "../Icon/InstagramSvg";
 import FacebookSvg from "../Icon/FacebookSvg";
 import LinkedinSvg from "../Icon/LinkedinSvg";
 import Logo from "../Logo/Logo";
+import { MyUseContext } from "../../context/ContextGlobal";
+
 const Footer = () => {
+  const{socialLink} = MyUseContext();
   return (
     <footer className="footer">
-      <div className="container container--col">
-        <div className="footer__footer-menu">
-          <ul>
-            <h3>Services</h3>
-            <li>
-              <Link to="/services/landing-page">Landing page</Link>
-            </li>
-            <li>
-              <Link to="/services/portfolio-site">Portfolio site</Link>
-            </li>
-            <li>
-              <Link to="/services/bussines-site">Bussines site</Link>
-            </li>
-          </ul>
-          <ul>
-            <h3>Technology</h3>
-            <li>
-              <Link to="/">ReactJS</Link>
-            </li>
-            <li>
-              <Link to="/services/landing-page">NodeJS</Link>
-            </li>
-            <li>
-              <Link to="/services/landing-page">Sass</Link>
-            </li>
-            <li>
-              <Link to="/services/landing-page">Firebase</Link>
-            </li>
-            <li>
-              <Link to="/services/landing-page">HTML</Link>
-            </li>
-            <li>
-              <Link to="/services/landing-page">CSS</Link>
-            </li>
-          </ul>
-          <ul>
-            <h3>Andrii Topii</h3>
-            <li>
-              <Link to="/about-me">About me</Link>
-            </li>
-            <li>
-              <Link to="/portfolio">Portfolio</Link>
-            </li>
-            <li>
-              <Link to="/blog">Blog</Link>
-            </li>
-            <li>
-              <Link to="/pricing">Pricing</Link>
-            </li>
-            <li>
-              <Link to="/contact">Contact</Link>
-            </li>
-            <li>
-              <Link to="/reviews">Reviews</Link>
-            </li>
-          </ul>
-          <div>
-            <p>
-            <span className="accent-text"><h2>Write me:</h2></span>
-            <a href="mailto:andriitopii@icloud.com">andriitopii@icloud.com</a>
-          </p>
-          <ul>
-            <li>
-              <a href="#"><BehanceSvg width="24px" height="24px" /></a>
-            </li>
-            <li>
-              <a href="#"><XSvg width="24px" height="24px" /></a>
-            </li>
-            <li>
-              <a href="#"><InstagramSvg width="24px" height="24px" /></a>
-            </li>
-            <li>
-              <a href="#"><FacebookSvg width="24px" height="24px" /></a>
-            </li>
-            <li>
-              <a href="#"><LinkedinSvg width="24px" height="24px" /></a>
-            </li>
-          </ul>
-            
+      <div className="container container__row">
+        <div className="footer__col">
+          <div className="footer__link">
+            <ul>
+              <li>
+                <ul>
+                  <li>
+                    <Link to="/about-me">About me</Link>
+                  </li>
+                  <li>
+                    <Link to="/services">Services</Link>
+                  </li>
+                  <li>
+                    <Link to="/pricing">Pricing</Link>
+                  </li>
+                  <li>
+                    <Link to="/portfolio">Portfolio</Link>
+                  </li>
+                  <li>
+                    <Link to="/blog">Blog</Link>
+                  </li>
+                  <li>
+                    <Link to="/reviews">Reviews</Link>
+                  </li>
+                  <li>
+                    <Link to="/technology">Technology</Link>
+                  </li>
+                  <li>
+                    <Link to="/contact">Contact</Link>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <ul>
+                  <li>
+                    <Link to="/technology/reactjs">React JS</Link>
+                  </li>
+                  <li>
+                    <Link to="/technology/nodejs">Node JS</Link>
+                  </li>
+                  <li>
+                    <Link to="/technology/sass">Sass</Link>
+                  </li>
+                  <li>
+                    <Link to="/technology/firebase">Firebase</Link>
+                  </li>
+                  <li>
+                    <Link to="/technology/js">Java Script</Link>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <ul>
+                  <li>
+                    <Link to="/cookies">Cookies</Link>
+                  </li>
+                  <li>
+                    <Link to="/about">Terms of use</Link>
+                  </li>
+                  <li>
+                    <Link to="/about">Privacy</Link>
+                  </li>
+                  <li>
+                    <Link to="/partners">Partners</Link>
+                  </li>
+                  <li>
+                    <Link to="/carre">Сareers</Link>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+
+          <div className="footer__copyright">
+            <p>© Copyright  2024. Andrii Topii</p>
           </div>
         </div>
-        <div className="footer__copyright">
-          <p>©Copyright 2024 ANDRII TOPII. All Rights Reserved</p>
-          <select className="default-select">
-            <option value="UA" defaultChecked>
-              Українська
-            </option>
-            <option value="PL">Polski</option>
-            <option value="ENG">English</option>
-          </select>
+
+        <div className="footer__col footer__col--right-bottom-end">
+          <ul className="footer__social">
+            <li><Link to={socialLink.instagram} target="__blank">Instagram</Link></li>
+            <li><Link to={socialLink.twitter} target="__blank">Twitter</Link></li>
+            <li><Link to={socialLink.facebook} target="__blank">Facebook</Link></li>
+            <li><Link to={socialLink.linkedin} target="__blank">LinkedIn</Link></li>
+            <li><Link to={socialLink.github} target="__blank">GitHub</Link></li>
+            <li><Link to={socialLink.behance} target="__blank">Behance</Link></li>
+            <li><Link to={socialLink.tiktok} target="__blank">TikTok</Link></li>
+          </ul>
         </div>
       </div>
     </footer>

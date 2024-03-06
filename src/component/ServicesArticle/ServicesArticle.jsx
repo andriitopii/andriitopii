@@ -10,7 +10,7 @@ const ServicesArticle = (props) => {
       <p>{props.content}</p>
       <ul>
         {props.benefit.map((item)=>
-             <li>{item}</li>
+             <li key={Math.random()}>{item}</li>
         )}
       </ul>
       <Link to="/service">More</Link>
