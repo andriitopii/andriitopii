@@ -1,11 +1,11 @@
 import "./Nav.scss";
 import Logo from "../Logo/Logo";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useState } from "react";
 import MenuSvg from "../Icon/MenuSvg";
 
 const Nav = () => {
-  const [toggleMenu, setToggleMenu] = useState('');
+  const [toggleMenu, setToggleMenu] = useState("");
   const toggleMobileMen = () => {
     switch (toggleMenu) {
       case "":
@@ -16,48 +16,66 @@ const Nav = () => {
         break;
     }
   };
+  const asActive = ({ isActive }) =>
+    isActive ? "nav__link active-nav-main-link" : "nav__link";
   return (
     <>
       <div className={`nav__mobile-menu nav__mobile-menu${toggleMenu}`}>
         <nav>
-          <Link to="/about-me"  onClick={() => toggleMobileMen()}>About Me</Link>
-          <Link to="/services"  onClick={() => toggleMobileMen()}>Services</Link>
-          <Link to="/pricing"  onClick={() => toggleMobileMen()}>Pricing</Link>
-          <Link to="/portfolio"  onClick={() => toggleMobileMen()}>Portfolio</Link>
-          <Link to="/blog"  onClick={() => toggleMobileMen()}>Blog</Link>
-          <Link to="/reviews"  onClick={() => toggleMobileMen()}>Reviews</Link>
-          <Link to="/technology"  onClick={() => toggleMobileMen()}>Technology</Link>
-          <Link to="/contact" onClick={() => toggleMobileMen()}>Contact</Link>
+          <Link to="/about-me" onClick={() => toggleMobileMen()}>
+            About Me
+          </Link>
+          <Link to="/services" onClick={() => toggleMobileMen()}>
+            Services
+          </Link>
+          <Link to="/pricing" onClick={() => toggleMobileMen()}>
+            Pricing
+          </Link>
+          <Link to="/portfolio" onClick={() => toggleMobileMen()}>
+            Portfolio
+          </Link>
+          <Link to="/blog" onClick={() => toggleMobileMen()}>
+            Blog
+          </Link>
+          <Link to="/reviews" onClick={() => toggleMobileMen()}>
+            Reviews
+          </Link>
+          <Link to="/technology" onClick={() => toggleMobileMen()}>
+            Technology
+          </Link>
+          <Link to="/contact" onClick={() => toggleMobileMen()}>
+            Contact
+          </Link>
         </nav>
       </div>
       <div className="nav">
         <div className="container">
           <nav className="nav__nav-main">
-            <Logo type="--light"/>
-            <Link className="nav__link" to="/about-me">
+            <Logo type="--light" />
+            <NavLink className={asActive} to="/about-me">
               About Me
-            </Link>
-            <Link className="nav__link" to="/services">
+            </NavLink>
+            <NavLink className={asActive} to="/services">
               Services
-            </Link>
-            <Link className="nav__link" to="/pricing">
+            </NavLink>
+            <NavLink className={asActive} to="/pricing">
               Pricing
-            </Link>
-            <Link className="nav__link" to="/portfolio">
+            </NavLink>
+            <NavLink className={asActive} to="/portfolio">
               Portfolio
-            </Link>
-            <Link className="nav__link" to="/blog">
+            </NavLink>
+            <NavLink className={asActive} to="/blog">
               Blog
-            </Link>
-            <Link className="nav__link" to="/reviews">
+            </NavLink>
+            <NavLink className={asActive} to="/reviews">
               Reviews
-            </Link>
-            <Link className="nav__link" to="/technology">
+            </NavLink>
+            <NavLink className={asActive} to="/technology">
               Technology
-            </Link>
-            <Link className="nav__link" to="/contact">
+            </NavLink>
+            <NavLink className={asActive} to="/contact">
               Contact
-            </Link>
+            </NavLink>
             <button
               type="button"
               className="nav__mobile-menu-btn"

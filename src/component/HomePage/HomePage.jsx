@@ -8,6 +8,7 @@ import Reviews from "../Reviews/Reviews";
 import Contact from "../Contact/Contact";
 import Header from "../Header/Header";
 import { Helmet } from "react-helmet";
+import Nav from "../Nav/Nav";
 
 const HomePage = () => {
   return (
