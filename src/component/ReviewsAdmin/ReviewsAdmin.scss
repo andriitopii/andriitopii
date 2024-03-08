@@ -1,0 +1,57 @@
+@import "../../scss/abstract/variables.scss";
+.reviews-admin {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  &__item {
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+    background-color: $accent-main-color;
+    position: relative;
+    opacity: 1;
+    transform: scale(0.95);
+    animation-name: showWithOpacityAndScale;
+    animation-duration: 1s;
+    transition: all ease-in-out .25s;
+    &:hover{
+        
+        transform: scale(1);
+    }
+    & button {
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      right: 0;
+      top: 0;
+      border: none;
+      background-color: transparent;
+      &:hover {
+        background-color: $accent-main-color-hover;
+      }
+    }
+  }
+  &__content {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    
+  }
+}
+
+@keyframes showWithOpacityAndScale {
+  0% {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.9;
+  }
+   100% {
+    transform: scale(0.95);
+    opacity: 1;
+  }
+}

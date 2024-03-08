@@ -4,11 +4,12 @@ import {
   signInWithEmailAndPassword,
 } from "firebase/auth";
 import { app } from "../../bd/firebase";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 
 const AdminLogin = () => {
-
+  
 
   const {
     register,
@@ -16,19 +17,18 @@ const AdminLogin = () => {
     getValues,
     formState: { errors, isValid },
     reset,
-  } = useForm({ mode: "onSubmit" });
+  } = useForm({ mode: "onChange" });
 
 
     const auth = getAuth();
-
+    const navigate = useNavigate()
   const logIn = (data) => {
     const email = getValues("email");
     const password = getValues("password");
-    console.log(email,password);
     signInWithEmailAndPassword(auth, email, password).then((userCredential) => {
       const user = userCredential.user;
-      console.log(user);
-    });
+      navigate("/admin/dashboard")
+    }).catch((err)=> setErrLogin(false));
   };
 
 
@@ -36,16 +36,21 @@ const AdminLogin = () => {
   return (
     <form onSubmit={handleSubmit(logIn)} className="admin__login-form">
       <input
-        {...register("email", { required: true })}
+        {...register("email", { required: { value: true, message: "Email не введено"} })}
         type="email"
         placeholder="Email"
       />
       <input
-        {...register("password", { required: true })}
+        {...register("password", { required: true, minLength: { value: 6, message: "Пароль не валідний"}})}
         type="password"
         placeholder="Password"
       />
-      <button className="btn-form">Login</button>
+      <div className="input__error">
+        {errors?.password && (errors?.password?.message || "Error")}
+        <br></br>
+        {errors?.email && (errors?.email?.message || "Error")}
+      </div>
+      <button className="btn-form" disabled={!isValid}>Login</button>
     </form>
   );
 };

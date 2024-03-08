@@ -13,10 +13,14 @@
     box-sizing: border-box;
     padding: 24px;
     justify-content: space-between;
+    transform: translateX(-100%);
+    animation-name: slideLeftToRight;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
     & nav {
         display: flex;
         flex-direction: column;
-
+        gap:8px;
         & a {
             display: flex;
             justify-content: center;
@@ -49,4 +53,9 @@
     box-sizing: border-box;
     padding: 48px;
   }
+}
+@keyframes slideLeftToRight {
+  0%{transform: translateX(-100%);}
+  50%{transform: translateX(10%);}
+  100%{transform: translateX(0);}
 }

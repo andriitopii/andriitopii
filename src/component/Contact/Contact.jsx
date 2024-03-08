@@ -10,6 +10,7 @@ const Contact = () => {
             Just fill out this <span>form</span> and I'll <span>get back</span>{" "}
             to you.
           </h1>
+          
           <form>
             <p>
               My name is <input type="text" placeholder="Name" required /> and I
@@ -47,6 +48,7 @@ const Contact = () => {
             </p>
             <button type="submit">SEND</button>
           </form>
+
           <div className="contact__data">
             <a href="tel:+48-724-065-791">+48-724-065-791</a>
             <a href="mailto:andriitopii@icloud.com">andriitopii@icloud.com</a>
