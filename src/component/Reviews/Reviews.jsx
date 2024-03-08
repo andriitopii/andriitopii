@@ -131,7 +131,7 @@ const Reviews = () => {
                   required: "Поле обовязкове для заповнення",
                   minLength: { value: 1, message: "Мінімум 1 символів" },
                   pattern: {
-                    value: /^[^\d\W]*$/,
+                    value: /^[a-zA-Zа-яА-Я]+$ /,
                     message: "Не припустимі символи",
                   },
                 })}

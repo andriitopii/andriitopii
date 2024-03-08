@@ -11,6 +11,7 @@ import DashboardAdmin from "./component/DashboardAdmin/DashboardAdmin";
 import App from "./component/App/App";
 import BlogAdmin from "./component/BlogAdmin/BlogAdmin";
 import ReviewsAdmin from "./component/ReviewsAdmin/ReviewsAdmin";
+import OrderAdmin from "./component/OrderAdmin/OrderAdmin";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <BrowserRouter>
@@ -24,8 +25,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         </Route>
         <Route path="/admin/*" element={<AdminPage/>}>
           <Route path="dashboard" element={<DashboardAdmin/>}/>  
-          <Route path="blog"x element={<BlogAdmin/>}/>  
-          <Route path="reviews"x element={<ReviewsAdmin/>}/>  
+          <Route path="blog" element={<BlogAdmin/>}/>  
+          <Route path="reviews" element={<ReviewsAdmin/>}/>  
+          <Route path="order" element={<OrderAdmin/>}/>  
           <Route path="*" element={<PageNotFound/>}/>
         </Route>
       </Routes>

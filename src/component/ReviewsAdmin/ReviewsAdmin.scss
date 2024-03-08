@@ -14,9 +14,22 @@
     animation-name: showWithOpacityAndScale;
     animation-duration: 1s;
     transition: all ease-in-out .25s;
+    gap: 12px;
+    & * {
+        color: $main-white-color;
+    }
     &:hover{
         
         transform: scale(1);
+    }
+    & a {
+        &:hover{
+            text-decoration: underline;
+        }
+    }
+
+    & div {
+        font-size: 12px;
     }
     & button {
       position: absolute;

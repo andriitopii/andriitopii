@@ -47,11 +47,11 @@ const ReviewsAdmin = () => {
         {allRevData.map((item)=><article key={item.id} className="reviews-admin__item">
             
             <h1>{item.name}</h1>
-            <a href={`mailto:${item.email}`}>{item.email}</a>
+            <a href={`mailto:${item.email}`}>Email: {item.email}</a>
             <p>
-                {item.opinion}
+                "{item.opinion}"
             </p>
-            <div>Відгук було залишено<span>{item.date}</span></div>
+            <div>Відгук було залишено: <span>{item.date}</span></div>
             <button onClick={()=>deleteReview(item.id)}><DeleteSvg width="16px"/></button>
         </article>)}
         </div>

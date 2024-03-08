@@ -1,0 +1,14 @@
+@import "../../scss/abstract/variables.scss";
+
+.order-admin{
+    &__content{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 24px;
+    }
+    &__item{
+        padding: 24px;
+        background-color: $accent-main-color;
+    }
+}
