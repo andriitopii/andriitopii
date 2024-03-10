@@ -52,6 +52,7 @@
     background-color: $main-white-color;
     box-sizing: border-box;
     padding: 48px;
+    overflow-y: scroll;
   }
 }
 @keyframes slideLeftToRight {

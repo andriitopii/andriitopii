@@ -1,11 +1,52 @@
 @import "../../scss/abstract/variables.scss";
 
 .order-admin{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    gap: 24px;
     &__content{
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
         gap: 24px;
+        flex-grow: 1;
+        align-items: flex-start;
+
+        & table {
+            border-collapse: collapse;
+            flex: 1;
+            border-radius: 12px;
+            overflow: hidden;
+            background-color: rgba($accent-main-color, 0.05);
+            & thead {
+                background-color:  rgba($accent-main-color,  0.2);
+                & tr {
+                    & th {
+                        text-align: center;
+                        padding: 12px;
+                        transition: all ease-in-out .25s;
+                        &:hover{
+                            background-color:  rgba($accent-main-color,  0.25);
+                        }
+                    }
+                }
+            }
+            & tbody {
+                & tr{
+                    cursor: pointer;
+                    &:hover{
+                        background-color: rgba($accent-main-color, 0.1);
+                    }
+                    & td {
+                        padding: 12px;
+                        &:hover{
+                            background-color:  rgba($accent-main-color,  0.25);
+                        }
+                    }
+                }
+            }
+        }
     }
     &__item{
         padding: 24px;
