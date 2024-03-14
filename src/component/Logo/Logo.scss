@@ -1,11 +1,19 @@
 .logo{
     display: flex;
+    position: relative;
     width: 48px;
     height: 48px;
     background-size: 100%;
     background-position: center;
     background-repeat: no-repeat;
-    
+    &::after{
+        content: "v.0.0.1";
+        position: absolute;
+        font-size: 8px;
+        right: 0;
+        bottom: -10px;
+
+    }
     transition: all ease-in-out .25s;
     &--light{
         

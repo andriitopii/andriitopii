@@ -6,6 +6,7 @@ import "./AdminPage.scss";
 import { getAuth, onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
 import { app } from "../../bd/firebase";
 import { Helmet } from "react-helmet";
+import Loader from "../Loader/Loader";
 const AdminPage = () => {
 
     const [user, setUser] = useState(false);
@@ -22,7 +23,7 @@ const AdminPage = () => {
     </Helmet>
 
     <section className="admin">
-        {user === false && <h1>Загрузка</h1>}
+        {user === false && <Loader/>}
         {user === null && <AdminLogin />}
         {user && <AdminPanel><Outlet/></AdminPanel>}
    

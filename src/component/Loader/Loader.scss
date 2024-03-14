@@ -1,0 +1,30 @@
+@import "../../scss/abstract/variables.scss";
+
+.loader {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: $accent-main-color;
+    position: relative;
+    align-self: center;
+  }
+  .loader:before,
+  .loader:after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    inset: 0;
+    transform: rotate(0deg) translate(30px);
+    animation: rotate 1s ease infinite;
+  }
+  .loader:before{
+    background: #E2F397;
+  }
+  .loader:after {
+    background: #01565B;
+    animation-delay: 0.5s;
+  }
+
+  @keyframes rotate {
+    100% {transform: rotate(360deg) translate(30px);
+  }}

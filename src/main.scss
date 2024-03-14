@@ -42,18 +42,36 @@ header, footer, main, section, .nav{
 input, textarea, select {
   border: none;
       outline: none;
-      border: 2px solid transparent;
-      border-bottom: 2px solid $accent-main-color;
-      padding: 2px 4px;
-      font-size: clamp(18px, 6vw, 24px);
+      border-radius: 48px;
+      border: 1px solid transparent;
+      padding: 8px 32px;
+      font-size: clamp(18px, 6vw, 18px);
       font-family: Geologica-Light;
       transition: all ease-in-out .25s;
-      &:focus{
-        border: 2px solid $accent-main-color;
-      }
-      
+      background-color: #EFF7FA;
+&:focus{
+  border: 1px solid $accent-main-color
 }
 
+}
+input[type="search"]{
+  padding-left: 48px;
+}
+.form-only-search:has(input[type="search"])  {
+  position: relative;
+  &::before{
+    position: absolute;
+    margin-top: 5px;
+    left: 12px;
+    content: "";
+    aspect-ratio: 1/1;
+    height: 32px;
+    background-image: url("./img/searchsvg.svg");
+    background-size: 80%;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}
 textarea{
   font-size: 14px;
 }

@@ -16,6 +16,10 @@ import DeleteSvg from "../Icon/DeleteSvg";
 import BookMarkSvg from "../Icon/BookMarkSvg";
 import ReadsCheackSvg from "../Icon/ReadsCheackSvg ";
 import NoReadsCheackSvg from "../Icon/NoReadsCheackSvg";
+import { Link, Outlet } from "react-router-dom";
+import BookMarkFillSvg from "../Icon/BookMarkFillSvg";
+import Loader from "../Loader/Loader";
+
 const OrderAdmin = () => {
   const db = getFirestore(app);
   const {
@@ -132,12 +136,14 @@ const OrderAdmin = () => {
         />
         <label htmlFor="TABS-MARK">Важливі</label>
 
-        <form onChange={handleSubmit(searchInOrders)}>
-          <input {...register("search")} type="search" placeholder="Пошук" />
+        <form onChange={handleSubmit(searchInOrders)} className="form-only-search">
+          <input {...register("search")} type="search" placeholder="Пошук будь-що..." />
         </form>
+        
       </div>
 
       <div className="order-admin__content">
+        {allOrder.length === 0 ? <Loader/> :
         <table>
           <thead>
             <tr>
@@ -166,6 +172,7 @@ const OrderAdmin = () => {
                   }
                 })
                 .map((item) => (
+                  
                   <tr key={item.id} >
                     <td>{item.name}</td>
                     <td>{item.company}</td>
@@ -178,13 +185,13 @@ const OrderAdmin = () => {
                     <td>{item.status ? "Прочитано" : "Новий"}</td>
                     <td className="td-btn-container">
                     <button onClick={() => deletOrder(item.id)}>
-                        <DeleteSvg width="16px" />
+                        <DeleteSvg width="24px" />
                       </button>
                       <button onClick={() => changeStatus(item.id)}>
-                        {item.status ? <ReadsCheackSvg width="16px"/> : <NoReadsCheackSvg width="16px"/>}
+                        {item.status ? <ReadsCheackSvg width="24px"/> : <NoReadsCheackSvg width="24px"/>}
                       </button>
                       <button onClick={() => changesMark(item.id)}>
-                        <BookMarkSvg width="16px"/>
+                      {item.mark ? <BookMarkFillSvg width="24px"/> : <BookMarkSvg width="24px" />}
                       </button>
                     </td>
                   </tr>
@@ -218,13 +225,13 @@ const OrderAdmin = () => {
                     <td>{item.status ? "Прочитано" : "Новий"}</td>
                     <td className="td-btn-container">
                       <button onClick={() => deletOrder(item.id)}>
-                        <DeleteSvg width="16px" />
+                        <DeleteSvg width="24px" />
                       </button>
                       <button onClick={() => changeStatus(item.id)}>
-                        {item.status ? <ReadsCheackSvg width="16px"/> : <NoReadsCheackSvg width="16px"/>}
+                      {item.status ? <ReadsCheackSvg width="24px"/> : <NoReadsCheackSvg width="24px"/>}
                       </button>
                       <button onClick={() => changesMark(item.id)}>
-                        <BookMarkSvg width="16px"/>
+                      {item.mark ? <BookMarkFillSvg width="24px"/> : <BookMarkSvg width="24px"/>}
                       </button>
                     </td>
                   </tr>
@@ -257,22 +264,24 @@ const OrderAdmin = () => {
                     <td>{item.status ? "Прочитано" : "Новий"}</td>
                     <td className="td-btn-container">
                     <button onClick={() => deletOrder(item.id)}>
-                        <DeleteSvg width="16px" />
+                        <DeleteSvg width="24px" />
                       </button>
                       <button onClick={() => changeStatus(item.id)}>
-                        {item.status ? <ReadsCheackSvg width="16px"/> : <NoReadsCheackSvg width="16px"/>}
+                      {item.status ? <ReadsCheackSvg width="24px"/> : <NoReadsCheackSvg width="24px"/>}
                       </button>
                       <button onClick={() => changesMark(item.id)}>
-                        <BookMarkSvg width="16px"/>
+                      {item.mark ? <BookMarkFillSvg width="24px"/> : <BookMarkSvg width="24px"/>}
                       </button>
                     </td>
                   </tr>
                 ))}
           </tbody>
-        </table>
+        </table>}
       </div>
     </div>
   );
 };
 
 export default OrderAdmin;
+
+
