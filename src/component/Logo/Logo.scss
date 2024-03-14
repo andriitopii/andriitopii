@@ -1,6 +1,6 @@
 .logo{
     display: flex;
-    width: 200px;
+    width: 48px;
     height: 48px;
     background-size: 100%;
     background-position: center;
@@ -9,22 +9,14 @@
     transition: all ease-in-out .25s;
     &--light{
         
-        background-image: url('./light.svg');
-        @media (min-width: 200px) and (max-width: 600px) {
-            background-image: url('./light-mob.svg');
-            height: 48px;
-            width: 96px;
-          }
+        background-image: url('./for-white.svg');
+        
           
     }
 
     &--dark{
         
-        background-image: url('./dark.svg');
-        @media (min-width: 200px) and (max-width: 600px) {
-            background-image: url('./dark-mob.svg');
-            height: 48px;
-            width: 96px;
-          }
+        background-image: url('./for-dark.svg');
+        
     }
 }

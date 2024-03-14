@@ -7,11 +7,13 @@
   &__menu{
     display: flex;
     flex-direction: column;
-    background-color: $main-black-color;
+    background-color: $main-white-color;
+    border-right: 1px solid #E4E9EC;
+    padding: 24px 0;
+    align-items: center;
     flex: 1;
-    max-width: 250px;
+    max-width: 80px;
     box-sizing: border-box;
-    padding: 24px;
     justify-content: space-between;
     transform: translateX(-100%);
     animation-name: slideLeftToRight;
@@ -20,15 +22,32 @@
     & nav {
         display: flex;
         flex-direction: column;
-        gap:8px;
+        gap:12px;
+        width: 100%;
+        max-width: 100%;
         & a {
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 12px;
-            color: $main-white-color;
-            &:hover{
-                background-color: $main-black-color-hover;
+            color: $text-color-black;
+            width: 100%;
+            max-height: 79px;
+            font-size: 10px;
+            & span{
+              transition: all ease-in-out .25s;
+            }
+            & svg{
+              transition: all ease-in-out .25s;
+            }
+            &:hover svg{
+                fill: $accent-main-color;
+            }
+            &:hover span{
+             color: $accent-main-color;
+            }
+            &:active svg{
+              transform: scale(.95);
             }
             
         }
@@ -36,14 +55,27 @@
 
     & button {
         display: flex;
-        color: $main-white-color;
-        padding: 12px;
-        background-color: #d84141;
         justify-content: center;
-        align-items: safe;
+        flex-direction: column;
+        background-color: transparent;
+        width: 100%;
+        box-sizing: border-box;
+        align-items: center;
         border: none;
         cursor: pointer;
         font-family: Geologica-Regular;
+        font-size: 10px;
+        color: $text-color-black;
+        transition: color ease-in-out .25s;
+        & svg{
+          transition: fill ease-in-out .25s;
+        }
+        &:hover svg{
+          fill: $main-red-color;
+        }
+        &:hover {
+          color: $main-red-color ;
+        }
     }
   }
   &__content{
@@ -59,4 +91,13 @@
   0%{transform: translateX(-100%);}
   50%{transform: translateX(10%);}
   100%{transform: translateX(0);}
+}
+.active-nav-link-admin {
+  border-right: 2px solid $accent-main-color;   
+  & svg {
+    fill: $accent-main-color;
+  }
+  & span {
+    color: $accent-main-color;
+  }
 }
