@@ -8,6 +8,7 @@ import ReviewsSvg from "../Icon/ReviewsSvg";
 import OrdersSvg from "../Icon/OrdersSvg";
 import BlogSvg from "../Icon/BlogSvg";
 import PortfolioSvg from "../Icon/PortfolioSvg";
+import SettingsSvg from "../Icon/SettingsSvg";
 const AdminPanel = ({ children }) => {
   const auth = getAuth();
   const navigate = useNavigate();
@@ -48,6 +49,10 @@ const AdminPanel = ({ children }) => {
             <NavLink className={asActive} to="portfolio">
               <PortfolioSvg width="28px" height="28px" />
               <span>Портфоліо</span>
+            </NavLink>
+            <NavLink className={asActive} to="settings">
+              <SettingsSvg width="28px" height="28px"/>
+              <span>Налаштування</span>
             </NavLink>
           </nav>
           <button onClick={logOut}>

@@ -28,6 +28,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <Route path="blog" element={<BlogAdmin/>}/>  
           <Route path="reviews" element={<ReviewsAdmin/>}/>  
           <Route path="order" element={<OrderAdmin/>}/>  
+          <Route path="settings" element={<OrderAdmin/>}/>  
           <Route path="*" element={<PageNotFound/>}/>
         </Route>
       </Routes>
