@@ -130,10 +130,7 @@ const Reviews = () => {
                 {...register("username", {
                   required: "Поле обовязкове для заповнення",
                   minLength: { value: 1, message: "Мінімум 1 символів" },
-                  pattern: {
-                    value: /^[a-zA-Zа-яА-Я]+$ /,
-                    message: "Не припустимі символи",
-                  },
+                  
                 })}
               />
               <div className="input__error">

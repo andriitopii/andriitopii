@@ -5,6 +5,23 @@
     flex-direction: column;
     flex-grow: 1;
     gap: 24px;
+    &__nav-bar{
+        display: flex;
+        & label{
+            display: flex;
+            padding: 12px;
+            cursor: pointer;
+        }
+        & input[type='radio']{
+            display: none;
+            &:checked + label {
+               background-color: red;
+            }
+        }
+        & form {
+            margin-left: auto;
+        }
+    }
     &__content{
         display: flex;
         flex-direction: row;
@@ -42,6 +59,16 @@
                         padding: 12px;
                         &:hover{
                             background-color:  rgba($accent-main-color,  0.25);
+                        }
+                    }
+                    & .td-btn-container{
+                        display: flex;
+                        gap: 4px;
+                        & button {
+                            display: flex;
+                            cursor: pointer;
+                            border: none;
+                            flex: 1;
                         }
                     }
                 }
