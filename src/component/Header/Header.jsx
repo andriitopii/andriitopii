@@ -9,7 +9,8 @@ import XSvg from "../Icon/XSvg";
 import { MyUseContext } from "../../context/ContextGlobal";
 import { Link } from "react-router-dom";
 const Header = () => {
-  const { socialLink } = MyUseContext();
+  
+  
   return (
     <header id="header" className="header">
       <div className="container container--col">
@@ -22,7 +23,7 @@ const Header = () => {
               engaging landing pages and portfolios that elevate your online
               presence. Hire me to transform your digital vision into reality!
             </p>
-            <Button type="btn--animation-blime">Contact me</Button>
+            <Button type="btn--animation-blime" >Order</Button>
           </div>
           <div className="header__media">
             <img src={WebGif} />
@@ -50,37 +51,37 @@ const Header = () => {
             </div>
             <ul className="header__social">
               <li>
-                <Link to={socialLink.instagram} target="__blank">
+                <Link target="__blank">
                   <InstagramSvg />
                 </Link>
               </li>
               <li>
-                <Link to={socialLink.twitter} target="__blank">
+                <Link  target="__blank">
                   <XSvg />
                 </Link>
               </li>
               <li>
-                <Link to={socialLink.facebook} target="__blank">
+                <Link  target="__blank">
                   <FacebookSvg />
                 </Link>
               </li>
               <li>
-                <Link to={socialLink.linkedin} target="__blank">
+                <Link  target="__blank">
                   <LinkedinSvg />
                 </Link>
               </li>
               <li>
-                <Link to={socialLink.github} target="__blank">
+                <Link  target="__blank">
                   GitHub
                 </Link>
               </li>
               <li>
-                <Link to={socialLink.behance} target="__blank">
+                <Link  target="__blank">
                   <BehanceSvg />
                 </Link>
               </li>
               <li>
-                <Link to={socialLink.tiktok} target="__blank">
+                <Link target="__blank">
                   TikTok
                 </Link>
               </li>

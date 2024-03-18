@@ -3,9 +3,13 @@ import Logo from "../Logo/Logo";
 import { Link, NavLink } from "react-router-dom";
 import { useState } from "react";
 import MenuSvg from "../Icon/MenuSvg";
+import { MyUseContext } from "../../context/ContextGlobal";
+import ChangeLang from "../ChangeLang/ChangeLang";
+
 
 const Nav = () => {
   const [toggleMenu, setToggleMenu] = useState("");
+const {data, changeLang, elHtml} = MyUseContext();
   const toggleMobileMen = () => {
     switch (toggleMenu) {
       case "":
@@ -18,6 +22,9 @@ const Nav = () => {
   };
   const asActive = ({ isActive }) =>
     isActive ? "nav__link active-nav-main-link" : "nav__link";
+
+    console.log(data);
+    console.log(elHtml);
   return (
     <>
       <div className={`nav__mobile-menu nav__mobile-menu${toggleMenu}`}>
@@ -50,7 +57,7 @@ const Nav = () => {
       </div>
       <div className="nav">
         <div className="container">
-          <nav className="nav__nav-main">
+          <nav className="nav__nav-main" >
             <Logo type="--light" />
             <NavLink className={asActive} to="/about-me">
               About Me
@@ -76,6 +83,7 @@ const Nav = () => {
             <NavLink className={asActive} to="/contact">
               Contact
             </NavLink>
+            <ChangeLang changeLang={changeLang} elHtml={elHtml}/>
             <button
               type="button"
               className="nav__mobile-menu-btn"

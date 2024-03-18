@@ -112,7 +112,7 @@ const Reviews = () => {
         setAllOpinion(arrData);
       });
       
-      console.log(allOpinion);
+
     }
     getReviews();
   }, []);

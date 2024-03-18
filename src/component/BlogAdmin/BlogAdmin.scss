@@ -1,0 +1,19 @@
+.blog-admin{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
+    height: fit-content;
+    &__nav-bar{
+        display: flex;
+        gap: 12px;
+        & a {
+            padding: 12px;
+            border-radius: 69px;
+        }
+        & form {
+            margin-left: auto;
+        }
+    }
+
+}

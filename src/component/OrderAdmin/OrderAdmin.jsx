@@ -142,7 +142,7 @@ const OrderAdmin = () => {
         
       </div>
 
-      <div className="order-admin__content">
+      <div className="order-admin__content"епеп>
         {allOrder.length === 0 ? <Loader/> :
         <table>
           <thead>

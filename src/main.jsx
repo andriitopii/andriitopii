@@ -18,7 +18,7 @@ import EditBlogAdmin from "./component/EditBlogAdmin/EditBlogAdmin";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <BrowserRouter>
-    <ContextGlobal>
+    
       <Routes>
         <Route path="/" element={<App/>}>
           <Route index element={<HomePage/>}/>
@@ -40,6 +40,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <Route path="*" element={<PageNotFound/>}/>
         </Route>
       </Routes>
-    </ContextGlobal>
+  
   </BrowserRouter>
 );

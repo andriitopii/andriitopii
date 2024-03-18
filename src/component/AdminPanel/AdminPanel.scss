@@ -4,11 +4,11 @@
   width: 100%;
   height: 100vh;
   max-height: 100vh;
-  &__menu{
+  &__menu {
     display: flex;
     flex-direction: column;
     background-color: $main-white-color;
-    border-right: 1px solid #E4E9EC;
+    border-right: 1px solid #e4e9ec;
     padding: 24px 0;
     align-items: center;
     flex: 1;
@@ -20,65 +20,64 @@
     animation-duration: 1s;
     animation-fill-mode: forwards;
     & nav {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      width: 100%;
+      max-width: 100%;
+      & a {
         display: flex;
         flex-direction: column;
-        gap:12px;
+        justify-content: center;
+        align-items: center;
+        color: $text-color-black;
         width: 100%;
-        max-width: 100%;
-        & a {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: $text-color-black;
-            width: 100%;
-            max-height: 79px;
-            font-size: 10px;
-            & span{
-              transition: all ease-in-out .25s;
-            }
-            & svg{
-              transition: all ease-in-out .25s;
-            }
-            &:hover svg{
-                fill: $accent-main-color;
-            }
-            &:hover span{
-             color: $accent-main-color;
-            }
-            &:active svg{
-              transform: scale(.95);
-            }
-            
+        max-height: 79px;
+        font-size: 10px;
+        & span {
+          transition: all ease-in-out 0.25s;
         }
+        & svg {
+          transition: all ease-in-out 0.25s;
+        }
+        &:hover svg {
+          fill: $accent-main-color;
+        }
+        &:hover span {
+          color: $accent-main-color;
+        }
+        &:active svg {
+          transform: scale(0.95);
+        }
+      }
     }
 
     & button {
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        background-color: transparent;
-        width: 100%;
-        box-sizing: border-box;
-        align-items: center;
-        border: none;
-        cursor: pointer;
-        font-family: Geologica-Regular;
-        font-size: 10px;
-        color: $text-color-black;
-        transition: color ease-in-out .25s;
-        & svg{
-          transition: fill ease-in-out .25s;
-        }
-        &:hover svg{
-          fill: $main-red-color;
-        }
-        &:hover {
-          color: $main-red-color ;
-        }
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      background-color: transparent;
+      width: 100%;
+      box-sizing: border-box;
+      align-items: center;
+      border: none;
+      cursor: pointer;
+      font-family: Geologica-Regular;
+      font-size: 10px;
+      color: $text-color-black;
+      transition: color ease-in-out 0.25s;
+      & svg {
+        transition: fill ease-in-out 0.25s;
+      }
+      &:hover svg {
+        fill: $main-red-color;
+      }
+      &:hover {
+        color: $main-red-color;
+      }
     }
   }
-  &__content{
+  &__content {
     display: flex;
     flex: 1;
     background-color: $main-white-color;
@@ -88,16 +87,27 @@
   }
 }
 @keyframes slideLeftToRight {
-  0%{transform: translateX(-100%);}
-  50%{transform: translateX(10%);}
-  100%{transform: translateX(0);}
+  0% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(10%);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
 .active-nav-link-admin {
-  border-right: 2px solid $accent-main-color;   
+  border-right: 2px solid $accent-main-color;
   & svg {
     fill: $accent-main-color;
   }
   & span {
     color: $accent-main-color;
   }
+}
+
+.active-tabs-admin {
+  background-color: #5aba8a;
+  color: #ffffff;
 }

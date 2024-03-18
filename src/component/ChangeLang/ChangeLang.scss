@@ -1,0 +1,58 @@
+@import "../../scss/abstract/variables.scss";
+.change-lang {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  &:hover &__choise{
+    display: flex;
+  
+  }
+
+  
+  & button{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    text-transform: uppercase;
+    background-color: transparent;
+    border: none;
+    padding: 8px;
+    border-radius: 100%;
+    color: $main-white-color;
+    & svg {
+        fill: $main-white-color;
+    }
+  }
+  &__choise {
+    display: none;
+    padding-top: 50px;
+    position: absolute;
+    right: 0;
+    & div {
+        display: flex;
+        flex-direction: column;
+        background-color: $main-white-color;
+        box-sizing: border-box;
+        padding: 8px 0;
+        border-radius: 8px;
+        border: 1px solid $accent-main-color-hover-transparent;
+        & label {
+            display: flex;
+            padding: 4px 8px;
+            cursor: pointer;
+            &:hover{
+                background-color: $accent-main-color;
+            }
+            
+        }
+        & input{
+            &:checked + label{
+                background-color: $accent-main-color;
+            }
+        }
+    }
+    
+  }
+}

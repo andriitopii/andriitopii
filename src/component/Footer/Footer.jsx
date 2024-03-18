@@ -92,13 +92,13 @@ const Footer = () => {
 
         <div className="footer__col footer__col--right-bottom-end">
           <ul className="footer__social">
-            <li><Link to={socialLink.instagram} target="__blank">Instagram</Link></li>
-            <li><Link to={socialLink.twitter} target="__blank">Twitter</Link></li>
-            <li><Link to={socialLink.facebook} target="__blank">Facebook</Link></li>
-            <li><Link to={socialLink.linkedin} target="__blank">LinkedIn</Link></li>
-            <li><Link to={socialLink.github} target="__blank">GitHub</Link></li>
-            <li><Link to={socialLink.behance} target="__blank">Behance</Link></li>
-            <li><Link to={socialLink.tiktok} target="__blank">TikTok</Link></li>
+            <li><Link  target="__blank">Instagram</Link></li>
+            <li><Link  target="__blank">Twitter</Link></li>
+            <li><Link  target="__blank">Facebook</Link></li>
+            <li><Link  target="__blank">LinkedIn</Link></li>
+            <li><Link  target="__blank">GitHub</Link></li>
+            <li><Link  target="__blank">Behance</Link></li>
+            <li><Link  target="__blank">TikTok</Link></li>
           </ul>
         </div>
       </div>
