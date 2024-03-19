@@ -1,0 +1,86 @@
+@import "../../scss/abstract/variables.scss";
+
+.editor {
+  display: flex;
+  flex-direction: column;
+  &__float-tool{
+    display: none;
+    border: 1px solid #e4e9ec;
+    background-color: $main-white-color;
+    position: absolute;
+    border-radius: 8px;
+    padding: 8px;
+    width: fit-content;
+  }
+  &__content{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    &_element{
+        display: inline-flex;
+        align-items: center;
+        padding: 4px;
+        cursor: pointer;
+        border-radius: 4px;
+        gap: 4px;
+        transition: background-color cubic-bezier(0.165, 0.84, 0.44, 1) .15s ;
+        max-width: 100%;
+        overflow: hidden;
+        & h1, pre {
+            text-wrap: pretty;
+            margin: 0;
+        }
+        &:hover{
+            background-color: $accent-main-color-hover-transparent;
+        }
+        & svg {
+            border-radius: 4px;
+            transition: all ease-in-out .15s;
+            min-width: 24px;
+            &:hover{
+            background-color: $accent-main-color;
+            fill: $main-white-color
+            }
+        }
+
+        &--over-drag{
+            background-color: rgba($accent-main-color, 0.8);
+        }
+    }
+  }
+ &__add{
+    display: flex;
+    position: relative;
+    padding: 12px;
+    max-width: 50px;
+    &_button {
+       
+    }
+    
+    &_list{
+        position: absolute;
+        display: none;
+        flex-direction: column;
+        padding: 12px 0;
+        background-color:$main-white-color-hover;
+        top: 0;
+        left: calc(100% + 12px);
+        gap: 8px;
+        border: 1px solid #e4e9ec;
+        border-radius: 12px;
+        &--show{
+            display: flex;
+        }
+        & li {
+            display: flex;
+            padding: 8px 12px;
+           
+            &:hover{
+                color: $main-white-color;
+                cursor: pointer;
+                background-color: $accent-main-color-hover-transparent;
+            }
+        }
+    }
+ }
+}
