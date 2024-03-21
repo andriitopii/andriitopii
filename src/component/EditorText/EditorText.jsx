@@ -4,7 +4,8 @@ import AddSvg from "../Icon/AddSvg";
 import DragIndicatorSvg from "../Icon/DragIndicatorSvg";
 import BoldSvg from "../Icon/BoldSvg";
 import LinkSvg from "../Icon/LinkSvg";
-const H1Editor = ({ children, style }) => {
+import ItalicSvg from "../Icon/ItalicSvg";
+const H1Editor = () => {
   const [initialText, setInitialText] = useState("Заголовок H1");
   const isEmpty = (e) => {
     if (e === "") {
@@ -14,7 +15,6 @@ const H1Editor = ({ children, style }) => {
   return (
     <h1>
       <pre
-        style={style}
         contentEditable={true}
         suppressContentEditableWarning={true}
         onBlur={(e) => isEmpty(e.target.innerText)}
@@ -25,7 +25,167 @@ const H1Editor = ({ children, style }) => {
     </h1>
   );
 };
+const H2Editor = () => {
+  const [initialText, setInitialText] = useState("Заголовок H2");
+  const isEmpty = (e) => {
+    if (e === "") {
+      setInitialText("Заголовок H2");
+    }
+  };
+  return (
+    <h2>
+      <pre
+        contentEditable={true}
+        suppressContentEditableWarning={true}
+        onBlur={(e) => isEmpty(e.target.innerText)}
+        onInput={(e) => setInitialText(e.target.value)}
+      >
+        {initialText === "" ? "Заголовок H2" : initialText}
+      </pre>
+    </h2>
+  );
+};
+const H3Editor = () => {
+  const [initialText, setInitialText] = useState("Заголовок H3");
+  const isEmpty = (e) => {
+    if (e === "") {
+      setInitialText("Заголовок H3");
+    }
+  };
+  return (
+    <h3>
+      <pre
+        contentEditable={true}
+        suppressContentEditableWarning={true}
+        onBlur={(e) => isEmpty(e.target.innerText)}
+        onInput={(e) => setInitialText(e.target.value)}
+      >
+        {initialText === "" ? "Заголовок H3" : initialText}
+      </pre>
+    </h3>
+  );
+};
 
+const PEditor = () => {
+  const [initialText, setInitialText] = useState("Параграф");
+  const isEmpty = (e) => {
+    if (e === "") {
+      setInitialText("Параграф");
+    }
+  };
+
+  return (
+    <p
+      className="achor"
+      contentEditable={true}
+      suppressContentEditableWarning={true}
+      onBlur={(e) => isEmpty(e.target.innerText)}
+      onInput={(e) => setInitialText(e.target.value)}
+    >
+      <span className="span-unbold">
+        {initialText === "" ? "Параграф" : initialText}
+      </span>
+    </p>
+  );
+};
+const CodeEditor = () => {
+  const [initialText, setInitialText] = useState("Код");
+  const isEmpty = (e) => {
+    if (e === "") {
+      setInitialText("Код");
+    }
+  };
+  return (
+    <pre
+      contentEditable={true}
+      suppressContentEditableWarning={true}
+      onBlur={(e) => isEmpty(e.target.innerText)}
+      onInput={(e) => setInitialText(e.target.value)}
+    >
+      <code className="achor">{initialText === "" ? "Код" : initialText}</code>
+    </pre>
+  );
+};
+const ImageEditor = () => {
+  const [initialText, setInitialText] = useState("IMG");
+  const isEmpty = (e) => {
+    if (e === "") {
+      setInitialText("IMG");
+    }
+  };
+  return (
+    <code>
+      <pre
+        contentEditable={true}
+        suppressContentEditableWarning={true}
+        onBlur={(e) => isEmpty(e.target.innerText)}
+        onInput={(e) => setInitialText(e.target.value)}
+      >
+        {initialText === "" ? "IMG" : initialText}
+      </pre>
+    </code>
+  );
+};
+const LinkEditor = () => {
+  const [initialText, setInitialText] = useState("LINK");
+  const isEmpty = (e) => {
+    if (e === "") {
+      setInitialText("LINK");
+    }
+  };
+  return (
+    <code>
+      <pre
+        contentEditable={true}
+        suppressContentEditableWarning={true}
+        onBlur={(e) => isEmpty(e.target.innerText)}
+        onInput={(e) => setInitialText(e.target.value)}
+      >
+        {initialText === "" ? "LINK" : initialText}
+      </pre>
+    </code>
+  );
+};
+const VideoEditor = () => {
+  const [initialText, setInitialText] = useState("Video");
+  const isEmpty = (e) => {
+    if (e === "") {
+      setInitialText("Video");
+    }
+  };
+  return (
+    <code>
+      <pre
+        contentEditable={true}
+        suppressContentEditableWarning={true}
+        onBlur={(e) => isEmpty(e.target.innerText)}
+        onInput={(e) => setInitialText(e.target.value)}
+      >
+        {initialText === "" ? "Video" : initialText}
+      </pre>
+    </code>
+  );
+};
+const UlEditor = () => {
+  const [initialText, setInitialText] = useState("Ul");
+  const isEmpty = (e) => {
+    if (e === "") {
+      setInitialText("UL");
+    }
+  };
+  return (
+    <code>
+      <pre
+        contentEditable={true}
+        suppressContentEditableWarning={true}
+        onBlur={(e) => isEmpty(e.target.innerText)}
+        onInput={(e) => setInitialText(e.target.value)}
+      >
+        {initialText === "" ? "UL" : initialText}
+      </pre>
+    </code>
+  );
+};
 const EditorText = () => {
   const [showAddMenu, setShowAddMenu] = useState("");
   const [content, setContent] = useState([]);
@@ -45,59 +205,233 @@ const EditorText = () => {
       top: top - 60 + "px",
     });
   }
-  function addH1() {
-    setContent([
-      ...content,
-      <H1Editor style={{ order: content.length }}></H1Editor>,
-    ]);
+  function addElement(item) {
+    switch (item) {
+      case "H1":
+        setContent([...content, <H1Editor></H1Editor>]);
+        break;
+      case "H2":
+        setContent([...content, <H2Editor></H2Editor>]);
+        break;
+      case "H3":
+        setContent([...content, <H3Editor></H3Editor>]);
+        break;
+      case "P":
+        setContent([...content, <PEditor></PEditor>]);
+        break;
+      case "CODE":
+        setContent([...content, <CodeEditor></CodeEditor>]);
+        break;
+      case "IMAGE":
+        setContent([...content, <ImageEditor></ImageEditor>]);
+        break;
+      case "LINK":
+        setContent([...content, <LinkEditor></LinkEditor>]);
+        break;
+      case "VIDEO":
+        setContent([...content, <VideoEditor></VideoEditor>]);
+        break;
+      case "UL":
+        setContent([...content, <UlEditor />]);
+        break;
+    }
   }
 
+  //логіка сортування елементів
   function dragStart(event, item) {
     console.log(item.dataTransfer);
     setTakeItem(item);
   }
   function dragOver(event, item) {
     event.preventDefault();
-   
     item.classList.add("editor__content_element--over-drag");
-    
-    
     setOverItem(item);
-    
   }
 
   function dragLeave(e, item) {
-    e.preventDefault()
+    e.preventDefault();
     item.classList.remove("editor__content_element--over-drag");
   }
 
   function dragDrop(event, item) {
-    
     const takeAttr = takeItem.getAttribute("style");
     const overAttr = overItem.getAttribute("style");
     takeItem.setAttribute("style", overAttr);
     overItem.setAttribute("style", takeAttr);
     item.classList.remove("editor__content_element--over-drag");
-    }
+  }
   function dragEnd(e, item) {
     item.classList.remove("editor__content_element--over-drag");
   }
 
+  //  Функції foatTools
+  function floatToolAction(action) {
+    const selection = window.getSelection();
+    const range = selection.getRangeAt(0);
+    const surroundNode = document.createElement("span");
+    const nodeMirror = range.startContainer.parentElement.className;
+    //ACTION REBLACE
+    const replaceNode = (act) => {
+      switch (act) {
+        case "BOLD":
+          {
+            const extractElement = range.extractContents();
+            const textNode = document.createTextNode(
+              extractElement.textContent
+            );
+            surroundNode.classList.add("span-bold");
+            surroundNode.appendChild(textNode);
+            range.insertNode(surroundNode);
+            selection.removeAllRanges();
+          }
+          break;
+        case "UNBOLD":
+          {
+            const extractElement = range.extractContents();
+            const textNode = document.createTextNode(
+              extractElement.textContent
+            );
+            surroundNode.classList.add("span-unbold");
+            surroundNode.appendChild(textNode);
+            range.insertNode(surroundNode);
+            selection.removeAllRanges();
+          }
+          break;
+        case "UNBOLD-SWITCH":
+          range.startContainer.parentElement.classList.remove("span-bold");
+          range.startContainer.parentElement.classList.add("span-unbold");
+          selection.removeAllRanges();
+          break;
+        case "BOLD-SWITCH":
+          range.startContainer.parentElement.classList.remove("span-unbold");
+          range.startContainer.parentElement.classList.add("span-bold");
+          selection.removeAllRanges();
+          break;
+        case "ITALIC-BOLD":
+          {
+            const extractElement = range.extractContents();
+            const textNode = document.createTextNode(
+              extractElement.textContent
+            );
+            surroundNode.classList.add("span-italic");
+            surroundNode.classList.add("span-bold");
+            surroundNode.appendChild(textNode);
+            range.insertNode(surroundNode);
+            selection.removeAllRanges();
+          }
+          break;
+      }
+    };
+
+    switch (action) {
+      case "BOLD":
+        if (
+          range.startContainer.parentElement ===
+          range.endContainer.parentElement
+        ) {
+          console.log("ОДИНАКОВІ КОНТЕЙНЕРИ");
+          if (
+            range.startOffset === 0 &&
+            range.startContainer.parentElement.textContent.length ===
+              range.endOffset
+          ) {
+            switch (nodeMirror) {
+              case "achor":
+                replaceNode("BOLD");
+                break;
+              case "span-unbold":
+                replaceNode("BOLD-SWITCH");
+                break;
+              case "span-bold":
+                replaceNode("UNBOLD-SWITCH");
+                break;
+            }
+          } else {
+            console.log("ВІДІЛЕНО В СЕРЕДИНІ ОДИНАКОВИХ КОНТЕЙНЕРІВ");
+            console.log(nodeMirror);
+
+            switch (nodeMirror) {
+              case "achor":
+              case "span-unbold":
+                replaceNode("BOLD");
+                break;
+              case "span-bold":
+                replaceNode("UNBOLD");
+            }
+          }
+        } else if (
+          range.startContainer.parentElement != range.endContainer.parentElement
+        ) {
+          console.log("РІЗНІ КОНТЕЙНЕРИ");
+          console.log(range.startContainer.parentElement);
+          console.log(range.endContainer.parentElement);
+          switch (nodeMirror) {
+            case "achor":
+            case "span-unbold":
+              replaceNode("BOLD");
+              break;
+            case "span-bold":
+              replaceNode("UNBOLD");
+              break;
+          }
+        }
+        break;
+      case "ITALIC":
+        if (
+          range.startContainer.parentElement ===
+          range.endContainer.parentElement
+        ) {
+          console.log("ОДИНАКОВІ КОНТЕЙНЕРИ");
+          if (
+            range.startOffset === 0 &&
+            range.startContainer.parentElement.textContent.length ===
+              range.endOffset
+          ) {
+            console.log(
+              "ВІДІЛЕНО ВЕСЬ ТЕКСТ В СЕРЕДИНІ ОДИНАКОВИХ КОНТЕЙНЕРІВ"
+            );
+          } else {
+            console.log("ВІДІЛЕНО В СЕРЕДИНІ ОДИНАКОВИХ КОНТЕЙНЕРІВ");
+          }
+        } else if (
+          range.startContainer.parentElement != range.endContainer.parentElement
+        ) {
+          console.log("РІЗНІ КОНТЕЙНЕРИ");
+          if (nodeMirror != "span-italic" || nodeMirror != "span-unitalic") {
+            switch (nodeMirror) {
+              case "achor":
+              case "span-unbold":
+                replaceNode("ITALIC");
+                break;
+              case "span-bold":
+                replaceNode("ITALIC-BOLD");
+                break;
+            }
+          }
+        }
+        break;
+    }
+  }
+
   return (
     <div className="editor">
-      <ul className="editor__float-tool" style={floatToolPosition}>
+      <ul
+        className="editor__float-tool"
+        onBlur={() => setFloatToolPosition({ display: "none" })}
+        style={floatToolPosition}
+      >
         <li>
-          <button>
+          <button onClick={() => floatToolAction("BOLD")}>
             <BoldSvg width="24px" height="24px" />
           </button>
         </li>
         <li>
-          <button>
-            <LinkSvg width="24px" height="24px" />
+          <button onClick={() => floatToolAction("ITALIC")}>
+            <ItalicSvg width="24px" height="24px" />
           </button>
         </li>
         <li>
-          <button>
+          <button onClick={() => floatToolAction("LINK")}>
             <LinkSvg width="24px" height="24px" />
           </button>
         </li>
@@ -116,8 +450,8 @@ const EditorText = () => {
               onDragLeave={(e) => dragLeave(e, e.currentTarget)}
               onDrop={(e) => dragDrop(e, e.currentTarget)}
               onDragEnd={(e) => dragEnd(e, e.currentTarget)}
-              onFocus={(e) => floatTool(e)}
-              onBlur={() => setFloatToolPosition({ display: "none" })}
+              onFocus={(e) => floatTool(e, e.currentTarget)}
+              
               className="editor__content_element"
             >
               <DragIndicatorSvg width="24px" height="24px" />
@@ -137,14 +471,16 @@ const EditorText = () => {
           className={`editor__add_list ${showAddMenu}`}
           onMouseLeave={() => setShowAddMenu("")}
         >
-          <li onClick={() => addP()}>Paragraph</li>
-          <li onClick={() => addH1()}>H1</li>
-          <li onClick={() => addH2()}>H2</li>
-          <li onClick={() => addH3()}>H3</li>
-          <li onClick={() => addCode()}>Code</li>
-          <li onClick={() => addImage()}>Image</li>
-          <li onClick={() => addLink()}>Link</li>
-          <li onClick={() => addVideo()}>Video</li>
+          <li onClick={() => addElement("H1")}><h1>Заголовок H1</h1></li>
+          <li onClick={() => addElement("H2")}><h2>Заголовок H2</h2></li>
+          <li onClick={() => addElement("H3")}><h3>Заголовок H3</h3></li>
+          <li onClick={() => addElement("P")}><p>Параграф</p></li>
+          <li onClick={() => addElement("CODE")}><code>Код</code></li>
+          <li onClick={() => addElement("UL")}>Список</li>
+          <li onClick={() => addElement("IMAGE")}>Image</li>
+          <li onClick={() => addElement("LINK")}>Link</li>
+          <li onClick={() => addElement("VIDEO")}>Video</li>
+          
         </ul>
       </div>
     </div>
