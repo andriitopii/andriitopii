@@ -16,6 +16,7 @@
     align-items: center;
     gap: 24px;
     & h1 {
+      text-wrap: wrap;
       text-align: center;
       font-size: clamp(30px, 4vw, 48px);
       text-wrap: pretty;

@@ -61,7 +61,7 @@
       & li {
         display: flex;
         align-items: center;
-        gap: 8px;
+        gap: 12px;
         & span {
           font-size: clamp(24px, 4vw, 32px);
           font-family: Geologica-Bold;
@@ -71,16 +71,15 @@
           display: inline-flex;
           font-size: clamp(24px, 4vw, 32px);
           font-family: Geologica-Bold;
-          padding: 8px;
-          border-radius: 4px;
           transition: all ease-in-out 0.2s;
 
           &:hover {
             color: $accent-main-color;
+            transform: scale(1.1);
           }
           &:active {
-            background-color: $accent-main-color;
-            color: $main-white-color;
+            
+            color: $accent-main-color;;
           }
         }
       }
@@ -107,8 +106,8 @@
 }
 
 .active-nav-main-link {
-  background-color: $accent-main-color;
-  color: $main-white-color;
+  color: $accent-main-color;
+  transform: scale(1.1g);
 }
 
 @keyframes showMenu {
