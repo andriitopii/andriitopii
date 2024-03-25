@@ -33,6 +33,9 @@ const Nav = () => {
             toggleMenu ? "nav__nav-main--show" : "nav__nav-main--hide"
           }`}
         >
+          <div className="container container--col">
+
+          
           <ul>
             <li>
               <span>01</span>
@@ -117,6 +120,7 @@ const Nav = () => {
           </ul>
 
           <ChangeLang />
+          </div>
         </nav>
       </div>
     </>

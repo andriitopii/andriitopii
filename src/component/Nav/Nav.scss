@@ -27,11 +27,15 @@
     width: 100%;
     height: calc(100vh - 72px);
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
     top: 72px;
     box-sizing: border-box;
+    align-self: center;
     padding: 48px;
+    @media (min-width: 200px) and (max-width: 700px){
+      padding: 24px;
+    }
     &--show {
       display: flex;
       background-color: $main-white-color;
@@ -53,30 +57,31 @@
       display: flex;
       flex-direction: column;
       gap: 12px;
+      margin-top: auto;
       & li {
         display: flex;
         align-items: center;
         gap: 8px;
         & span {
-          font-size: 32px;
+          font-size: clamp(24px, 4vw, 32px);
           font-family: Geologica-Bold;
           color: $accent-main-color;
         }
         & a {
           display: inline-flex;
-          font-size: 32px;
+          font-size: clamp(24px, 4vw, 32px);
           font-family: Geologica-Bold;
           padding: 8px;
           border-radius: 4px;
-          transition: all ease-in-out .2s;
-          &:active{
-background-color: $accent-main-color;
-  color: $main-white-color;
+          transition: all ease-in-out 0.2s;
+
+          &:hover {
+            color: $accent-main-color;
           }
-          &:hover{
-           
-              color: $accent-main-color;;
-                      }
+          &:active {
+            background-color: $accent-main-color;
+            color: $main-white-color;
+          }
         }
       }
     }

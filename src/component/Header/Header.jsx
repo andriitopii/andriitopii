@@ -9,29 +9,35 @@ import { MyUseContext } from "../../context/ContextGlobal";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
 const Header = () => {
- 
   console.log();
   return (
     <header id="header" className="header">
       <div className="container container--col">
         <div className="header__content">
-          <ul>
+          <ul className="header__content_hashtag">
             <li>
               <span>#</span>
               LANDING PAGE
             </li>
             <li>
               <span>#</span>
-              ІНТЕРНЕТ МАГАЗИНИ
+              ІНТЕРНЕТ-МАГАЗИНИ
             </li>
             <li>
               <span>#</span>
               САЙТИ ДЛЯ БІЗНЕСУ
             </li>
+            <li>
+              <span>#</span>
+              САЙТИ ПОРТФОЛІО
+            </li>
           </ul>
           <h1>
-            <span tabIndex={0} title="На шляху до успіху вашого бізнесу в інтернеті, я допоможу вам
-              досягти вашої">
+            <span
+              tabIndex={0}
+              title="На шляху до успіху вашого бізнесу в інтернеті, я допоможу вам
+              досягти вашої"
+            >
               На шляху до успіху вашого бізнесу в інтернеті, я допоможу вам
               досягти вашої&ensp;
               <span className="header__content_dynamic-text dynamic-text">
@@ -47,21 +53,33 @@ const Header = () => {
           </h1>
           <ul className="header__content_social-link">
             <li>
-              <a href=""><InstagramSvg width="24px" fill="acc"/></a>
+              <a href="">
+                <InstagramSvg width="24px" fill="acc" />
+              </a>
             </li>
             <li>
-              <a href=""><FacebookSvg width="24px" fill="acc"/></a>
+              <a href="">
+                <FacebookSvg width="24px" fill="acc" />
+              </a>
             </li>
             <li>
-              <a href=""><BehanceSvg width="24px" fill="acc"/></a>
+              <a href="">
+                <BehanceSvg width="24px" fill="acc" />
+              </a>
             </li>
             <li>
-              <a href=""><XSvg width="24px" fill="acc"/></a>
+              <a href="">
+                <XSvg width="24px" fill="acc" />
+              </a>
             </li>
           </ul>
           <ul className="header__content_main-btn">
-            <li><Button type={"white-solid"}>Замовити</Button></li>
-            <li><Button type={"white-transparent"}>Детальніше</Button></li>
+            <li>
+              <Button type={"white-solid"}>Замовити</Button>
+            </li>
+            <li>
+              <Button type={"white-transparent"}>Детальніше</Button>
+            </li>
           </ul>
         </div>
       </div>
