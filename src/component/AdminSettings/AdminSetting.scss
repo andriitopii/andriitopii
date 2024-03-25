@@ -1,0 +1,10 @@
+@import "../../scss/abstract/variables.scss";
+.settings-admin{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    &__content{
+        display: flex;
+        
+    }
+}

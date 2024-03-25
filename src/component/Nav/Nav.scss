@@ -9,114 +9,120 @@
   justify-content: center;
   box-sizing: border-box;
   z-index: 99;
-  background-color: $main-black-color;
-
-  &__nav-main {
+  backdrop-filter: blur(4px);
+  &--menu-showed {
+    background-color: $main-white-color;
+  }
+  &__nav-header {
+    position: relative;
+    padding: 12px 0;
     width: 100%;
     display: flex;
-    border-radius: 48px;
     flex-direction: row;
-    gap: 24px;
     justify-content: space-between;
-    align-items: center;
-    box-sizing: border-box;
   }
-  &__link {
-    color: $main-white-color;
-    display: flex;
-    box-sizing: border-box;
-    text-wrap: nowrap;
-    padding: 24px;
-    transition: all ease-in-out .25s;
-    @media (min-width: 200px) and (max-width: 600px) {
-      display: none;
-    }
-    @media (min-width: 601px) and (max-width: 1368px) {
-      display: none;
-    }
-    @media (min-width: 1369px) {
-      display: flex;
-    }
-    &:hover {
-      background-color: $accent-main-color;
-    }
-  }
-  &__mobile-menu-btn {
-    z-index: 100;
-    display: flex;
-    padding: 24px;
-    border: none;
-    border-radius: 100%;
-    background-color: transparent;
-    transition: all ease-in-out .2s;
-    cursor: pointer;
-    &:hover svg *{
-      fill: $main-white-color;
-    }
-    & svg{
-      width:24px;
-      height: 24px;
-    }
-    & svg *{
-      fill: $accent-main-color;
-      transition: fill ease-in-out .2s;
-      
-    }
-    @media (min-width: 300px) and (max-width: 600px) {
-      display: flex;
-    }
-    @media (min-width: 601px) and (max-width: 1368px) {
-      display: flex;
-    }
-    @media (min-width: 1369px) {
-      display: none;
-    }
-  }
-  &__mobile-menu{
-    position: fixed;
-    left: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    top: -150vh;
-    box-sizing: border-box;
+  &__nav-main {
+    position: absolute;
+    display: none;
     width: 100%;
-    height: 100vh;
-    background-color: $accent-main-color;
-    z-index: 10;
-    transition: top ease-in-out .5s;
-    & nav{
+    height: calc(100vh - 72px);
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    top: 72px;
+    box-sizing: border-box;
+    padding: 48px;
+    &--show {
+      display: flex;
+      background-color: $main-white-color;
+      opacity: 0;
+      transform: scale(0.95);
+      animation-name: showMenu;
+      animation-fill-mode: forwards;
+      animation-duration: 0.5s;
+    }
+    &--hide {
+      display: flex;
+      background-color: $main-white-color;
+      opacity: 1;
+      animation-name: hideMenu;
+      animation-fill-mode: forwards;
+      animation-duration: 0.5s;
+    }
+    & ul {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      & li {
         display: flex;
-        flex-direction: column;
         align-items: center;
-        justify-content: center;
-        gap:12px;
-        & a {
-            font-size: clamp(24px, 4.6vw, 48px);
-            font-family: Geologica-Bold;
-            transition: color ease-in-out .25s;
-            &:active, &:hover{
-                color: $main-white-color;
-            }
-           
+        gap: 8px;
+        & span {
+          font-size: 32px;
+          font-family: Geologica-Bold;
+          color: $accent-main-color;
         }
+        & a {
+          display: inline-flex;
+          font-size: 32px;
+          font-family: Geologica-Bold;
+          padding: 8px;
+          border-radius: 4px;
+          transition: all ease-in-out .2s;
+          &:active{
+background-color: $accent-main-color;
+  color: $main-white-color;
+          }
+          &:hover{
+           
+              color: $accent-main-color;;
+                      }
+        }
+      }
     }
-    &--show{
-        top: 0;
+  }
+
+  &__btn-menu {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    & svg {
+      transition: transform ease-in-out 0.2s;
     }
-    @media (min-width: 300px) and (max-width: 600px) {
-        display: flex;
-      }
-      @media (min-width: 601px) and (max-width: 1368px) {
-        display: flex;
-      }
-      @media (min-width: 1369px) {
-        display: none;
-      }
+    &:hover svg {
+      transform: rotate(180deg);
+    }
   }
 }
 
-
-.active-nav-main-link{
+.active-nav-main-link {
   background-color: $accent-main-color;
+  color: $main-white-color;
+}
+
+@keyframes showMenu {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes hideMenu {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.95);
+    display: none;
+  }
 }

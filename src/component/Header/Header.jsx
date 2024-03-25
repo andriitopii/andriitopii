@@ -1,5 +1,4 @@
 import "./Header.scss";
-import WebGif from "./webdevgif.gif";
 import Button from "../Button/Button";
 import LinkedinSvg from "../Icon/LinkedinSvg";
 import InstagramSvg from "../Icon/InstagramSvg";
@@ -8,85 +7,62 @@ import FacebookSvg from "../Icon/FacebookSvg";
 import XSvg from "../Icon/XSvg";
 import { MyUseContext } from "../../context/ContextGlobal";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 const Header = () => {
-  
-  
+ 
+  console.log();
   return (
     <header id="header" className="header">
       <div className="container container--col">
         <div className="header__content">
-          <div className="header__info">
-            <h3>Andrii Topii - Skilled Web Developer</h3>
-            <h1>Crafting Impactful Websites for Your Digital Success</h1>
-            <p>
-              Hi, I'm Andrii, your go-to web developer. I specialize in crafting
-              engaging landing pages and portfolios that elevate your online
-              presence. Hire me to transform your digital vision into reality!
-            </p>
-            <Button type="btn--animation-blime" >Order</Button>
-          </div>
-          <div className="header__media">
-            <img src={WebGif} />
-          </div>
-        </div>
-        <div className="header__stripes">
-          <div className="container container--jc-sb container--ai-c">
-            <div className="header__fact">
-              <ul>
-                <li>
-                  <h1>35+</h1>
-                </li>
-                <li>
-                  <p>PROJECTS</p>
-                </li>
-              </ul>
-              <ul>
-                <li>
-                  <h1>3+ YEAR'S</h1>
-                </li>
-                <li>
-                  <p>EXPERIENCE</p>
-                </li>
-              </ul>
-            </div>
-            <ul className="header__social">
-              <li>
-                <Link target="__blank">
-                  <InstagramSvg />
-                </Link>
-              </li>
-              <li>
-                <Link  target="__blank">
-                  <XSvg />
-                </Link>
-              </li>
-              <li>
-                <Link  target="__blank">
-                  <FacebookSvg />
-                </Link>
-              </li>
-              <li>
-                <Link  target="__blank">
-                  <LinkedinSvg />
-                </Link>
-              </li>
-              <li>
-                <Link  target="__blank">
-                  GitHub
-                </Link>
-              </li>
-              <li>
-                <Link  target="__blank">
-                  <BehanceSvg />
-                </Link>
-              </li>
-              <li>
-                <Link target="__blank">
-                  TikTok
-                </Link>
-              </li>
-            </ul>
-          </div>
+          <ul>
+            <li>
+              <span>#</span>
+              LANDING PAGE
+            </li>
+            <li>
+              <span>#</span>
+              ІНТЕРНЕТ МАГАЗИНИ
+            </li>
+            <li>
+              <span>#</span>
+              САЙТИ ДЛЯ БІЗНЕСУ
+            </li>
+          </ul>
+          <h1>
+            <span tabIndex={0} title="На шляху до успіху вашого бізнесу в інтернеті, я допоможу вам
+              досягти вашої">
+              На шляху до успіху вашого бізнесу в інтернеті, я допоможу вам
+              досягти вашої&ensp;
+              <span className="header__content_dynamic-text dynamic-text">
+                <span className="dynamic-text__container">
+                  <span>переваги</span>
+                  <span>інноваційності</span>
+                  <span>ефективності</span>
+                  <span>унікальності</span>
+                  <span>креативності</span>
+                </span>
+              </span>
+            </span>
+          </h1>
+          <ul className="header__content_social-link">
+            <li>
+              <a href=""><InstagramSvg width="24px" fill="acc"/></a>
+            </li>
+            <li>
+              <a href=""><FacebookSvg width="24px" fill="acc"/></a>
+            </li>
+            <li>
+              <a href=""><BehanceSvg width="24px" fill="acc"/></a>
+            </li>
+            <li>
+              <a href=""><XSvg width="24px" fill="acc"/></a>
+            </li>
+          </ul>
+          <ul className="header__content_main-btn">
+            <li><Button type={"white-solid"}>Замовити</Button></li>
+            <li><Button type={"white-transparent"}>Детальніше</Button></li>
+          </ul>
         </div>
       </div>
     </header>

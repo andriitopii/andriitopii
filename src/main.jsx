@@ -15,6 +15,8 @@ import OrderAdmin from "./component/OrderAdmin/OrderAdmin";
 import AllBlogAdmin from "./component/AllBlogAdmin/AllBlogAdmin";
 import AddBlogAdmin from "./component/AddBlogAdmin/AddBlogAdmin";
 import EditBlogAdmin from "./component/EditBlogAdmin/EditBlogAdmin";
+import AdminSettings from "./component/AdminSettings/AdminSetting";
+import AdminSettingLangStart from "./component/AdminSettingLangStart/AdminSettingLangStart";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <BrowserRouter>
@@ -36,7 +38,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           </Route>  
           <Route path="reviews" element={<ReviewsAdmin/>}/>  
           <Route path="order/*" element={<OrderAdmin/>}/>
-          <Route path="settings" element={<OrderAdmin/>}/>  
+          <Route path="settings/*" element={<AdminSettings/>}>
+            <Route index element={<AdminSettingLangStart/>}/>
+          </Route>  
           <Route path="*" element={<PageNotFound/>}/>
         </Route>
       </Routes>

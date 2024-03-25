@@ -192,7 +192,7 @@ const EditorText = () => {
   const [floatToolPosition, setFloatToolPosition] = useState({});
   const [takeItem, setTakeItem] = useState(null);
   const [overItem, setOverItem] = useState(null);
-
+  const [linkShowInput, setLinkShowInput] = useState(false)
   const complete = useRef(null);
   const currentElement = useRef(null);
   function floatTool(e) {
@@ -263,12 +263,14 @@ const EditorText = () => {
   function dragEnd(e, item) {
     item.classList.remove("editor__content_element--over-drag");
   }
-
+ 
+  
   //  Функції foatTools
-  function floatToolAction(action) {
+  function floatToolAction(action, url) {
     const selection = window.getSelection();
     const range = selection.getRangeAt(0);
     const surroundNode = document.createElement("span");
+    const surroundNodeA = document.createElement("a");
     const nodeMirror = range.startContainer.parentElement.className;
     //ACTION REBLACE
     const replaceNode = (act) => {
@@ -320,6 +322,42 @@ const EditorText = () => {
             selection.removeAllRanges();
           }
           break;
+          case "ITALIC":
+          {
+            const extractElement = range.extractContents();
+            const textNode = document.createTextNode(extractElement.textContent);
+            surroundNode.classList.add("span-italic");
+            surroundNode.appendChild(textNode);
+            range.insertNode(surroundNode);
+            selection.removeAllRanges();
+          }
+          break;
+          case "UNITALIC":
+          {
+            const extractElement = range.extractContents();
+            const textNode = document.createTextNode(extractElement.textContent);
+            surroundNode.classList.add("span-unitalic");
+            surroundNode.appendChild(textNode);
+            range.insertNode(surroundNode);
+            selection.removeAllRanges();
+          }
+          break;
+          case "UNITALIC-SWITCH":
+          {
+            range.startContainer.parentElement.classList.remove("span-italic");
+            range.startContainer.parentElement.classList.add("span-unitalic");
+          
+            selection.removeAllRanges();
+          }
+          break;
+          case "ITALIC-SWITCH":
+          {
+            range.startContainer.parentElement.classList.remove("span-unitalic");
+            range.startContainer.parentElement.classList.add("span-italic");
+          
+            selection.removeAllRanges();
+          }
+          break;
       }
     };
 
@@ -337,6 +375,7 @@ const EditorText = () => {
           ) {
             switch (nodeMirror) {
               case "achor":
+                case "span-italic":
                 replaceNode("BOLD");
                 break;
               case "span-unbold":
@@ -344,6 +383,9 @@ const EditorText = () => {
                 break;
               case "span-bold":
                 replaceNode("UNBOLD-SWITCH");
+                break;
+                default: 
+                replaceNode("BOLD");
                 break;
             }
           } else {
@@ -357,14 +399,15 @@ const EditorText = () => {
                 break;
               case "span-bold":
                 replaceNode("UNBOLD");
+                default:
+                  replaceNode("BOLD")
             }
           }
         } else if (
           range.startContainer.parentElement != range.endContainer.parentElement
         ) {
           console.log("РІЗНІ КОНТЕЙНЕРИ");
-          console.log(range.startContainer.parentElement);
-          console.log(range.endContainer.parentElement);
+          console.log(nodeMirror);
           switch (nodeMirror) {
             case "achor":
             case "span-unbold":
@@ -373,10 +416,76 @@ const EditorText = () => {
             case "span-bold":
               replaceNode("UNBOLD");
               break;
+              
           }
         }
         break;
       case "ITALIC":
+        if (
+          range.startContainer.parentElement ===
+          range.endContainer.parentElement
+        ) {
+          console.log("ОДИНАКОВІ КОНТЕЙНЕРИ");
+          if (range.startOffset === 0 && range.startContainer.parentElement.textContent.length === range.endOffset) {
+            console.log(
+              "ВІДІЛЕНО ВЕСЬ ТЕКСТ В СЕРЕДИНІ ОДИНАКОВИХ КОНТЕЙНЕРІВ"
+            );
+            switch(nodeMirror){
+              case "achor":
+              case "span-unbold":
+                replaceNode("ITALIC");
+                break;
+              case "span-italic":
+                replaceNode("UNITALIC-SWITCH");
+                console.log("Sss");
+                break;
+                case "span-unitalic":
+                replaceNode("ITALIC-SWITCH");
+                break;
+                case "span-bold":
+                replaceNode("UNITALIC");
+                break;
+                
+            }
+          } else {
+            console.log("ВІДІЛЕНО В СЕРЕДИНІ ОДИНАКОВИХ КОНТЕЙНЕРІВ");
+            switch(nodeMirror){
+              case "achor":
+                replaceNode("ITALIC")
+                break;
+                case "span-italic":
+                  replaceNode("UNITALIC");
+                  break;
+                  case "span-unitalic":
+                  replaceNode("ITALIC");
+                  break;
+                  case "span-bold":
+                    replaceNode("ITALIC-BOLD");
+                    break;
+            }
+          }
+        } else if (
+          range.startContainer.parentElement != range.endContainer.parentElement
+        ) {
+          console.log("РІЗНІ КОНТЕЙНЕРИ");
+          
+            switch (nodeMirror) {
+              case "achor":
+              case "span-unbold":
+                replaceNode("ITALIC");
+                break;
+              case "span-bold":
+                replaceNode("ITALIC-BOLD");
+                break;
+                case "span-italic":
+                replaceNode("ITALIC");
+                break;
+            } 
+            
+        }
+        break;
+
+      case "LINK":
         if (
           range.startContainer.parentElement ===
           range.endContainer.parentElement
@@ -397,27 +506,22 @@ const EditorText = () => {
           range.startContainer.parentElement != range.endContainer.parentElement
         ) {
           console.log("РІЗНІ КОНТЕЙНЕРИ");
-          if (nodeMirror != "span-italic" || nodeMirror != "span-unitalic") {
-            switch (nodeMirror) {
-              case "achor":
-              case "span-unbold":
-                replaceNode("ITALIC");
-                break;
-              case "span-bold":
-                replaceNode("ITALIC-BOLD");
-                break;
-            }
-          }
         }
+        break;
         break;
     }
   }
-
+  function floatLinkAdd(e){
+    if(e.key === "Enter" && e.target.value != "")
+    {
+      floatToolAction("LINK", e.target.value)
+    }
+  }
   return (
     <div className="editor">
       <ul
         className="editor__float-tool"
-        onBlur={() => setFloatToolPosition({ display: "none" })}
+        onMouseLeave={() => setFloatToolPosition({ display: "none" })}
         style={floatToolPosition}
       >
         <li>
@@ -431,9 +535,11 @@ const EditorText = () => {
           </button>
         </li>
         <li>
-          <button onClick={() => floatToolAction("LINK")}>
+          <button onClick={() => setLinkShowInput(!linkShowInput)}>
             <LinkSvg width="24px" height="24px" />
+            
           </button>
+          {linkShowInput && <input type="url" placeholder="Введіть посилання" onKeyDown={floatLinkAdd}></input> }
         </li>
       </ul>
 
@@ -451,7 +557,6 @@ const EditorText = () => {
               onDrop={(e) => dragDrop(e, e.currentTarget)}
               onDragEnd={(e) => dragEnd(e, e.currentTarget)}
               onFocus={(e) => floatTool(e, e.currentTarget)}
-              
               className="editor__content_element"
             >
               <DragIndicatorSvg width="24px" height="24px" />
@@ -471,16 +576,25 @@ const EditorText = () => {
           className={`editor__add_list ${showAddMenu}`}
           onMouseLeave={() => setShowAddMenu("")}
         >
-          <li onClick={() => addElement("H1")}><h1>Заголовок H1</h1></li>
-          <li onClick={() => addElement("H2")}><h2>Заголовок H2</h2></li>
-          <li onClick={() => addElement("H3")}><h3>Заголовок H3</h3></li>
-          <li onClick={() => addElement("P")}><p>Параграф</p></li>
-          <li onClick={() => addElement("CODE")}><code>Код</code></li>
+          <li onClick={() => addElement("H1")}>
+            <h1>Заголовок H1</h1>
+          </li>
+          <li onClick={() => addElement("H2")}>
+            <h2>Заголовок H2</h2>
+          </li>
+          <li onClick={() => addElement("H3")}>
+            <h3>Заголовок H3</h3>
+          </li>
+          <li onClick={() => addElement("P")}>
+            <p>Параграф</p>
+          </li>
+          <li onClick={() => addElement("CODE")}>
+            <code>Код</code>
+          </li>
           <li onClick={() => addElement("UL")}>Список</li>
           <li onClick={() => addElement("IMAGE")}>Image</li>
           <li onClick={() => addElement("LINK")}>Link</li>
           <li onClick={() => addElement("VIDEO")}>Video</li>
-          
         </ul>
       </div>
     </div>

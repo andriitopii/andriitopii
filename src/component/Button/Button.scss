@@ -1,42 +1,56 @@
 @import "../../scss/abstract/variables.scss";
 .btn {
-  padding: 12px 64px;
+  padding: 12px 24px;
   font-family: Geologica-Medium;
-  background-color: $accent-main-color;
   color: $main-white-color;
-  box-sizing: border-box;
+  box-sizing:content-box;
   text-wrap: nowrap;
-  font-size: 18px;
+  font-size: 16px;
   position: relative;
-  border: none;
+  border:none;
+  border-radius: 12px;
   display: flex;
   align-items: center;
   cursor: pointer;
+  transition: all ease-in-out .2s;
+  &:active{
+    transform: scale(0.98);
+  }
+
+  &:hover::before{
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+  &::before{
+    content: "";
+    display: flex;
+    position: absolute;
+    width: calc(100% + 8px);
+    height: calc(100% + 8px);
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    top: -4px;
+    left: -4px;
+    z-index: -1;
+    transition: background-color ease-in-out .2s;
+  }
+  
+  margin: 6px;
   z-index: 9;
   transition: all ease-in-out 0.25s;
   box-shadow: 0 0 0 0 rgba($accent-main-color, 1);
-  &--animation-blime {
-    animation-name: blimeBtn;
-    animation-iteration-count: infinite;
-    animation-duration: 0.9s;
-    animation-timing-function: ease-in-out;
+  &--white-solid{
+    background-color: $main-white-color;
+    color: $main-black-color;
+    &:active{
+      
+    }
+    
+  }
+  &--white-transparent{
+    background-color: rgba($main-white-color, 0.5);
+    color: $main-black-color;
+    
   }
 }
 
-@keyframes blimeBtn {
-  0% {
-    box-shadow: 0 0 0 0 rgba($accent-main-color, 1);
-  }
-  25% {
-    box-shadow: 0 0 0 2px rgba($accent-main-color, 0.8);
-  }
-  50% {
-    box-shadow: 0 0 0 4px rgba($accent-main-color, 0.6);
-  }
-  75% {
-    box-shadow: 0 0 0 6px rgba($accent-main-color, 0.4);
-  }
-  100% {
-    box-shadow: 0 0 0 8px rgba($accent-main-color, 0);
-  }
-}
+

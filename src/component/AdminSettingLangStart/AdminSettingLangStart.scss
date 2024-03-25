@@ -1,0 +1,34 @@
+@import "../../scss/abstract/variables.scss";
+
+.settings-lang-table{
+    display: table-cell;
+    border-collapse: collapse;
+    table-layout: fixed;
+    background-color: #EFF7FA;
+    border-radius: 24px;
+    overflow: hidden;
+    box-sizing: border-box;
+    padding: 12px;
+    & thead {
+        background-color: $accent-main-color;
+        & tr{
+            & th
+            {
+                width: 33.33%;
+            }
+        }
+    }
+    & tbody {
+        & tr{
+            border-bottom: 1px solid $accent-main-color-hover;
+            & td {
+                position: relative;
+                
+                & p {
+                    padding: 12px;
+                }
+            }
+        }
+    }
+    
+}

@@ -6,93 +6,118 @@ import MenuSvg from "../Icon/MenuSvg";
 import { MyUseContext } from "../../context/ContextGlobal";
 import ChangeLang from "../ChangeLang/ChangeLang";
 
-
 const Nav = () => {
-  const [toggleMenu, setToggleMenu] = useState("");
-const {data, changeLang, elHtml} = MyUseContext();
-  const toggleMobileMen = () => {
-    switch (toggleMenu) {
-      case "":
-        setToggleMenu("--show");
-        break;
-      case "--show":
-        setToggleMenu("");
-        break;
-    }
-  };
+  const [toggleMenu, setToggleMenu] = useState(false);
   const asActive = ({ isActive }) =>
-    isActive ? "nav__link active-nav-main-link" : "nav__link";
+    isActive ? "active-nav-main-link" : "";
 
-    console.log(data);
-    console.log(elHtml);
   return (
     <>
-      <div className={`nav__mobile-menu nav__mobile-menu${toggleMenu}`}>
-        <nav>
-          <Link to="/about-me" onClick={() => toggleMobileMen()}>
-            About Me
-          </Link>
-          <Link to="/services" onClick={() => toggleMobileMen()}>
-            Services
-          </Link>
-          <Link to="/pricing" onClick={() => toggleMobileMen()}>
-            Pricing
-          </Link>
-          <Link to="/portfolio" onClick={() => toggleMobileMen()}>
-            Portfolio
-          </Link>
-          <Link to="/blog" onClick={() => toggleMobileMen()}>
-            Blog
-          </Link>
-          <Link to="/reviews" onClick={() => toggleMobileMen()}>
-            Reviews
-          </Link>
-          <Link to="/technology" onClick={() => toggleMobileMen()}>
-            Technology
-          </Link>
-          <Link to="/contact" onClick={() => toggleMobileMen()}>
-            Contact
-          </Link>
-        </nav>
-      </div>
-      <div className="nav">
+      <div className={`nav ${toggleMenu ? "nav--menu-showed" : ""}`}>
         <div className="container">
-          <nav className="nav__nav-main" >
-            <Logo type="--light" />
-            <NavLink className={asActive} to="/about-me">
-              About Me
-            </NavLink>
-            <NavLink className={asActive} to="/services">
-              Services
-            </NavLink>
-            <NavLink className={asActive} to="/pricing">
-              Pricing
-            </NavLink>
-            <NavLink className={asActive} to="/portfolio">
-              Portfolio
-            </NavLink>
-            <NavLink className={asActive} to="/blog">
-              Blog
-            </NavLink>
-            <NavLink className={asActive} to="/reviews">
-              Reviews
-            </NavLink>
-            <NavLink className={asActive} to="/technology">
-              Technology
-            </NavLink>
-            <NavLink className={asActive} to="/contact">
-              Contact
-            </NavLink>
-            <ChangeLang changeLang={changeLang} elHtml={elHtml}/>
+          <div className="nav__nav-header">
+            <Logo onClick={setToggleMenu} direct={"/"} type="--light" />
             <button
               type="button"
-              className="nav__mobile-menu-btn"
-              onClick={() => toggleMobileMen()}
+              className="nav__btn-menu"
+              onClick={() => setToggleMenu(!toggleMenu)}
             >
               <MenuSvg />
             </button>
-          </nav>
+          </div>
         </div>
+        
+        <nav
+          onClick={() => setToggleMenu(false)}
+          className={`nav__nav-main ${
+            toggleMenu ? "nav__nav-main--show" : "nav__nav-main--hide"
+          }`}
+        >
+          <ul>
+            <li>
+              <span>01</span>
+              <NavLink
+                onClick={() => setToggleMenu(!toggleMenu)}
+                className={asActive}
+                to="/about-me"
+              >
+                About Me
+              </NavLink>
+            </li>
+            <li>
+              <span>02</span>
+              <NavLink
+                onClick={() => setToggleMenu(!toggleMenu)}
+                className={asActive}
+                to="/services"
+              >
+                Services
+              </NavLink>
+            </li>
+            <li>
+              <span>03</span>
+              <NavLink
+                onClick={() => setToggleMenu(!toggleMenu)}
+                className={asActive}
+                to="/pricing"
+              >
+                Pricing
+              </NavLink>
+            </li>
+            <li>
+              <span>04</span>
+              <NavLink
+                onClick={() => setToggleMenu(!toggleMenu)}
+                className={asActive}
+                to="/portfolio"
+              >
+                Portfolio
+              </NavLink>
+            </li>
+            <li>
+              <span>05</span>
+              <NavLink
+                onClick={() => setToggleMenu(!toggleMenu)}
+                className={asActive}
+                to="/blog"
+              >
+                Blog
+              </NavLink>
+            </li>
+            <li>
+              <span>06</span>
+              <NavLink
+                onClick={() => setToggleMenu(!toggleMenu)}
+                className={asActive}
+                to="/reviews"
+              >
+                Reviews
+              </NavLink>
+            </li>
+            <li>
+              <span>07</span>
+              <NavLink
+                onClick={() => setToggleMenu(!toggleMenu)}
+                className={asActive}
+                to="/technology"
+              >
+                Technology
+              </NavLink>
+            </li>
+            <li>
+              <span>08</span>
+              <NavLink
+                onClick={() => setToggleMenu(!toggleMenu)}
+                className={asActive}
+                to="/contact"
+              >
+                Contact
+              </NavLink>
+            </li>
+          </ul>
+
+          <ChangeLang />
+        </nav>
       </div>
     </>
   );
