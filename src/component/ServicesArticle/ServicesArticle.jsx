@@ -5,7 +5,6 @@ const ServicesArticle = (props) => {
   return (
     <article
       className="services__article"
-      
     >
       
       <h1>#Лендінг-сторінка</h1>

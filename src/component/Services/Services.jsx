@@ -2,8 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import ArrowBackSvg from "../Icon/ArrowBackSvg";
 import ArrowForwardSvg from "../Icon/ArrowForwardSvg";
 import ServicesArticle from "../ServicesArticle/ServicesArticle";
-import "./Services.scss";
-
+import "./Services.scss";;
 const Services = () => {
   const refContainer = useRef(null);
   const [currentSlide, setCurrentSlide] = useState(0)
@@ -78,10 +77,10 @@ const Services = () => {
               <ArrowForwardSvg width="24px" />
             </button>
             <div className="services__slider_checked">
-              <span className={currentSlide === 0 && "current-slided"} ></span>
-              <span className={currentSlide === 1 && "current-slided"} ></span>
-              <span className={currentSlide === 2 && "current-slided"} ></span>
-              <span className={currentSlide === 3 && "current-slided"} ></span>
+              <span className={currentSlide === 0 ? "current-slided" : ""} ></span>
+              <span className={currentSlide === 1 ? "current-slided" : ""} ></span>
+              <span className={currentSlide === 2 ? "current-slided" : ""} ></span>
+              <span className={currentSlide === 3 ? "current-slided" : ""} ></span>
             </div>
           </div>
         </div>
