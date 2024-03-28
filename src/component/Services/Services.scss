@@ -1,12 +1,69 @@
+@import "../../scss/abstract/variables.scss";
 .services{
-    flex-grow: 1;
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 24px;
     flex-wrap: wrap;
-    
-    & article{
-        flex: 1;
+    border-radius: 24px;
+    box-sizing: border-box;
+    padding: 12px;
+    border: 1px solid $main-black-color;
+    background-color: $main-black-color;
+    &__slider{
+        display: flex;
+        position: relative;
+        min-height:400px;
+        width: 100%;
+        gap: 12px;
+        box-sizing: border-box;
+        padding: 24px 0;
+        &_container{
+            position: relative;
+            display: flex;
+            width: 100%;
+            box-sizing: border-box;
+            overflow-y: hidden;
+            overflow-x: scroll;
+            scroll-behavior: smooth;
+            scrollbar-width:none;
+            scroll-snap-type:x mandatory;
+            gap: 24px;
+        }
+        &_checked{
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 4px;
+
+            & span {
+                display: flex;
+                width: 10px;
+                height: 10px;
+                border-radius: 100%;
+                border: 2px solid rgba($accent-main-color, $alpha: 1);
+                transition: all ease-in-out .25s;
+            }
+            
+        }
+        & button {
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            & svg {
+                fill: rgba($accent-main-color, $alpha: 0.5);
+                transition: fill ease-in-out .2s;
+            }
+            &:hover svg{
+                fill: $accent-main-color;
+            }
+        }
     }
+    
+}
+
+ .current-slided {
+    background-color: rgba($accent-main-color, $alpha: 1);
 }

@@ -1,44 +1,78 @@
 @import "../../scss/abstract/variables.scss";
 
-.services__article{
+.services__article {
+  display: flex;
+  flex-direction: column;
+  min-width: 100%;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  background-size: cover;
+  background-position: center;
+  justify-content: space-around;
+  gap:24px;
+  scroll-snap-align: start;
+  & h1 {
+    font-size: clamp(36px, 4.6vw, 64px);
+    text-wrap: wrap;
+    line-height: clamp(36px, 4.6vw, 64px);
+    background: linear-gradient(
+      90deg,
+      rgba(226, 243, 151, 1) 0%,
+      rgba(90, 186, 138, 1) 100%
+    );
+    background-clip: text;
+    color: transparent;
+    overflow: hidden;
+    text-transform: uppercase;
+  }
+  p {
+    font-size: clamp(16px, 4.6vw, 24px);
+    color: $main-white-color;
+    max-width: 80%;
+   
+  }
+  & ul {
     display: flex;
-    flex-direction: column;
-    min-width: 200px;
-    max-width: 100%;
-    box-sizing: border-box;
-    background-size: cover;
-    background-position: center;
-    background-color: $main-white-color;
-    gap: 24px;
-    padding-bottom: 24px;
-    cursor: pointer;
-     & a, & p, & ul {
-        margin-left: 24px;
-        margin-right: 24px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 4px;
+    & span {
+        background: linear-gradient(
+            90deg,
+            rgba(226, 243, 151, 1) 0%,
+            rgba(90, 186, 138, 1) 100%
+          );
+          background-clip: text;
+          color: transparent;
     }
-    & h1{
-        font-size: clamp(48px, 4.6vw, 64px);
-        text-wrap: wrap;
-        line-height: clamp(48px, 4.6vw, 64px);
-        background-color: $accent-main-color;
-        padding: 24px;
-        overflow: hidden;
+    & li {
+      font-size: clamp(10px, 4.6vw, 14px);
+      text-transform: uppercase;
+      color: $main-white-color;
+      & h3 {
+        background: linear-gradient(
+          90deg,
+          rgba(226, 243, 151, 1) 0%,
+          rgba(90, 186, 138, 1) 100%
+        );
+        background-clip: text;
+        color: transparent;
+        font-size: clamp(16px, 4.6vw, 24px);
+      }
     }
-    & ul{
-        display: flex;
-        gap: 12px;
-        flex-wrap: wrap;
-        & li {
-            display: flex;
-            padding: 12px;
-            border: 1px solid $accent-main-color;
-        }
-    }
-    & a {
-        font-family: Geologica-Bold ;
-        display: flex;
-        align-items: center;
-        gap: 2px;
-    }
-    
+  }
+  & a {
+    font-family: Geologica-Bold;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+  }
+  &_image {
+    position: absolute;
+    height: 100%;
+    right: 0;
+    top: 0;
+  }
 }

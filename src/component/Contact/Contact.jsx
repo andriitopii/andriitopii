@@ -8,6 +8,7 @@ import {
 } from "firebase/firestore";
 import { app } from "../../bd/firebase";
 import "./Contact.scss";
+import { useEffect, useRef, useState } from "react";
 const Contact = () => {
   const {
     register,
@@ -17,8 +18,8 @@ const Contact = () => {
     handleSubmit,
   } = useForm({ mode: "onChange" });
   const db = getFirestore(app)
-
-
+  const [succForm, setSuccForm] = useState(false)
+  const refTitle = useRef(null)
   const sendContactForn = async (data) => {
  
     await addDoc(collection(db, "order"), {
@@ -29,22 +30,31 @@ const Contact = () => {
       about: data.about,
       email: data.email,
       status: false,
-    }).then().catch((e)=>console.log(e));
+    }).then(()=>{
+      setSuccForm(!succForm)
+      
+      reset()
+    }).catch((e)=>console.log(e));
  
-
+    
   };
 
   return (
     <section id="contact">
       <div className="container container--col container--background-dark">
-        <h1 className="title-section title-section--light">Contact</h1>
         <div className="contact">
+          {succForm ? <div className="contact__succsess">
+              Ви успішно надіслали відгук
+            </div> : <></>
+
+          }
+        
           <h1>
-            Just fill out this <span>form</span> and I'll <span>get back</span>{" "}
-            to you.
+          Просто заповніть цю форму, і я зв'яжуся з вами.
           </h1>
 
           <form onSubmit={handleSubmit(sendContactForn)}>
+            
             <p>
               My name is <input type="text" placeholder="Name" {...register("name", {
                   required: true,

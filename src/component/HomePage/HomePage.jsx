@@ -10,6 +10,8 @@ import Header from "../Header/Header";
 import { Helmet } from "react-helmet";
 import Nav from "../Nav/Nav";
 import { ContextGlobal } from "../../context/ContextGlobal";
+import { Suspense } from "react";
+import Loader from "../Loader/Loader";
 
 const HomePage = () => {
   return (
@@ -49,6 +51,7 @@ const HomePage = () => {
         <meta name="robots" content="index, follow" />
         <meta name="googlebot" content="index, follow" />
       </Helmet>
+      
       <Header />
       <AboutUs />
       <Services />
@@ -57,6 +60,7 @@ const HomePage = () => {
       <Blog />
       <Reviews />
       <Contact />
+   
     </>
   );
 };
