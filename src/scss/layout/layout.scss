@@ -5,10 +5,12 @@
     height: 100%;
     box-sizing: border-box;
     flex-grow: 1;
+    scroll-behavior: smooth;
     &--col{
         flex-direction: column;
         justify-content: center;
         gap: 32px;
+        scroll-behavior: smooth;
     }
     &__row{
         flex-direction: row;
