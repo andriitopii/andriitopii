@@ -54,9 +54,7 @@ const Services = () => {
     refContainer.current.addEventListener("scroll", () => controlSlider("scroll") 
     )
    
-    return ()=>{
-      refContainer.current.removeEventListener("scroll",  () => controlSlider("scroll"))
-    }
+    
   }, []);
 
   return (

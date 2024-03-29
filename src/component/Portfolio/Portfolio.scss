@@ -1,5 +1,37 @@
+@import "../../scss/abstract/variables.scss";
 .portfolio{
     display: flex;
     gap: 24px;
-    flex-wrap: wrap;
+    &__text{
+        display: flex;
+        gap: 24px;
+        flex-direction: column;
+        justify-content: center;
+        flex: 1;
+        & h1{
+            font-size: clamp(36px, 4.6vw, 64px);
+        }
+        & p {min-width: 327px;
+            max-width: 80%;
+            font-size: clamp(16px, 4vw, 24px);
+            text-wrap:pretty;
+        }
+    }
+    &__content{
+        flex: 1;
+        display: grid;
+        gap: 12px;
+        justify-content: flex-end;
+        align-content: center;
+        grid-template-columns: repeat(2, minmax(150px, 300px));
+        grid-template-rows: repeat(2, min-content);
+        @media (max-width: 1000px) {
+            justify-content: center;
+            grid-template-columns: repeat(2, minmax(150px, 1fr));
+        
+        }
+    }
+    @media (max-width: 1000px) {
+        flex-direction: column;
+    }
 }

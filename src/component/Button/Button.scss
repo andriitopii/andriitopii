@@ -70,6 +70,16 @@
       color: rgba($main-white-color, 1);
     }
   }
+  &--green-fill{
+    background-color: transparent;
+    background: rgba($accent-main-color, 1);
+    color: rgba($main-white-color, 1);
+    border: 2px solid rgba($accent-main-color, 1);
+    outline: 4px solid rgba($accent-main-color, 0.5);
+    &:hover{
+      color: rgba($main-black-color, 1);
+    }
+  }
 }
 
 

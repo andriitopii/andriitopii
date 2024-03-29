@@ -1,14 +1,14 @@
 import { Link } from "react-router-dom";
 import "./PortfolioArticle.scss";
 const PortfolioArticle = (props) => {
-  return <article className="portfolio-article">
-    <img src={props.imgUrl}/>
+  return <Link to={props?.href} className="portfolio-article" 
+  style={{backgroundImage: `url(${props.img})`}}
+  >
     <div className="portfolio-article__content">
-        <h2>{props.title}</h2>
-        <p>{props.content}</p>
-        <Link to="/portfolio">More</Link>
+        <h2>HERHEL BOUTIQUE</h2>
+        <p>ІНТЕРНЕТ-МАГАЗИН НА ПЛАТФОРМІ SHOPIFY</p>
     </div>
-  </article>;
+  </Link>
 };
 
 export default PortfolioArticle;

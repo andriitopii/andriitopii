@@ -1,9 +1,84 @@
 @import "../../scss/abstract/variables.scss";
-
+#about {
+  background-attachment: scroll;
+  background-size: cover;
+  background-image: url("./curve.svg");
+}
 .about {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   box-sizing: border-box;
-  gap: 12px;
-  
+
+  overflow-y: scroll;
+  overflow-x: hidden;
+  scroll-snap-type: y mandatory;
+  max-height: 100vh;
+  transition: all ease-in-out 0.25s;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+  &__block {
+    scroll-snap-align: start;
+    display: flex;
+    gap: 12px;
+    min-height: 100vh;
+    align-items: center;
+    &_text {
+      flex: 1;
+      font-family: Geologica-Bold;
+      font-size: clamp(36px, 4.6vw, 64px);
+      text-align: center;
+      & span {
+        background: linear-gradient(
+          90deg,
+          rgb(226, 243, 151) 0%,
+          rgb(90, 186, 138) 100%
+        );
+        background-clip: text;
+        color: transparent;
+      }
+    }
+    &_media {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      width: 100%;
+      & span {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        & h1 {
+          font-size: clamp(36px, 4.6vw, 64px);
+          background: linear-gradient(
+            90deg,
+            rgb(226, 243, 151) 0%,
+            rgb(90, 186, 138) 100%
+          );
+          background-clip: text;
+          color: transparent;
+        }
+        & h3 {
+          font-size: clamp(18px, 4.6vw, 32px);
+          
+        }
+        & ul {
+          display: flex;
+          flex-direction: column;
+          margin-top: 12px;
+          & li {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            & svg {
+              min-width: 24px;
+              width: 24px;
+              height: 24px;
+              fill: $accent-main-color;
+
+            }
+          }
+        }
+
+      }
+    }
+  }
 }

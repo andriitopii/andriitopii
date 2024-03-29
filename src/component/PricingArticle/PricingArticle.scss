@@ -3,18 +3,26 @@
 .pricing-article{
     display: flex;
     box-sizing: border-box;
-    padding: 24px;
+    padding: 12px;
+    border-radius: 24px;
     flex-direction: column;
-    border: 1px solid $accent-main-color;
+    background-color: rgba($main-black-color, 1);
+    outline: 4px solid rgba($main-black-color, 0.5);
     gap: 24px;
-    min-width: 200px;
+    min-width: 279px;
+    max-width: 100%;
     flex: 1;
     transition: all ease-in-out .25s;
+    scroll-snap-align:center;
     & h1 {
         font-size: 48px;
+        background: linear-gradient(90deg, rgb(226, 243, 151) 0%, rgb(90, 186, 138) 100%);
+        background-clip: text;
+        color: transparent;
     }
     & h2 {
         font-size: 16px;
+        color: $main-white-color;
     }
     & a {
         display: flex;
@@ -23,24 +31,30 @@
         align-items: center;
         background-color: $accent-main-color;
         color: $main-white-color;
+        align-self: flex-start;
+        margin-top: auto;
+    }
+    & p {
+        color: $main-white-color;;
     }
 
     & ul {
         display: flex;
         flex-direction: column;
-        gap: 12px;
+        gap: 4px;
+        color: $main-white-color;
         & li {
+            display: flex;
+            align-items: center;
+            gap: 8px;
             font-size: 12px;
+            & svg {
+                display: block;
+                min-width: 24px;
+                width: 24px;
+                height: 24px;
+                fill: $accent-main-color;
+            }
         }
-    }
-    &:hover{
-        background-color: $accent-main-color;
-    }
-    &:hover  * {
-        color: $main-white-color
-    }
-    &:hover  a {
-        background-color: $main-white-color;
-        color: $accent-main-color;
     }
 }
