@@ -11,6 +11,7 @@ import {
   collection,
   getDocs,
 } from "firebase/firestore";
+import Button from "../Button/Button";
 const Reviews = () => {
   const {
     register,
@@ -120,9 +121,9 @@ const Reviews = () => {
   return (
     <section id="reviews">
       <div className="container container--col container--background-dark">
-        <h1 className="title-section title-section--light">Reviews</h1>
         <div className="reviews">
           <div className="reviews__form">
+            <h1>Слова моїх клієнтів - це моє найбільше нагородження</h1>
             <form onSubmit={handleSubmit(sendForm)}>
               <input
                 type="text"
@@ -170,9 +171,10 @@ const Reviews = () => {
                   <p>{errors?.useropinion?.message || "Error"}</p>
                 )}
               </div>
-              <button className="btn-form" type="submit" disabled={!isValid}>
+              <button className="btn btn--green-fill" type="submit" disabled={!isValid}>
                 Submit
               </button>
+            
             </form>
           </div>
           <div className="reviews__content">
@@ -181,8 +183,8 @@ const Reviews = () => {
                 className="reviews__article"
                 key={index + "article-reviews"}
               >
-                <h1>{item.name}</h1>
-                <p>{item.opinion}</p>
+                <h3>{item.name}</h3>
+                <p>"{item.opinion}"</p>
                 <span>{item.date}</span>
               </article>
             ))}

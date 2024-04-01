@@ -42,17 +42,20 @@ header, footer, main, section, .nav{
 input, textarea, select {
   border: none;
       outline: none;
-      border-radius: 48px;
+      border-radius: 12px;
       border: 1px solid transparent;
-      padding: 8px 32px;
+      padding: 8px 24px;
       font-size: clamp(18px, 6vw, 18px);
       font-family: Geologica-Light;
       transition: all ease-in-out .25s;
       background-color: #EFF7FA;
+      outline: 4px solid rgba($accent-main-color, $alpha: .3);
 &:focus{
-  border: 1px solid $accent-main-color
+  outline: 4px solid rgba($accent-main-color, $alpha: .7);
 }
-
+}
+textarea {
+  resize: none;
 }
 input[type="search"]{
   padding-left: 48px;

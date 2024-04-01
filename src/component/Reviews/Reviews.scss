@@ -1,71 +1,69 @@
 @import "../../scss/abstract/variables.scss";
 
-.reviews{
-    display: flex;
-    flex-direction: row;
+.reviews {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  flex-wrap: wrap;
+  &__content {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(200px, 1fr));
+    grid-template-rows: repeat(2, auto);
     gap: 24px;
-    flex-wrap: wrap;
-    &__content{
-        display: flex;
-        gap: 24px;
-        align-items: flex-start;
-        flex-wrap: wrap;
-        flex: 1;
-        min-width: 200px;
+    flex: 1;
+    min-width: 200px;
+  }
+  &__form {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 24px;
+    border-radius: 24px;
+    max-width: 400px;
+    min-width: 200px;
+    background-color: $main-black-color;
+    padding: 12px;
+    & h1 {
+      font-size: clamp(20px, 4.6vw, 36px);
+      line-height: clamp(20px, 4.6vw, 36px);
+      color: #ffffff;
+      text-wrap: wrap;
     }
-    &__form{
-        display: flex;
-        flex: 1;
-        max-width: 400px;
-        min-width: 200px;
-        & form{
-            display: flex;
-            flex-direction: column;
-            flex: 1;
-            gap: 8px;
-            width: 100%;
-        }
+    & form {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      gap: 8px;
+      width: 100%;
     }
-    &__article{
-        background-color: $accent-main-color;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding: 24px;
-        gap: 12px;
-        flex: 1;
-        max-width: 200px;
-        & h1 {
-            font-size: 24px;
-            color: $main-white-color;
-        }
-        & p {
-            display: flex;
-            flex-wrap: wrap;
-            flex-direction: column;
-            color: $main-white-color;
-            &::after{
-                content: "";
-                
-                background-image: url("./quote.svg");
-            }
-            &::before{
-                content: "";
-                background-image: url("./quote.svg");
-                transform: rotateX(180deg);
-            }
-            &::after, &::before{
-                display: flex;
-                width: 24px;
-                height: 24px;
-            }
-
-
-        }
-
-        & span {
-         font-size: 12px;
-         color: $main-white-color;
-        }
+  }
+  &__article {
+    background-color: $main-white-color;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 12px;
+    border-radius: 24px;
+    gap: 12px;
+    flex: 1;
+    max-width: 100%;
+    max-height: 100%;
+    outline: 4px solid rgba($main-black-color, 0.5);
+    & h3 {
+      font-size: clamp(14px, 4.6vw, 16px);
+      text-wrap: wrap;
+      color: rgba($main-black-color, 0.5);
     }
+    & p {
+      font-size: clamp(20px, 4.6vw, 24px);
+      text-wrap: wrap;
+      color: $main-black-color;
+      overflow: hidden;
+    }
+
+    & span {
+      font-size: 12px;
+      color: $main-black-color;
+    }
+  }
 }

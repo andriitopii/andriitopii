@@ -43,15 +43,15 @@ const AboutUs = () => {
     <section ref={refItem} id="about">
       <div ref={ref} className="container container--col">
         <div className="about" >
-          <div className={`about__block ${blockView1 ? "about__block--show" : ""}`} ref={block1}>
-            <p className="about__block_text">
+          <div className={`about__block`} ref={block1}>
+            <p className={`about__block_text ${blockView1 ? "about__block_text--show" : ""}`}>
               Привіт! Я Andrii Topii, веб-розробник з більш ніж{" "}
               <span>2-річним досвідом</span> у цій захоплюючій галузі.
             </p>
           </div>
 
-          <div className={`about__block ${blockView2 ? "about__block--show" : ""}`} ref={block2}>
-            <div className="about__block_media">
+          <div className={`about__block`} ref={block2}>
+            <div className={`about__block_media ${blockView2 ? "about__block_media--show" : ""}`}>
               <span>
                 <h1>01</h1>
                 <h3>FRONT-END</h3>
@@ -162,8 +162,8 @@ const AboutUs = () => {
               </span>
             </div>
           </div>
-          <div className={`about__block ${blockView3 ? "about__block--show" : ""}`} ref={block3}>
-            <p className="about__block_text">
+          <div className={`about__block`} ref={block3}>
+            <p className={`about__block_text ${blockView3 ? "about__block_text--show" : ""}`}>
               Моя мета - створювати <span>веб-рішення</span>, які вражають.
             </p>
           </div>

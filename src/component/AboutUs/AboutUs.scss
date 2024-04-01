@@ -19,21 +19,24 @@
   &__block {
     scroll-snap-align: start;
     display: flex;
-    opacity: 0;
-    transform: translateY(-50px);
     gap: 12px;
     min-height: 100vh;
     align-items: center;
     transition: all ease-in-out .5s;
-    &--show{
-      opacity: 1;
-      transform: translateY(0);
-    }
+    
     &_text {
       flex: 1;
       font-family: Geologica-Bold;
       font-size: clamp(36px, 4.6vw, 64px);
       text-align: center;
+      opacity: 0;
+      
+        transform: translateY(50px);
+        transition: all ease-in-out .5s;
+      &--show{
+        opacity: 1;
+        transform: translateY(0);
+      }
       & span {
         background: linear-gradient(
           90deg,
@@ -49,6 +52,13 @@
       flex-wrap: wrap;
       gap: 12px;
       width: 100%;
+      opacity: 0;
+        transform: translateY(50px);
+        transition: all ease-in-out .5s;
+      &--show{
+        opacity: 1;
+        transform: translateY(0);
+      }
       & span {
         display: flex;
         flex-direction: column;
