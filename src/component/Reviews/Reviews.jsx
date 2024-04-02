@@ -12,6 +12,7 @@ import {
   getDocs,
 } from "firebase/firestore";
 import Button from "../Button/Button";
+import SuccessSvg from "../Icon/SuccessSvg";
 const Reviews = () => {
   const {
     register,
@@ -20,70 +21,81 @@ const Reviews = () => {
     reset,
     getValues,
   } = useForm({ mode: "onChange" });
-
+  const [statusAdd, setStatusAdd] = useState(false);
   const [allOpinion, setAllOpinion] = useState([]);
   const db = getFirestore(app);
 
   //ДАТА ФУНКЦІЯ
-  function getDate (){
+  function getDate() {
     const date = new Date();
     const day = date.getDate();
     const year = date.getFullYear();
-    const mounth = date.getMonth()
-    switch(mounth){
-      case 0:{
-        return (day + " " + "JAN" + " " + year)
-      }
-      break;
-      case 1:{
-        return (day + " " + "FEB" + " " + year)
-      }
-      break;
-      case 2:{
-        return (day + " " + "MAR" + " " + year)
-      }
-      break;
-      case 3:{
-        return (day + " " + "APR" + " " + year)
-      }
-      break;
-      case 4:{
-        return (day + " " + "MAY" + " " + year)
-      }
-      break;
-      case 5:{
-        return (day + " " + "JUN" + " " + year)
-      }
-      break;
-      case 6:{
-        return (day + " " + "JUL" + " " + year)
-      }
-      break;
-      case 7:{
-        return (day + " " + "AUG" + " " + year)
-      }
-      break;
-      case 8:{
-        return (day + " " + "SEP" + " " + year)
-      }
-      break;
-      case 9:{
-        return (day + " " + "OCT" + " " + year)
-      }
-      break;
-      case 10:{
-        return (day + " " + "NOV" + " " + year)
-      }
-      break;
-      case 11:{
-        return (day + " " + "DEC" + " " + year)
-      }
-      break;
+    const mounth = date.getMonth();
+    switch (mounth) {
+      case 0:
+        {
+          return day + " " + "JAN" + " " + year;
+        }
+        break;
+      case 1:
+        {
+          return day + " " + "FEB" + " " + year;
+        }
+        break;
+      case 2:
+        {
+          return day + " " + "MAR" + " " + year;
+        }
+        break;
+      case 3:
+        {
+          return day + " " + "APR" + " " + year;
+        }
+        break;
+      case 4:
+        {
+          return day + " " + "MAY" + " " + year;
+        }
+        break;
+      case 5:
+        {
+          return day + " " + "JUN" + " " + year;
+        }
+        break;
+      case 6:
+        {
+          return day + " " + "JUL" + " " + year;
+        }
+        break;
+      case 7:
+        {
+          return day + " " + "AUG" + " " + year;
+        }
+        break;
+      case 8:
+        {
+          return day + " " + "SEP" + " " + year;
+        }
+        break;
+      case 9:
+        {
+          return day + " " + "OCT" + " " + year;
+        }
+        break;
+      case 10:
+        {
+          return day + " " + "NOV" + " " + year;
+        }
+        break;
+      case 11:
+        {
+          return day + " " + "DEC" + " " + year;
+        }
+        break;
     }
   }
-  
 
-// ВІДПРАВКА ФОРМИ
+  // ВІДПРАВКА ФОРМИ
   const sendForm = async (data) => {
     const username = getValues("username");
     const useremail = getValues("useremail");
@@ -93,27 +105,34 @@ const Reviews = () => {
       email: useremail,
       opinion: useropinion,
       date: getDate(),
+    }).then(() => {
+      setStatusAdd(true);
     });
-    if(allOpinion.length === 6){
+    if (allOpinion.length === 6) {
       allOpinion.pop();
     }
-    setAllOpinion([{ name: username, opinion: useropinion, date: getDate() }, ...allOpinion]);
+    setAllOpinion([
+      { name: username, opinion: useropinion, date: getDate() },
+      ...allOpinion,
+    ]);
     reset();
   };
-
+  useEffect(() => {
+    if(statusAdd){
+      setTimeout(()=>setStatusAdd(false), 4000)
+    }
+  }, [statusAdd]);
   useEffect(() => {
     async function getReviews() {
       const querySnapshot = await getDocs(collection(db, "reviews"));
       const arrData = [];
 
       querySnapshot.forEach((doc) => {
-        if(arrData.length <= 5){
-        arrData.push(doc.data());
-        } 
+        if (arrData.length <= 5) {
+          arrData.push(doc.data());
+        }
         setAllOpinion(arrData);
       });
-      
-
     }
     getReviews();
   }, []);
@@ -123,6 +142,14 @@ const Reviews = () => {
       <div className="container container--col container--background-dark">
         <div className="reviews">
           <div className="reviews__form">
+            {statusAdd ? (
+              <div className="reviews__form_succsess">
+                <SuccessSvg/>
+                <h3>Дякую що залиши нам Ваш відгук.</h3>
+              </div>
+            ) : (
+              <></>
+            )}
             <h1>Слова моїх клієнтів - це моє найбільше нагородження</h1>
             <form onSubmit={handleSubmit(sendForm)}>
               <input
@@ -131,7 +158,6 @@ const Reviews = () => {
                 {...register("username", {
                   required: "Поле обовязкове для заповнення",
                   minLength: { value: 1, message: "Мінімум 1 символів" },
-                  
                 })}
               />
               <div className="input__error">
@@ -171,10 +197,13 @@ const Reviews = () => {
                   <p>{errors?.useropinion?.message || "Error"}</p>
                 )}
               </div>
-              <button className="btn btn--green-fill" type="submit" disabled={!isValid}>
+              <button
+                className="btn btn--green-fill"
+                type="submit"
+                disabled={!isValid}
+              >
                 Submit
               </button>
-            
             </form>
           </div>
           <div className="reviews__content">
