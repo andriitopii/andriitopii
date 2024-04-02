@@ -2,7 +2,7 @@
 
 .blog {
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   flex-direction: row;
   box-sizing: border-box;
   padding: 12px;
@@ -19,6 +19,7 @@
     flex-direction: column;
     justify-content: center;
     gap: 12px;
+    min-width: 300px;
     flex: 1;
     & h1 {
       font-size: clamp(20px, 4.6vw, 36px);
@@ -34,8 +35,29 @@
   &__media{
     display: flex;
     justify-content: flex-end;
-    gap: 20px;
+    min-width: 300px;
     flex: 3;
-
+    &_container{
+      display: flex;
+      gap:20px;
+      padding: 4px;
+      overflow-x: scroll;
+      overflow-y: hidden;
+      scrollbar-width: none;  
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+    }
+    & button {
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      & svg {
+        width: 24px;
+        height: 24px;
+        fill: rgba($main-white-color, 0.7);
+        
+        
+      }
+    }
   }
 }

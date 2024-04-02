@@ -5,10 +5,23 @@
   flex-direction: row;
   gap: 24px;
   flex-wrap: wrap;
+  
   &__content {
     display: grid;
     grid-template-columns: repeat(3, minmax(200px, 1fr));
-    grid-template-rows: repeat(2, auto);
+    grid-template-rows: repeat(auto, auto);
+    max-height: 490px;
+    min-width: 327px;
+    @media (max-width: 1215px) {
+      grid-template-columns: repeat(2, minmax(200px, 1fr));
+    }
+    @media (max-width: 987px) {
+      grid-template-columns: 100%;
+      overflow-y: scroll;
+      overflow-x: hidden;
+      scrollbar-width: none;
+      padding: 4px;
+    }
     gap: 24px;
     flex: 1;
     min-width: 200px;
@@ -20,9 +33,13 @@
     gap: 24px;
     border-radius: 24px;
     max-width: 400px;
-    min-width: 200px;
+    min-width: 327px;
+    box-sizing: border-box;
     background-color: $main-black-color;
     padding: 12px;
+    @media (max-width: 625px) {
+      max-width: 100%;
+    }
     & h1 {
       font-size: clamp(20px, 4.6vw, 36px);
       line-height: clamp(20px, 4.6vw, 36px);

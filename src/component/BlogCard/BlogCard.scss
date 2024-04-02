@@ -16,6 +16,7 @@
   border-radius: 12px;
   outline: 4px solid rgba($main-white-color, $alpha: 0.5);
   transition: all ease-in-out .25s;
+  scroll-snap-align: center;
   &:hover{
     outline: 4px solid rgba($main-white-color, $alpha: 0.8);
   }
