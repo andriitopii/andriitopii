@@ -1,59 +1,95 @@
 @import "../../scss/abstract/variables.scss";
 .footer {
   display: flex;
-  flex-direction: row;
-  gap: 24px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px;
+  border-radius: 24px;
+  flex-direction: column;
+  gap: 32px;
   background-color: $main-black-color;
-  padding-bottom: 48px;
-  padding-top: 48px;
   justify-content: center;
-  &__col{
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    gap: 24px;
-    min-width: 300px;
-    &--right-bottom-end{
-      align-items: end;
-      justify-content: end;
-    } 
-  }
+  margin-bottom: 24px;
   
-  & * {
-    color: $main-white-color;
-  }
-  &__link {
-    & ul {
+  &__menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 24px;
+    @media (max-width:800px) {
+      flex-direction: column;
+      align-items: center;
+    }
+    &_social {
       display: flex;
-      justify-content: space-between;
-      & li ul{
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-        & li a {
-          color: rgba($main-white-color, 0.7);
-          transition: color ease-in-out .25s;
+      gap: 8px;
+      & li {
+        & svg {
+          fill: rgba($accent-main-color, 0.5);
+          transition: all ease-in-out 0.25s;
+          &:hover {
+            fill: $accent-main-color;
+          }
+        }
+      }
+    }
+    &_link {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      & li {
+        & a {
+          color: $main-white-color;
+          transition: all ease-in-out .25s;font-family: Geologica-Bold;
+          text-wrap: no-wrap;
           &:hover{
-            color: $accent-main-color;
+            color: rgba($accent-main-color, 1);
           }
         }
       }
     }
   }
-
-  &__social{
+  &__copyright {
     display: flex;
-    gap: 24px;
-    flex-wrap: wrap-reverse;
-    align-items: flex-end;
-    justify-content: end;
-    & li {
-      display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    color: rgba($main-white-color, $alpha: 0.3) ;
+    font-size: 14px;
+    border-top: 1px solid rgba($main-white-color, $alpha: 0.1);
+    padding-top: 12px;
+    @media (max-width:800px) {
+      flex-direction: column;
+      align-items: center;
+    }
+    & p {
+      flex: 1;
       
-      background-color: $accent-main-color;
-      padding: 12px;
+    }
+    & ul {
+      display: flex;
+      flex-direction: row;
+      justify-content: end;
+      gap: 8px;
+      flex: 1;
+      @media (max-width:800px) {
+        order: -1;
+      }
+      & li {
+        & a{
+          color: rgba($main-white-color, $alpha: 0.3) ;
+          font-size: 14px;
+          text-wrap: nowrap;
+          transition: all ease-in-out .25s;
+          &:hover{
+            text-decoration: underline;
+            color: rgba($main-white-color, $alpha: 1) ;
+          }
+        }
+      }
+      
     }
   }
-
- 
 }

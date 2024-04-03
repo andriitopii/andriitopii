@@ -7,99 +7,63 @@ import FacebookSvg from "../Icon/FacebookSvg";
 import LinkedinSvg from "../Icon/LinkedinSvg";
 import Logo from "../Logo/Logo";
 import { MyUseContext } from "../../context/ContextGlobal";
+import GitHubSvg from "../Icon/GitHubSvg";
 
 const Footer = () => {
-  const{socialLink} = MyUseContext();
+  const { socialLink } = MyUseContext();
   return (
-    <footer className="footer">
+    <footer id="footer">
       <div className="container container__row">
-        <div className="footer__col">
-          <div className="footer__link">
-            <ul>
+        <div className="footer">
+          
+          <div className="footer__menu">
+          <Logo type="--dark" />
+          <ul className="footer__menu_link">
+            <li><Link to="/about">Про мене</Link></li>
+            <li><Link to="/services">Послуги</Link></li>
+            <li><Link to="/pricing">Ціни</Link></li>
+            <li><Link to="/about">Портфоліо</Link></li>
+            <li><Link to="/about">Блог</Link></li>
+            <li><Link to="/about">Відгуки</Link></li>
+            <li><Link to="/about">Технології</Link></li>
+            <li><Link to="/about">Контакти</Link></li>
+          </ul>
+          <ul className="footer__menu_social">
               <li>
-                <ul>
-                  <li>
-                    <Link to="/about-me">About me</Link>
-                  </li>
-                  <li>
-                    <Link to="/services">Services</Link>
-                  </li>
-                  <li>
-                    <Link to="/pricing">Pricing</Link>
-                  </li>
-                  <li>
-                    <Link to="/portfolio">Portfolio</Link>
-                  </li>
-                  <li>
-                    <Link to="/blog">Blog</Link>
-                  </li>
-                  <li>
-                    <Link to="/reviews">Reviews</Link>
-                  </li>
-                  <li>
-                    <Link to="/technology">Technology</Link>
-                  </li>
-                  <li>
-                    <Link to="/contact">Contact</Link>
-                  </li>
-                </ul>
+                <a href="#" target="__blank"><InstagramSvg width="24px" height="24px"/></a>
               </li>
               <li>
-                <ul>
-                  <li>
-                    <Link to="/technology/reactjs">React JS</Link>
-                  </li>
-                  <li>
-                    <Link to="/technology/nodejs">Node JS</Link>
-                  </li>
-                  <li>
-                    <Link to="/technology/sass">Sass</Link>
-                  </li>
-                  <li>
-                    <Link to="/technology/firebase">Firebase</Link>
-                  </li>
-                  <li>
-                    <Link to="/technology/js">Java Script</Link>
-                  </li>
-                </ul>
+                <a href="#" target="__blank"><FacebookSvg width="24px" height="24px"/></a>
               </li>
               <li>
-                <ul>
-                  <li>
-                    <Link to="/cookies">Cookies</Link>
-                  </li>
-                  <li>
-                    <Link to="/about">Terms of use</Link>
-                  </li>
-                  <li>
-                    <Link to="/about">Privacy</Link>
-                  </li>
-                  <li>
-                    <Link to="/partners">Partners</Link>
-                  </li>
-                  <li>
-                    <Link to="/carre">Сareers</Link>
-                  </li>
-                </ul>
+                <a href="#" target="__blank"><LinkedinSvg width="24px" height="24px"/></a>
+              </li>
+              <li>
+                <a href="#" target="__blank"><XSvg width="24px" height="24px"/></a>
+              </li>
+              <li>
+                <a href="#" target="__blank"><BehanceSvg width="24px" height="24px"/></a>
+              </li>
+              <li>
+                <a href="#" target="__blank"><GitHubSvg width="24px" height="24px"/></a>
               </li>
             </ul>
           </div>
-
           <div className="footer__copyright">
-            <p>© Copyright  2024. Andrii Topii</p>
+            <p>© 2024 Copyright, Inc. All rights reserved.</p>
+            <ul>
+              <li>
+               <Link to="/">Політика приватності</Link>
+              </li>
+              <li>
+               <Link to="/">Політика користувача</Link>
+              </li><li>
+               <Link to="/">Cookies</Link>
+              </li>
+             
+              
+            </ul>
           </div>
-        </div>
-
-        <div className="footer__col footer__col--right-bottom-end">
-          <ul className="footer__social">
-            <li><Link  target="__blank">Instagram</Link></li>
-            <li><Link  target="__blank">Twitter</Link></li>
-            <li><Link  target="__blank">Facebook</Link></li>
-            <li><Link  target="__blank">LinkedIn</Link></li>
-            <li><Link  target="__blank">GitHub</Link></li>
-            <li><Link  target="__blank">Behance</Link></li>
-            <li><Link  target="__blank">TikTok</Link></li>
-          </ul>
         </div>
       </div>
     </footer>

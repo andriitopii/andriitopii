@@ -13,6 +13,7 @@ import {
 } from "firebase/firestore";
 import Button from "../Button/Button";
 import SuccessSvg from "../Icon/SuccessSvg";
+import Loader from "../Loader/Loader";
 const Reviews = () => {
   const {
     register,
@@ -100,8 +101,11 @@ const Reviews = () => {
     const username = getValues("username");
     const useremail = getValues("useremail");
     const useropinion = getValues("useropinion");
+    const usercompany = getValues("usercompany");
+    console.log(data);
     const docRef = await addDoc(collection(db, "reviews"), {
       name: username,
+      company: usercompany,
       email: useremail,
       opinion: useropinion,
       date: getDate(),
@@ -112,7 +116,7 @@ const Reviews = () => {
       allOpinion.pop();
     }
     setAllOpinion([
-      { name: username, opinion: useropinion, date: getDate() },
+      { name: username, opinion: useropinion, date: getDate(), company: usercompany },
       ...allOpinion,
     ]);
     reset();
@@ -166,6 +170,19 @@ const Reviews = () => {
                 )}
               </div>
               <input
+                type="text"
+                placeholder="Company"
+                {...register("usercompany", {
+                  required: "Поле обовязкове для заповнення",
+                  minLength: { value: 1, message: "Мінімум 1 символів" },
+                })}
+              />
+              <div className="input__error">
+                {errors?.usercompany && (
+                  <p>{errors?.usercompany?.message || "Error"}</p>
+                )}
+              </div>
+              <input
                 type="email"
                 placeholder="Email"
                 {...register("useremail", {
@@ -207,12 +224,14 @@ const Reviews = () => {
             </form>
           </div>
           <div className="reviews__content">
-            {allOpinion.map((item, index) => (
+            {allOpinion.length === 0 ? <article className="reviews__article reviews__article--show"></article> : allOpinion.map((item, index) => (
               <article
                 className="reviews__article"
                 key={index + "article-reviews"}
-              >
+              ><h3>{item.company}</h3>
                 <h3>{item.name}</h3>
+                
+
                 <p>"{item.opinion}"</p>
                 <span>{item.date}</span>
               </article>
